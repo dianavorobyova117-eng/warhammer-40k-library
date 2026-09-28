@@ -1,0 +1,4 @@
+模拟器/
+__pycache__/
+*.pyc
+.zcode/plans/
