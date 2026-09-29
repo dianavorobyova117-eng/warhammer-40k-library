@@ -60,7 +60,9 @@ def _balance(dist, hit):
 
 
 def _discard_one(comp, hit, lethal):
-    """遮挡弃1骰（自选）：先失败面、再普成面、最后暴成面"""
+    """遮挡弃1颗成功（自选，2026-09-29按核心规则原文修正：'discard one success
+    of their choice instead of retaining it'——弃的是成功不是骰；无成功则不减）：
+    先弃普成、无普成弃暴成；全失败=无成功可弃，分布不变"""
     c = list(comp)
 
     def cat(f):
@@ -69,7 +71,7 @@ def _discard_one(comp, hit, lethal):
             return 2 if crit else 1
         return 0
 
-    for want in (0, 1, 2):
+    for want in (1, 2):
         for f in range(1, 7):
             if c[f - 1] > 0 and cat(f) == want:
                 c[f - 1] -= 1
@@ -98,10 +100,11 @@ def shoot_dist(A, hit, dmg_n, dmg_c, save, lethal=None, pierce=0,
     """一次射击动作的造伤分布 {伤害: 概率}
 
     A/ hit / dmg_n,dmg_c / save: 武器攻击数、命中值、普伤/暴伤、目标防御值
+    （目标重创injured=低于半血: 命中值恶化1——hit参数直接传恶化后数值; 攻方自身重创同理; 移动力-2寸引擎不涉及）
     lethal: 致命X+（None=无）; pierce: 穿X; in_cover: 目标在掩体
     saturate: 本武器带饱和（剥掩体豁免）; obscured: 目标被遮挡
     balance: 单骰重投次数（平衡=每次掷攻骰重投1次；指挥重掷=再+1总额度）
-    crit_d3: 'strike'=暴击砍穿结算时+D3（致命一击Critical Shot读法）
+    crit_d3: 'strike'=暴击砍穿结算时+D3 / 'retention'=每颗掷出暴击即+D3（致命一击两种读法；传其他名=静默无效）
     dev: Devastating X
     auto_norm: 精准Accurate——不掷直接留为普成的攻骰数（只掷A-auto_norm颗；用几颗玩家自选）
     """
