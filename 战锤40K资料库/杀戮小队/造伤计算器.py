@@ -141,6 +141,8 @@ def shoot_dist(A, hit, dmg_n, dmg_c, save, lethal=None, pierce=0,
             c2 = min(C - c1, dleft // 2)
             crit_thru = C - c1 - c2
             dmg = crit_thru * dmg_c + (N - n1) * dmg_n
+            # 毁灭X(2026-09-29附录原文修正): 每颗被保留的暴击立即白给X伤——不掷防御、
+            # 不可格挡、被挡也照给; 该暴击之后照常参与结算("success isn't discarded")
             if dev:
                 dmg += dev * C
             k = C if crit_d3 == 'retention' else (crit_thru if crit_d3 == 'strike' else 0)
