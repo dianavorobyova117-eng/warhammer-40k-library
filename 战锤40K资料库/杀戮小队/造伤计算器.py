@@ -96,7 +96,8 @@ def _retain(comp, hit, lethal):
 
 def shoot_dist(A, hit, dmg_n, dmg_c, save, lethal=None, pierce=0,
                in_cover=False, saturate=False, obscured=False,
-               balance=0, crit_d3=None, dev=None, auto_norm=0, severe=False):
+               balance=0, crit_d3=None, dev=None, auto_norm=0, severe=False,
+               relentless=False, punishing=False):
     """一次射击动作的造伤分布 {伤害: 概率}
 
     A/ hit / dmg_n,dmg_c / save: 武器攻击数、命中值、普伤/暴伤、目标防御值
@@ -111,6 +112,36 @@ def shoot_dist(A, hit, dmg_n, dmg_c, save, lethal=None, pierce=0,
     dist = dice_dist(A - auto_norm)
     for _ in range(balance):
         dist = _balance(dist, hit)
+    if relentless:
+        d2 = defaultdict(float)
+        for comp, p in dist.items():
+            keep = [0]*6
+            F = 0
+            for f in range(1, 7):
+                ok = f >= hit or f == 6 or (lethal is not None and f >= lethal)
+                if ok: keep[f-1] = comp[f-1]
+                else: F += comp[f-1]
+            for c2, p2 in dice_dist(F).items():
+                merged = tuple(a+b for a, b in zip(keep, c2))
+                d2[merged] += p * p2
+        dist = dict(d2)
+    if punishing:
+        d3 = defaultdict(float)
+        for comp, p in dist.items():
+            N, C = _retain(comp, hit, lethal)
+            if C > 0:
+                for f in range(1, 7):
+                    ok = f >= hit or f == 6 or (lethal is not None and f >= lethal)
+                    if not ok and comp[f-1] > 0:
+                        # 救回的失败骰改判为普成: 移到命中面上(命中面在致命X+下仍是普成)
+                        c = list(comp); c[f-1] -= 1; c[hit-1] += 1
+                        d3[tuple(c)] += p
+                        break
+                else:
+                    d3[comp] += p
+            else:
+                d3[comp] += p
+        dist = dict(d3)
     if obscured:
         d2 = defaultdict(float)
         for c, p in dist.items():
