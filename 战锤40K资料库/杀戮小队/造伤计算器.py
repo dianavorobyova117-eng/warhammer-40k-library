@@ -97,7 +97,7 @@ def _retain(comp, hit, lethal):
 def shoot_dist(A, hit, dmg_n, dmg_c, save, lethal=None, pierce=0,
                in_cover=False, saturate=False, obscured=False,
                balance=0, crit_d3=None, dev=None, auto_norm=0, severe=False,
-               relentless=False, punishing=False):
+               relentless=False, punishing=False, promote=False):
     """一次射击动作的造伤分布 {伤害: 概率}
 
     A/ hit / dmg_n,dmg_c / save: 武器攻击数、命中值、普伤/暴伤、目标防御值
@@ -153,6 +153,8 @@ def shoot_dist(A, hit, dmg_n, dmg_c, save, lethal=None, pierce=0,
     full = defaultdict(float)
     for comp, p in dist.items():
         N, C = _retain(comp, hit, lethal)
+        if promote and N > 0:
+            N -= 1; C += 1  # 普成转暴成(EMBOLDENED ASPIRANT类: 无条件一颗)
         if severe and C == 0 and N > 0:
             N -= 1; C = 1  # 严重Severe: 未保留任何暴击时1颗普成升暴(2026-09-29按附录补)
         if obscured:
