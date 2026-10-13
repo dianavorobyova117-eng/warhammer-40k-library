@@ -97,7 +97,7 @@ def _retain(comp, hit, lethal):
 def shoot_dist(A, hit, dmg_n, dmg_c, save, lethal=None, pierce=0,
                in_cover=False, saturate=False, obscured=False,
                balance=0, crit_d3=None, dev=None, auto_norm=0, severe=False,
-               relentless=False, punishing=False, promote=False):
+               relentless=False, punishing=False, promote=False, rending=False, ceaseless=False):
     """一次射击动作的造伤分布 {伤害: 概率}
 
     A/ hit / dmg_n,dmg_c / save: 武器攻击数、命中值、普伤/暴伤、目标防御值
@@ -110,6 +110,21 @@ def shoot_dist(A, hit, dmg_n, dmg_c, save, lethal=None, pierce=0,
     auto_norm: 精准Accurate——不掷直接留为普成的攻骰数（只掷A-auto_norm颗；用几颗玩家自选）
     """
     dist = dice_dist(A - auto_norm)
+    if ceaseless:
+        # 无休止: 重投自选一种点数的全部骰(附录)——最优=失败面中计数最大者
+        d2 = defaultdict(float)
+        for comp, p in dist.items():
+            best_r, best_n = None, -1
+            for f in range(1, hit):
+                if f != 6 and (lethal is None or f < lethal) and comp[f-1] > best_n:
+                    best_r, best_n = f, comp[f-1]
+            if best_r is None or best_n == 0:
+                d2[comp] += p; continue
+            keep = list(comp); keep[best_r-1] = 0
+            for c2, p2 in dice_dist(best_n).items():
+                merged = tuple(a+b for a, b in zip(keep, c2))
+                d2[merged] += p * p2
+        dist = dict(d2)
     for _ in range(balance):
         dist = _balance(dist, hit)
     if relentless:
@@ -155,6 +170,8 @@ def shoot_dist(A, hit, dmg_n, dmg_c, save, lethal=None, pierce=0,
         N, C = _retain(comp, hit, lethal)
         if promote and N > 0:
             N -= 1; C += 1  # 普成转暴成(EMBOLDENED ASPIRANT类: 无条件一颗)
+        if rending and C > 0 and N > 0:
+            N -= 1; C += 1  # 撕裂Rending: 保留暴击时把1颗普成按暴成保留(附录2026-10-12)
         if severe and C == 0 and N > 0:
             N -= 1; C = 1  # 严重Severe: 未保留任何暴击时1颗普成升暴(2026-09-29按附录补)
         if obscured:
