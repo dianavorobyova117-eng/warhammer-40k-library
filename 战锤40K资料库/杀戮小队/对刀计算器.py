@@ -224,14 +224,18 @@ class Duel:
 def duel(m_wpn, f_wpn, m_hp, f_hp, m_start=None, f_start=None,
          m_att="标准", f_att="标准", first=0):
     """全量精确枚举一场对刀。wpn=dict(A=,hit=,dn=,dc=,lethal=,balance=)。
-    start缺省=当前血（满血进场）。返回 dict(P_m_kill, P_f_kill, P_alive, P_m_clean,
-    P_m_inj, P_f_inj, E_dealt, E_taken, dist)。"""
-    mp = pool_dist(m_wpn["A"], m_wpn["hit"], m_wpn.get("lethal"), m_wpn.get("balance", 0))
-    fp = pool_dist(f_wpn["A"], f_wpn["hit"], f_wpn.get("lethal"), f_wpn.get("balance", 0))
-    solver = Duel(m_wpn["dn"], m_wpn["dc"], f_wpn["dn"], f_wpn["dc"], m_hp, f_hp,
-                  m_start, f_start, m_att, f_att, first)
+    start缺省=当前血（**默认满血进场**——用户2026-10-16定：除非点名"某血量的xxx带增益"
+    类场景，否则一律按满血算）。**出刀开始已受创者（2*当前血<起始血）掷骰阶段命中值
+    恶化1**（速查19，3+→4+；结算阶段仍不触发、中途跨线不回头改骰）。
+    返回 dict(P_m_kill, P_f_kill, P_alive, P_m_clean, P_m_inj, P_f_inj, E_dealt, E_taken, dist)。"""
     m_st = m_start if m_start is not None else m_hp
     f_st = f_start if f_start is not None else f_hp
+    m_hit = m_wpn["hit"] + (1 if 2 * m_hp < m_st else 0)
+    f_hit = f_wpn["hit"] + (1 if 2 * f_hp < f_st else 0)
+    mp = pool_dist(m_wpn["A"], m_hit, m_wpn.get("lethal"), m_wpn.get("balance", 0))
+    fp = pool_dist(f_wpn["A"], f_hit, f_wpn.get("lethal"), f_wpn.get("balance", 0))
+    solver = Duel(m_wpn["dn"], m_wpn["dc"], f_wpn["dn"], f_wpn["dc"], m_hp, f_hp,
+                  m_start, f_start, m_att, f_att, first)
     dist = defaultdict(float)
     for (mN, mC), p1 in mp.items():
         for (fN, fC), p2 in fp.items():
@@ -302,8 +306,14 @@ def selftest():
     (v1, _), (mh1, fh1) = d1.solve(2, 0, 2, 0, 7, 15, 0)
     d2 = Duel(4, 4, 4, 4, 15, 15)                     # 对照：我满血
     (v2, _), (mh2, fh2) = d2.solve(2, 0, 2, 0, 15, 15, 0)
-    assert v1 >= v2  # 我方收益不因已受创而进一步恶化（无新罚）
+    assert v1 >= v2  # 我方收益不因已受创而进一步恶化（价值函数无二次罚；骰型固定）
     print("已受创不二次罚 ✓ （已受创方收益%.2f ≥ 满血对照%.2f）" % (v1, v2))
+    # 出刀前已受创→掷骰阶段命中恶化1（速查19，用户2026-10-16补）：同武器同血杀率必须更低
+    r_full = duel(dict(A=5, hit=3, dn=4, dc=5), dict(A=5, hit=3, dn=3, dc=4), 15, 12)
+    r_inj = duel(dict(A=5, hit=3, dn=4, dc=5), dict(A=5, hit=3, dn=3, dc=4), 7, 12, m_start=15)
+    assert r_inj["P_m_kill"] <= r_full["P_m_kill"] + 1e-9
+    print("出刀前已受创掷骰恶化 ✓ （满血杀率%.1f%% ≥ 受创杀率%.1f%%）" %
+          (r_full["P_m_kill"] * 100, r_inj["P_m_kill"] * 100))
     # 单调性：攻骰更多→杀率不降；敌血更低→杀率不降；分布归一
     wpn_m = dict(A=5, hit=3, dn=3, dc=4)
     wpn_f = dict(A=4, hit=3, dn=3, dc=4)
@@ -322,24 +332,28 @@ def demo():
     print("===== 态度预置 (INJ受创权重, ATK攻方一刀, α, β) =====")
     for k, v in ATTITUDES.items():
         print("  %s: %s" % (k, v))
-    print("  待细化：伤害触发族α↑｜炮灰族own-death↓+β↓｜濒死死亡触发族（需专用目标函数）")
 
-    # 池内镜像：NC斩首者先手砍VSM渗透者（15/15 vs 12/12满血）
-    nc = dict(A=5, hit=3, dn=4, dc=5)
-    blade = dict(A=5, hit=3, dn=3, dc=4)
-    report("NC斩首者(5/3+ 4/5, 15血) 先手砍 VSM渗透者(作战刃5/3+ 3/4, 12血)",
+    # 池内对局组合（武器面板出处：NC战术刀/星际战士拳=旧模块测试集面板沿用，
+    # VSM作战刃=Nov'25手册，DKK手斧=速查13条，卡舍津格斗匕首=2026-10-16核验。
+    # ⚠全部数字待实战验收）
+    nc = dict(A=5, hit=3, dn=4, dc=5)      # NC斩首者战术刀
+    blade = dict(A=5, hit=3, dn=3, dc=4)   # VSM作战刃
+    axe = dict(A=3, hit=4, dn=3, dc=4)     # DKK手斧
+    dagger = dict(A=3, hit=4, dn=3, dc=4)  # 卡舍津格斗匕首
+    fist = dict(A=4, hit=3, dn=3, dc=4)    # 星际战士拳
+
+    report("① NC斩首者(15血) 先手砍 VSM渗透者(作战刃, 12血)",
            duel(nc, blade, 15, 12), 12, 15)
-    report("VSM渗透者(作战刃, 12血) 先手砍 NC斩首者(15血)",
+    report("② VSM渗透者(12血) 先手反砍 NC斩首者(15血)",
            duel(blade, nc, 12, 15), 15, 12)
-    # 血量优势换受创：15血满血先手 vs 8血满血（朋友池凡人精英常见差）
-    report("血量优势局：15血(4/3+ 3/4) 先手砍 8血(同武器)",
-           duel(dict(A=4, hit=3, dn=3, dc=4), dict(A=4, hit=3, dn=3, dc=4), 15, 8), 8, 15)
-    # 对称精英：标准 vs 保守（攻方一刀奖励的效果对照）
-    report("对称精英互砍（4/3+ 3/4, 15血, 标准）",
-           duel(dict(A=4, hit=3, dn=3, dc=4), dict(A=4, hit=3, dn=3, dc=4), 15, 15), 15, 15)
-    report("同局(保守预置=旧理智行为)",
-           duel(dict(A=4, hit=3, dn=3, dc=4), dict(A=4, hit=3, dn=3, dc=4),
-                15, 15, m_att="保守", f_att="保守"), 15, 15)
+    report("③ 已受创NC斩首者(剩7/15血,掷骰4+) 先手砍 VSM渗透者(12血)",
+           duel(nc, blade, 7, 12, m_start=15), 12, 7)
+    report("④ DKK士兵(手斧, 7血) 先手砍 卡舍津(格斗匕首, 8血)",
+           duel(axe, dagger, 7, 8), 8, 7)
+    report("⑤ 星际战士(拳, 15血) 先手砍 DKK士兵(手斧, 7血)",
+           duel(fist, axe, 15, 7), 7, 15)
+    report("⑥ 血量优势局：15血(作战刃) 先手砍 8血卡舍津(格斗匕首)",
+           duel(blade, dagger, 15, 8), 8, 15)
 
 
 if __name__ == "__main__":
