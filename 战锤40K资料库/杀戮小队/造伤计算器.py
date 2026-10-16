@@ -95,14 +95,19 @@ def _retain(comp, hit, lethal):
 
 
 def shoot_dist(A, hit, dmg_n, dmg_c, save, lethal=None, pierce=0,
-               in_cover=False, saturate=False, obscured=False,
+               pierce_crits=0, in_cover=False, saturate=False, obscured=False,
                balance=0, crit_d3=None, dev=None, auto_norm=0, severe=False,
-               relentless=False, punishing=False, promote=False, rending=False, ceaseless=False):
+               relentless=False, punishing=False, promote=False, rending=False,
+               ceaseless=False, close_assault=False):
     """一次射击动作的造伤分布 {伤害: 概率}
 
     A/ hit / dmg_n,dmg_c / save: 武器攻击数、命中值、普伤/暴伤、目标防御值
     （目标重创injured=低于半血: 命中值恶化1——hit参数直接传恶化后数值; 攻方自身重创同理; 移动力-2寸引擎不涉及）
-    lethal: 致命X+（None=无）; pierce: 穿X; in_cover: 目标在掩体
+    lethal: 致命X+（None=无）; pierce: 穿X; pierce_crits: 穿暴X（2026-10-16附录入引擎:
+      "The defender collects x less defence dice… If the rule is Piercing Crits x, this only
+      comes into effect if you retain any critical successes"——仅当攻方最终保留到≥1颗暴成时
+      防御骰池再-x; 严重Severe普转暴计入触发（附录明文"Devastating and Piercing Crits still
+      take effect"）; 遮挡暴降普优先于一切=被遮挡时永不触发）; in_cover: 目标在掩体
     saturate: 本武器带饱和（剥掩体豁免）; obscured: 目标被遮挡
     balance: 单骰重投次数（平衡=每次掷攻骰重投1次；指挥重掷=再+1总额度）
     crit_d3: 'strike'=暴击砍穿结算时+D3 / 'retention'=每颗掷出暴击即+D3（致命一击两种读法；传其他名=静默无效）
@@ -157,14 +162,46 @@ def shoot_dist(A, hit, dmg_n, dmg_c, save, lethal=None, pierce=0,
             else:
                 d3[comp] += p
         dist = dict(d3)
+    if close_assault:
+        # 近距离突击CLOSE ASSAULT第二段(2026-10-16 Wahapedia原文入引擎):
+        # "If you roll two or more fails, you can discard one of them to retain
+        # another as a normal success instead"——≥2失败时弃1失败+另1失败按普成保留
+        # (净效果=1失败转普成; 条款在3寸内射击/近战才挂; 触发按当前骰面失败数计,
+        # 与重投类规则同管线=重投后判定)
+        d3 = defaultdict(float)
+        for comp, p in dist.items():
+            fails = 0
+            for f in range(1, 7):
+                ok = f >= hit or f == 6 or (lethal is not None and f >= lethal)
+                if not ok:
+                    fails += comp[f - 1]
+            if fails >= 2:
+                c = list(comp)
+                rem = 2
+                for f in range(1, 7):
+                    ok = f >= hit or f == 6 or (lethal is not None and f >= lethal)
+                    if not ok and rem > 0:
+                        take = min(rem, c[f - 1])
+                        c[f - 1] -= take
+                        rem -= take
+                c[hit - 1] += 1
+                d3[tuple(c)] += p
+            else:
+                d3[comp] += p
+        dist = dict(d3)
     if obscured:
         d2 = defaultdict(float)
         for c, p in dist.items():
             d2[_discard_one(c, hit, lethal)] += p
         dist = dict(d2)
     cover_save = in_cover and not saturate
-    ndice = max(0, 3 - pierce)
-    ddist = dice_dist(ndice)
+    _dd_cache = {}
+
+    def ddist_for(n):
+        if n not in _dd_cache:
+            _dd_cache[n] = dice_dist(n)
+        return _dd_cache[n]
+
     full = defaultdict(float)
     for comp, p in dist.items():
         N, C = _retain(comp, hit, lethal)
@@ -177,6 +214,11 @@ def shoot_dist(A, hit, dmg_n, dmg_c, save, lethal=None, pierce=0,
         if obscured:
             N += C
             C = 0
+        # 穿暴Piercing Crits x(附录2026-10-16入引擎): 触发条件=最终保留到≥1颗暴成——
+        # 在严重(升暴计入)与遮挡(暴降普"优先于一切"=遮挡下恒不触发)之后求值;
+        # 防御骰池随分支变化, 故ddist按ndice缓存逐comp取用
+        eff_pierce = pierce + (pierce_crits if C > 0 else 0)
+        ddist = ddist_for(max(0, 3 - eff_pierce))
         N += auto_norm  # 精准：不掷直接保留的普成
         if N + C == 0:
             full[0] += p
@@ -589,6 +631,27 @@ def demo():
 if __name__ == "__main__":
     for n in range(0, 9):  # 自检
         assert abs(sum(dice_dist(n).values()) - 1.0) < 1e-9
+
+    # 穿暴自检(2026-10-16入引擎): 方向性——期望伤害必须 无穿 ≤ 穿暴 ≤ 无条件穿;
+    # 遮挡暴降普=穿暴恒不触发, 分布须与无穿完全一致
+    def _e(**kw):
+        d = shoot_dist(A=4, hit=3, dmg_n=3, dmg_c=4, save=3, **kw)
+        return sum(x * p for x, p in d.items()), d
+    e0, _ = _e(); e1, _ = _e(pierce=1); ec, _ = _e(pierce_crits=1)
+    assert e0 - 1e-9 <= ec <= e1 + 1e-9, (e0, ec, e1)
+    eL0, _ = _e(lethal=5); eLc, _ = _e(lethal=5, pierce_crits=1)
+    assert eL0 - 1e-9 <= eLc, (eL0, eLc)
+    _, d_pc_obs = _e(pierce_crits=1, obscured=True)
+    _, d_0_obs = _e(obscured=True)
+    assert d_pc_obs == d_0_obs, "遮挡下穿暴应与无穿同分布"
+    # 近距离突击方向性: ≥2失败转化1普成 ⇒ 期望伤害必须 ≥ 无该规则
+    e_ca, _ = _e(ceaseless=True, close_assault=True)
+    e_nc, _ = _e(ceaseless=True)
+    assert e_ca >= e_nc - 1e-9, (e_ca, e_nc)
+    print("[自检] 穿暴方向性/遮挡不变式通过: E(无穿)=%.4f ≤ E(穿暴1)=%.4f ≤ E(穿1)=%.4f"
+          % (e0, ec, e1))
+    print("[自检] 近距离突击转化方向性通过: E(带)=%.4f ≥ E(不带)=%.4f" % (e_ca, e_nc))
+
     import sys
     mode = sys.argv[1] if len(sys.argv) > 1 else "all"
     if mode == "ladder":
