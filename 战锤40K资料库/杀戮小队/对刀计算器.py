@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""KT3.0 对刀计算器 v2 — 精确枚举 + 逐刀子博弈完美均衡（2026-10-16重建，⚠待实战验收）
+"""KT3.0 对刀计算器 v1.1 — 精确枚举 + 逐刀子博弈完美均衡（⚠待实战验收）
 
 替代 造伤计算器.py 中被禁用的旧对刀模块（2026-09-24未过校验。两条结构性错误：
 ①把射击防御骰的"2普成合挡1暴击"混进近战——近战无此规则；②做成"防御方反应式接刀"
@@ -10,30 +10,35 @@
   1. 双方同时掷自己近战武器的攻骰（A颗，成功≥hit，6=恒暴，1=恒败，致命X+同射击）
   2. 掷骰阶段完成全部数值修饰（平衡重投等）；结算阶段不吃受创减益
   3. 从攻击方起轮流"结算一颗自己的保留成功"——宣告：
-     劈（strike）：普成结算普伤 / 暴成结算暴伤，立即扣血
+     劈（strike）：普成结算普伤 / 暴成结算暴伤，立即扣血（已结算的刀不可再挡）
      挡（block）：普成取消对面一颗pending普成；暴成取消对面pending普成或暴成
      （近战没有2普挡暴；v1不实现"空挡弃骰"设计师注场景）
   4. 一方骰尽→另一方剩余连续结算；任一方倒地→序列立即截断（核心规则下互杀不可能；
      "死后额外结算"类队伍规则属例外层，v2）
   5. 支援（控制范围内友军每名命中值+1）＝调用时直接传改善后的hit值
 
-均衡模型（用户2026-10-16定稿v1口径）：
-  单方收益 = 1000·[对面倒地] − 1000·[自己倒地] + α·(对面有效掉血) − β·(自己有效掉血)
+收益模型（用户2026-10-16第二稿口径：受创阈值资产 + 攻方效果奖励）：
+  单方收益 = 1000·[对面倒地] − 1000·[自己倒地]
+           + INJ·[对面新跨受创线] − INJ·[自己新跨受创线]     ← 受创线=起始血的半数
+           + α·(对面有效掉血) − β·(自己有效掉血)
+           + ATK·[双方终局均未受创时，攻方至少落了一刀]
   （有效掉血=min(伤害,剩余血)，过量作废）
-  - **理智版默认 α=1, β=2**：优先级=杀对面＞自己活＞自己不掉血＞打对面。
-    对称僵局（收益差全零）自发收敛"双挡0-0"；活不成时自动切"拼命换血"（最大化输出）
-  - 一般和博弈（双方收益不必互为相反数）+完美信息+确定性转移→逆向归纳逐节点求解，
-    每个节点由轮到方最大化**自己的**收益；平局按动作排序破平（挡＞暴劈＞普劈，
-    普挡普＞暴挡普＞暴挡暴——省暴成去挡对面的暴）
-  - 态度旋钮（示例值，CLI可改）：
-      理智 (1,2) 默认 ｜ 均势 (1,1) ｜ 好战 (2,1) ｜ 回血 (1,1.2)
-    待细化的族向（v2，见 demo 态度表打印）：伤害触发族α↑（执政官之手痛令牌/
-    蛇虫毒标/圣化者圣火——打中另有收益）；回血族β↓（VSM Medic!剩D3/机械教缝合/
-    猎手团冗余系统/DKK医疗包——掉血可退款）；炮灰族own-death惩罚↓＋β↓（12~14人海
-    的个体价值）；濒死/死亡触发族（蛇虫死亡狂乱/洁天使殉道——可能欢迎掉血，需专用
-    目标函数）。见习修女自笞=激活内自伤，不属对刀态度。
+  - 受创injured（速查19）＝血量<起始半数：移速-2寸+全系命中恶化1——**受创才是资产，
+    血量只是离线的距离**。线按**起始血**算；**已受创者无新线可跨、再掉血不二次罚**
+    （残血受创单位打对刀天然无所畏惧，自动涌现）
+  - "血量更多的一方想用自己掉血(不受创)换对面掉血(受创)"**不需要显式规则**——阈值
+    入收益后自然涌现：同样的掉血血多者不跨线、对面跨线，均衡里他自然主战
+  - "双方都不受创→攻方起码换血一刀"＝ATK破平项。注意挡只能挡pending骰，攻方第一刀
+    本来就能保证落地——这条实际是攻方自己的出刀偏好，不构成博弈冲突
+  - INJ默认6（受创≈移速-2+命中恶化的长期损失，约4~8血当量，可调）；ATK默认2
+  - 态度预置 (INJ, ATK, α, β)：
+      标准 (6,2,1,1) 默认 ｜ 保守 (4,0,1,2) v1旧理智版近似（对称僵局双挡0-0）
+      好战 (8,4,2,1) ｜ 回血 (3,2,1,0.6)（有医疗退款的族：掉血可回、受创可抬回线）
+    待细化族向：伤害触发族α↑（执政官之手痛令牌/蛇虫毒标/圣化者圣火）；炮灰族
+    own-death↓+β↓（人海队个体价值）；濒死死亡触发族（蛇虫死亡狂乱/洁天使殉道，
+    需专用目标函数）。见习修女自笞=激活内自伤，不属对刀态度。
 
-输出：双方击杀率/存活率/无伤率/掉血分布/期望 + 模态骰型逐刀最优策略轨迹。
+输出：双方击杀率/存活率/无伤率/**受创率**/掉血分布/期望 + 模态骰型逐刀最优策略轨迹。
 ⚠纪律：数字在过用户实战验收前一律"待验收"，禁入手册结论（速查14禁令未解除）。
 
 用法：python3 对刀计算器.py        # 自检+演示
@@ -52,12 +57,12 @@ dice_dist = szjsq.dice_dist
 _balance = szjsq._balance
 
 KILL = 1000.0
-# 态度预置：名称 -> (α打人权重, β挨打权重)
+# 态度预置：名称 -> (受创权重INJ, 攻方一刀ATK, α打人, β挨打)
 ATTITUDES = {
-    "理智": (1.0, 2.0),
-    "均势": (1.0, 1.0),
-    "好战": (2.0, 1.0),
-    "回血": (1.0, 1.2),
+    "标准": (6.0, 2.0, 1.0, 1.0),
+    "保守": (4.0, 0.0, 1.0, 2.0),
+    "好战": (8.0, 4.0, 2.0, 1.0),
+    "回血": (3.0, 2.0, 1.0, 0.6),
 }
 
 
@@ -82,27 +87,45 @@ def pool_dist(A, hit, lethal=None, balance=0):
 class Duel:
     """一场对刀的逐刀博弈求解器（精确逆向归纳+记忆化）。
 
-    m/f 侧武器各自 (普伤, 暴伤)；m0/f0 初始血；first: 0=m侧先劈（m=发起Fight方）。
+    m/f 侧武器各自 (普伤, 暴伤)；m_hp/f_hp=对刀开始时血量；m_start/f_start=起始血
+    （受创线=2*当前血<起始血 才算受创；默认start=当前血即满血进场）。
+    first: 0=m侧先劈（m=发起Fight方）。
     破平动作序（同收益时先列者胜）：挡(普挡普>暴挡普>暴挡暴) > 暴劈 > 普劈。
     solve() 返回 ((m收益, f收益), (m终血, f终血))；best_action() 给当前最优动作。
     """
 
-    def __init__(self, m_dn, m_dc, f_dn, f_dc, m0, f0,
-                 m_att="理智", f_att="理智", first=0):
+    def __init__(self, m_dn, m_dc, f_dn, f_dc, m_hp, f_hp,
+                 m_start=None, f_start=None, m_att="标准", f_att="标准", first=0):
         self.m_dn, self.m_dc = m_dn, m_dc
         self.f_dn, self.f_dc = f_dn, f_dc
-        self.m0, self.f0 = m0, f0
-        self.m_a, self.m_b = ATTITUDES[m_att]
-        self.f_a, self.f_b = ATTITUDES[f_att]
+        self.m_hp0, self.f_hp0 = m_hp, f_hp
+        self.m_start = m_start if m_start is not None else m_hp
+        self.f_start = f_start if f_start is not None else f_hp
+        self.m_inj, self.m_atk, self.m_a, self.m_b = ATTITUDES[m_att]
+        self.f_inj, self.f_atk, self.f_a, self.f_b = ATTITUDES[f_att]
         self.first = first
         self.memo = {}
 
+    def _crossed(self, hp_end, hp_beg, start):
+        """新跨受创线：终局活着且低于半数、且对刀开始时未低于（已受创不二次罚）。"""
+        return 0 < hp_end and 2 * hp_end < start and 2 * hp_beg >= start
+
     def _terminal(self, mhp, fhp):
-        m_dealt = self.f0 - max(fhp, 0)
-        f_dealt = self.m0 - max(mhp, 0)
-        return ((KILL * (fhp <= 0) - KILL * (mhp <= 0) + self.m_a * m_dealt - self.m_b * f_dealt,
-                 KILL * (mhp <= 0) - KILL * (fhp <= 0) + self.f_a * f_dealt - self.f_b * m_dealt),
-                (mhp, fhp))
+        mh, fh = max(mhp, 0), max(fhp, 0)
+        m_dealt = self.f_hp0 - fh
+        f_dealt = self.m_hp0 - mh
+        m_cross = self._crossed(mh, self.m_hp0, self.m_start)
+        f_cross = self._crossed(fh, self.f_hp0, self.f_start)
+        calm = (mh > 0 and fh > 0 and not m_cross and not f_cross)  # 双方终局均未受创
+        return ((KILL * (fh <= 0) - KILL * (mh <= 0)
+                 + self.m_inj * f_cross - self.m_inj * m_cross
+                 + self.m_a * m_dealt - self.m_b * f_dealt
+                 + (self.m_atk if (calm and self.first == 0 and m_dealt >= 1) else 0.0),
+                 KILL * (mh <= 0) - KILL * (fh <= 0)
+                 + self.f_inj * m_cross - self.f_inj * f_cross
+                 + self.f_a * f_dealt - self.f_b * m_dealt
+                 + (self.f_atk if (calm and self.first == 1 and f_dealt >= 1) else 0.0)),
+                (mh, fh))
 
     def solve(self, mN, mC, fN, fC, mhp, fhp, turn):
         """(收益对, 终局血量对)，轮到turn方决策（0=m，1=f）。"""
@@ -118,10 +141,9 @@ class Duel:
         if key in self.memo:
             return self.memo[key][0]
 
-        # 轮到方动作清单：(标签, 下一状态参数, 收益比较键属于轮到方)
+        # 轮到方动作清单（破平序：挡[省暴成] > 暴劈 > 普劈）
         acts = []
         if turn == 0:
-            # 挡（省暴成：先用普挡普）
             if mN > 0 and fN > 0:
                 acts.append(("m:普挡普", (mN - 1, mC, fN - 1, fC, mhp, fhp, 1)))
             if mC > 0 and fN > 0:
@@ -167,7 +189,7 @@ class Duel:
 
     def trace(self, mN, mC, fN, fC):
         """固定骰型下的逐刀最优轨迹（教学/验收用）。"""
-        mhp, fhp, turn = self.m0, self.f0, self.first
+        mhp, fhp, turn = self.m_hp0, self.f_hp0, self.first
         steps = []
         while True:
             a = self.best_action(mN, mC, fN, fC, mhp, fhp, turn)
@@ -192,18 +214,24 @@ class Duel:
             elif a == "f:普劈":
                 fN, mhp = fN - 1, mhp - self.f_dn
             turn = 1 - turn
-        steps.append("终局：我方%d/%d血，敌方%d/%d血" %
-                     (max(mhp, 0), self.m0, max(fhp, 0), self.f0))
+        tag_m = "我死" if mhp <= 0 else ("我受创" if 2 * max(mhp, 0) < self.m_start else "我%d血" % mhp)
+        tag_f = "敌死" if fhp <= 0 else ("敌受创" if 2 * max(fhp, 0) < self.f_start else "敌%d血" % fhp)
+        steps.append("终局：%s（%d/%d血），%s（%d/%d血）" %
+                     (tag_m, max(mhp, 0), self.m_start, tag_f, max(fhp, 0), self.f_start))
         return steps
 
 
-def duel(m_wpn, f_wpn, m_hp, f_hp, m_att="理智", f_att="理智", first=0):
+def duel(m_wpn, f_wpn, m_hp, f_hp, m_start=None, f_start=None,
+         m_att="标准", f_att="标准", first=0):
     """全量精确枚举一场对刀。wpn=dict(A=,hit=,dn=,dc=,lethal=,balance=)。
-    返回 dict(P_m_kill, P_f_kill, P_alive, P_m_clean, E_dealt, E_taken, dist)。"""
+    start缺省=当前血（满血进场）。返回 dict(P_m_kill, P_f_kill, P_alive, P_m_clean,
+    P_m_inj, P_f_inj, E_dealt, E_taken, dist)。"""
     mp = pool_dist(m_wpn["A"], m_wpn["hit"], m_wpn.get("lethal"), m_wpn.get("balance", 0))
     fp = pool_dist(f_wpn["A"], f_wpn["hit"], f_wpn.get("lethal"), f_wpn.get("balance", 0))
     solver = Duel(m_wpn["dn"], m_wpn["dc"], f_wpn["dn"], f_wpn["dc"], m_hp, f_hp,
-                  m_att, f_att, first)
+                  m_start, f_start, m_att, f_att, first)
+    m_st = m_start if m_start is not None else m_hp
+    f_st = f_start if f_start is not None else f_hp
     dist = defaultdict(float)
     for (mN, mC), p1 in mp.items():
         for (fN, fC), p2 in fp.items():
@@ -215,6 +243,8 @@ def duel(m_wpn, f_wpn, m_hp, f_hp, m_att="理智", f_att="理智", first=0):
         P_f_kill=sum(p for (mh, fh), p in dist.items() if mh <= 0) / total,
         P_alive=sum(p for (mh, fh), p in dist.items() if mh > 0 and fh > 0) / total,
         P_m_clean=sum(p for (mh, fh), p in dist.items() if mh >= m_hp) / total,
+        P_m_inj=sum(p for (mh, fh), p in dist.items() if mh > 0 and 2 * mh < m_st) / total,
+        P_f_inj=sum(p for (mh, fh), p in dist.items() if fh > 0 and 2 * fh < f_st) / total,
         E_dealt=sum((f_hp - fh) * p for (mh, fh), p in dist.items()) / total,
         E_taken=sum((m_hp - mh) * p for (mh, fh), p in dist.items()) / total,
         dist=dict(dist), solver=solver)
@@ -223,8 +253,9 @@ def duel(m_wpn, f_wpn, m_hp, f_hp, m_att="理智", f_att="理智", first=0):
 
 def report(label, r, m_hp, f_hp):
     print("\n===== %s =====" % label)
-    print("我杀率=%.1f%%  我被杀率=%.1f%%  双活=%.1f%%  我无伤=%.1f%%" %
-          (r["P_m_kill"] * 100, r["P_f_kill"] * 100, r["P_alive"] * 100, r["P_m_clean"] * 100))
+    print("我杀=%.1f%% 我被杀=%.1f%% 双活=%.1f%%  我无伤=%.1f%%  敌受创=%.1f%% 我受创=%.1f%%" %
+          (r["P_m_kill"] * 100, r["P_f_kill"] * 100, r["P_alive"] * 100,
+           r["P_m_clean"] * 100, r["P_f_inj"] * 100, r["P_m_inj"] * 100))
     print("期望：我打对面%.2f血 / 我挨%.2f血" % (r["E_dealt"], r["E_taken"]))
     bands = defaultdict(float)
     for (mh, fh), p in r["dist"].items():
@@ -241,28 +272,39 @@ def selftest():
     (vm, vf), (mh, fh) = d.solve(1, 2, 1, 0, 12, 4, 0)
     assert fh <= 0 and mh == 12, (mh, fh)
     print("案例A ✓ 敌方首刀即死截断、我方无伤")
-    # 案例B(11血)：我2暴2普(3/4) 15血 vs 敌1暴1普(3/4) 11血 → 均衡=敌双挡保命，我-0敌-7(剩4)
+    # 案例B(11血)：我2暴2普(3/4) 15血 vs 敌1暴1普(3/4) 11血 → 我无伤白打7血、敌挡刀求生(剩4血且受创)
     d = Duel(3, 4, 3, 4, 15, 11)
     (vm, vf), (mh, fh) = d.solve(2, 2, 1, 1, 15, 11, 0)
     assert mh == 15 and fh == 4, (mh, fh)
-    print("案例B(11血) ✓ 我无伤白打7血、敌方挡刀求生（剩4血）")
-    # 案例B(7血)：活不成 → 敌全力换血；我方最优=先手暴挡暴拆掉他的暴成 → 敌死，我只挨普刀3
-    #   （此预期初版手算写-4被求解器纠正：拆刀线只挨3——精确求解优于手推的实证）
+    print("案例B(11血) ✓ 我无伤白打7血、敌方终局4血（已跨受创线≤5）")
+    # 案例B(7血)：敌必死 → 我先手暴挡暴拆他的暴成，他普刀拼命换3血（初版手算-4被求解器纠正）
     d = Duel(3, 4, 3, 4, 15, 7)
     (vm, vf), (mh, fh) = d.solve(2, 2, 1, 1, 15, 7, 0)
     assert fh <= 0 and mh == 12, (mh, fh)
     print("案例B(7血) ✓ 敌必死→我先暴挡暴拆刀、敌普刀拼命换3血")
-    # 对称理智：2普 vs 2普，双方15血普伤4 → 双挡0-0（用户对称僵局案例）
+    # 血量优势局(v1.1新口径)：我15/15 vs 敌8/8，同样骰型 → 敌双挡也拦不住跨线(受创线≤3)
+    d = Duel(3, 4, 3, 4, 15, 8, m_start=15, f_start=8)
+    (vm, vf), (mh, fh) = d.solve(2, 2, 1, 1, 15, 8, 0)
+    assert mh == 15 and fh == 1, (mh, fh)
+    print("血量优势局 ✓ 我无伤把8血敌打到1血(深度受创)——'血多换对面受创'由阈值自然涌现")
+    # 对称无跨线局(v1.1新口径)：双方15/15(2普,4/4) → 攻方一刀落地、防方挡余+尾刀回敬=11-11
     d = Duel(4, 4, 4, 4, 15, 15)
     (vm, vf), (mh, fh) = d.solve(2, 0, 2, 0, 15, 15, 0)
-    assert mh == 15 and fh == 15, (mh, fh)
-    print("对称僵局(理智) ✓ 双挡0-0无事发生")
-    # 对称好战：同局面 → 换血
-    d = Duel(4, 4, 4, 4, 15, 15, m_att="好战", f_att="好战")
+    assert mh == 11 and fh == 11, (mh, fh)
+    print("对称无跨线 ✓ 攻方起码一刀落地(4-4)、不再0-0")
+    # 保守预置回归：同局用保守(ATK=0,β=2) → 双挡0-0（v1理智行为保留为预置）
+    d = Duel(4, 4, 4, 4, 15, 15, m_att="保守", f_att="保守")
     (vm, vf), (mh, fh) = d.solve(2, 0, 2, 0, 15, 15, 0)
-    assert mh < 15 and fh < 15, (mh, fh)
-    print("对称僵局(好战) ✓ 双方选择换血 (%d-%d)" % (15 - mh, 15 - fh))
-    # 单调性：攻骰更多→杀率不降；血更多→被杀率不降
+    assert mh == 15 and fh == 15, (mh, fh)
+    print("对称无跨线(保守预置) ✓ 双挡0-0（旧理智行为保留为预置）")
+    # 已受创者无新线可跨：我7/15(已受创) vs 敌15/15对称 → 我更敢打(无二次罚)
+    d1 = Duel(4, 4, 4, 4, 7, 15, m_start=15)          # 我已受创
+    (v1, _), (mh1, fh1) = d1.solve(2, 0, 2, 0, 7, 15, 0)
+    d2 = Duel(4, 4, 4, 4, 15, 15)                     # 对照：我满血
+    (v2, _), (mh2, fh2) = d2.solve(2, 0, 2, 0, 15, 15, 0)
+    assert v1 >= v2  # 我方收益不因已受创而进一步恶化（无新罚）
+    print("已受创不二次罚 ✓ （已受创方收益%.2f ≥ 满血对照%.2f）" % (v1, v2))
+    # 单调性：攻骰更多→杀率不降；敌血更低→杀率不降；分布归一
     wpn_m = dict(A=5, hit=3, dn=3, dc=4)
     wpn_f = dict(A=4, hit=3, dn=3, dc=4)
     r1 = duel(wpn_m, wpn_f, 12, 15)
@@ -277,24 +319,27 @@ def selftest():
 
 
 def demo():
-    print("===== 态度轴可能性表（v1旋钮+待细化族向） =====")
-    for k, (a, b) in ATTITUDES.items():
-        print("  %s: α=%.1f β=%.1f" % (k, a, b))
-    print("  待细化：伤害触发族α↑（执政官之手/蛇虫毒标/圣化者）｜回血族β↓（VSM/机械教/猎手团/DKK医疗）"
-          "｜炮灰族β↓+own-death↓（人海队）｜濒死死亡触发族（蛇虫死亡狂乱/洁天使殉道，需专用目标函数）")
+    print("===== 态度预置 (INJ受创权重, ATK攻方一刀, α, β) =====")
+    for k, v in ATTITUDES.items():
+        print("  %s: %s" % (k, v))
+    print("  待细化：伤害触发族α↑｜炮灰族own-death↓+β↓｜濒死死亡触发族（需专用目标函数）")
 
-    # 池内镜像：NC斩首者先手砍VSM渗透者（旧模块同款场景，数字全新且待验收）
+    # 池内镜像：NC斩首者先手砍VSM渗透者（15/15 vs 12/12满血）
     nc = dict(A=5, hit=3, dn=4, dc=5)
     blade = dict(A=5, hit=3, dn=3, dc=4)
     report("NC斩首者(5/3+ 4/5, 15血) 先手砍 VSM渗透者(作战刃5/3+ 3/4, 12血)",
            duel(nc, blade, 15, 12), 12, 15)
     report("VSM渗透者(作战刃, 12血) 先手砍 NC斩首者(15血)",
            duel(blade, nc, 12, 15), 15, 12)
-    # 用户对称案例的枚举版：双方4攻3+ 3/4 15血互砍（理智）
-    report("对称精英互砍（4/3+ 3/4, 15血, 理智）", duel(dict(A=4, hit=3, dn=3, dc=4),
-           dict(A=4, hit=3, dn=3, dc=4), 15, 15), 15, 15)
-    report("同局但我方好战（换血意愿）", duel(dict(A=4, hit=3, dn=3, dc=4),
-           dict(A=4, hit=3, dn=3, dc=4), 15, 15, m_att="好战"), 15, 15)
+    # 血量优势换受创：15血满血先手 vs 8血满血（朋友池凡人精英常见差）
+    report("血量优势局：15血(4/3+ 3/4) 先手砍 8血(同武器)",
+           duel(dict(A=4, hit=3, dn=3, dc=4), dict(A=4, hit=3, dn=3, dc=4), 15, 8), 8, 15)
+    # 对称精英：标准 vs 保守（攻方一刀奖励的效果对照）
+    report("对称精英互砍（4/3+ 3/4, 15血, 标准）",
+           duel(dict(A=4, hit=3, dn=3, dc=4), dict(A=4, hit=3, dn=3, dc=4), 15, 15), 15, 15)
+    report("同局(保守预置=旧理智行为)",
+           duel(dict(A=4, hit=3, dn=3, dc=4), dict(A=4, hit=3, dn=3, dc=4),
+                15, 15, m_att="保守", f_att="保守"), 15, 15)
 
 
 if __name__ == "__main__":
@@ -304,8 +349,8 @@ if __name__ == "__main__":
         print("\n===== 案例B(11血) 逐刀轨迹 =====")
         for s in Duel(3, 4, 3, 4, 15, 11).trace(2, 2, 1, 1):
             print(" ", s)
-        print("\n===== 案例B(7血) 逐刀轨迹 =====")
-        for s in Duel(3, 4, 3, 4, 15, 7).trace(2, 2, 1, 1):
+        print("\n===== 血量优势局(15/15 vs 8/8) 逐刀轨迹 =====")
+        for s in Duel(3, 4, 3, 4, 15, 8, m_start=15, f_start=8).trace(2, 2, 1, 1):
             print(" ", s)
     else:
         demo()
