@@ -96,7 +96,7 @@ class Duel:
 
     def __init__(self, m_dn, m_dc, f_dn, f_dc, m_hp, f_hp,
                  m_start=None, f_start=None, m_att="标准", f_att="标准", first=0,
-                 m_shock=False, f_shock=False):
+                 m_shock=False, f_shock=False, m_halve=False, f_halve=False):
         self.m_dn, self.m_dc = m_dn, m_dc
         self.f_dn, self.f_dc = f_dn, f_dc
         self.m_hp0, self.f_hp0 = m_hp, f_hp
@@ -108,7 +108,16 @@ class Duel:
         # Shock击震(附录2026-10-16核验): 每序列首次以暴成出刀时，额外弃对面一颗
         # 未结算普成(无普成则弃暴成)——树内机制，v1.2入引擎
         self.m_shock, self.f_shock = m_shock, f_shock
+        # 无畏探索者类"每TP首次被攻击骰伤害减半(上取整,最低2)"(星旅者页原文2026-10-16
+        # 核验——近战劈砍同适用)；1伤刀按字面会升伤不合理，实现取"只减不增"口径
+        self.m_halve, self.f_halve = m_halve, f_halve
         self.memo = {}
+
+    def _halve(self, dmg):
+        """首次伤害减半：上取整、最低2、只减不增（1伤原样）。"""
+        if dmg >= 2:
+            return max(2, (dmg + 1) // 2)
+        return dmg
 
     def _crossed(self, hp_end, hp_beg, start):
         """新跨受创线：终局活着且低于半数、且对刀开始时未低于（已受创不二次罚）。"""
@@ -131,8 +140,8 @@ class Duel:
                  + (self.f_atk if (calm and self.first == 1 and f_dealt >= 1) else 0.0)),
                 (mh, fh))
 
-    def solve(self, mN, mC, fN, fC, mhp, fhp, turn, msu=False, fsu=False):
-        """(收益对, 终局血量对)，轮到turn方决策（0=m，1=f）；msu/fsu=Shock已用。"""
+    def solve(self, mN, mC, fN, fC, mhp, fhp, turn, msu=False, fsu=False, mhu=False, fhu=False):
+        """(收益对, 终局血量对)；msu/fsu=Shock已用，mhu/fhu=减半已用。"""
         if fhp <= 0 or mhp <= 0:
             return self._terminal(mhp, fhp)
         if mN + mC + fN + fC == 0:
@@ -141,7 +150,7 @@ class Duel:
             turn = 1
         elif turn == 1 and fN + fC == 0:
             turn = 0
-        key = (mN, mC, fN, fC, mhp, fhp, turn, msu, fsu)
+        key = (mN, mC, fN, fC, mhp, fhp, turn, msu, fsu, mhu, fhu)
         if key in self.memo:
             return self.memo[key][0]
 
@@ -149,11 +158,11 @@ class Duel:
         acts = []
         if turn == 0:
             if mN > 0 and fN > 0:
-                acts.append(("m:普挡普", (mN - 1, mC, fN - 1, fC, mhp, fhp, 1, msu, fsu)))
+                acts.append(("m:普挡普", (mN - 1, mC, fN - 1, fC, mhp, fhp, 1, msu, fsu, mhu, fhu)))
             if mC > 0 and fN > 0:
-                acts.append(("m:暴挡普", (mN, mC - 1, fN - 1, fC, mhp, fhp, 1, msu, fsu)))
+                acts.append(("m:暴挡普", (mN, mC - 1, fN - 1, fC, mhp, fhp, 1, msu, fsu, mhu, fhu)))
             if mC > 0 and fC > 0:
-                acts.append(("m:暴挡暴", (mN, mC - 1, fN, fC - 1, mhp, fhp, 1, msu, fsu)))
+                acts.append(("m:暴挡暴", (mN, mC - 1, fN, fC - 1, mhp, fhp, 1, msu, fsu, mhu, fhu)))
             if mC > 0:
                 # Shock: 首次暴劈额外弃对面1颗pending普成(无普成弃暴成)
                 x_fN, x_fC = fN, fC
@@ -163,17 +172,26 @@ class Duel:
                         x_fN = fN - 1
                     elif fC > 0:
                         x_fC = fC - 1
-                acts.append(("m:暴劈", (mN, mC - 1, x_fN, x_fC, mhp, fhp - self.m_dc, 1, x_msu, fsu)))
+                # 减半: 对面每TP首次被攻击骰伤害(无畏探索者类)
+                x_fhu = fhu or self.f_halve
+                eff = self.m_dc
+                if self.f_halve and not fhu:
+                    eff = self._halve(eff)
+                acts.append(("m:暴劈", (mN, mC - 1, x_fN, x_fC, mhp, fhp - eff, 1, x_msu, fsu, mhu, x_fhu)))
             if mN > 0:
-                acts.append(("m:普劈", (mN - 1, mC, fN, fC, mhp, fhp - self.m_dn, 1, msu, fsu)))
+                x_fhu = fhu or self.f_halve
+                eff = self.m_dn
+                if self.f_halve and not fhu:
+                    eff = self._halve(eff)
+                acts.append(("m:普劈", (mN - 1, mC, fN, fC, mhp, fhp - eff, 1, msu, fsu, mhu, x_fhu)))
             idx = 0
         else:
             if fN > 0 and mN > 0:
-                acts.append(("f:普挡普", (mN - 1, mC, fN - 1, fC, mhp, fhp, 0, msu, fsu)))
+                acts.append(("f:普挡普", (mN - 1, mC, fN - 1, fC, mhp, fhp, 0, msu, fsu, mhu, fhu)))
             if fC > 0 and mN > 0:
-                acts.append(("f:暴挡普", (mN - 1, mC, fN, fC - 1, mhp, fhp, 0, msu, fsu)))
+                acts.append(("f:暴挡普", (mN - 1, mC, fN, fC - 1, mhp, fhp, 0, msu, fsu, mhu, fhu)))
             if fC > 0 and mC > 0:
-                acts.append(("f:暴挡暴", (mN, mC - 1, fN, fC - 1, mhp, fhp, 0, msu, fsu)))
+                acts.append(("f:暴挡暴", (mN, mC - 1, fN, fC - 1, mhp, fhp, 0, msu, fsu, mhu, fhu)))
             if fC > 0:
                 x_mN, x_mC = mN, mC
                 x_fsu = fsu or self.f_shock
@@ -182,9 +200,17 @@ class Duel:
                         x_mN = mN - 1
                     elif mC > 0:
                         x_mC = mC - 1
-                acts.append(("f:暴劈", (x_mN, x_mC, fN, fC - 1, mhp - self.f_dc, fhp, 0, msu, x_fsu)))
+                x_mhu = mhu or self.m_halve
+                eff = self.f_dc
+                if self.m_halve and not mhu:
+                    eff = self._halve(eff)
+                acts.append(("f:暴劈", (x_mN, x_mC, fN, fC - 1, mhp - eff, fhp, 0, msu, x_fsu, x_mhu, fhu)))
             if fN > 0:
-                acts.append(("f:普劈", (mN, mC, fN - 1, fC, mhp - self.f_dn, fhp, 0, msu, fsu)))
+                x_mhu = mhu or self.m_halve
+                eff = self.f_dn
+                if self.m_halve and not mhu:
+                    eff = self._halve(eff)
+                acts.append(("f:普劈", (mN, mC, fN - 1, fC, mhp - eff, fhp, 0, msu, fsu, x_mhu, fhu)))
             idx = 1
 
         best_val, best_label = None, None
@@ -195,7 +221,7 @@ class Duel:
         self.memo[key] = (best_val, best_label)
         return best_val
 
-    def best_action(self, mN, mC, fN, fC, mhp, fhp, turn, msu=False, fsu=False):
+    def best_action(self, mN, mC, fN, fC, mhp, fhp, turn, msu=False, fsu=False, mhu=False, fhu=False):
         """当前状态最优动作标签（轨迹展示用；solve已保证memo命中）。"""
         if fhp <= 0 or mhp <= 0 or mN + mC + fN + fC == 0:
             return None
@@ -203,15 +229,16 @@ class Duel:
             turn = 1
         elif turn == 1 and fN + fC == 0:
             turn = 0
-        self.solve(mN, mC, fN, fC, mhp, fhp, turn, msu, fsu)
-        return self.memo[(mN, mC, fN, fC, mhp, fhp, turn, msu, fsu)][1]
+        self.solve(mN, mC, fN, fC, mhp, fhp, turn, msu, fsu, mhu, fhu)
+        return self.memo[(mN, mC, fN, fC, mhp, fhp, turn, msu, fsu, mhu, fhu)][1]
 
     def trace(self, mN, mC, fN, fC):
         """固定骰型下的逐刀最优轨迹（教学/验收用）。"""
-        mhp, fhp, turn, msu, fsu = self.m_hp0, self.f_hp0, self.first, False, False
+        mhp, fhp, turn = self.m_hp0, self.f_hp0, self.first
+        msu, fsu, mhu, fhu = False, False, False, False
         steps = []
         while True:
-            a = self.best_action(mN, mC, fN, fC, mhp, fhp, turn, msu, fsu)
+            a = self.best_action(mN, mC, fN, fC, mhp, fhp, turn, msu, fsu, mhu, fhu)
             if a is None:
                 break
             note = ""
@@ -224,26 +251,34 @@ class Duel:
                     mN, fC = mN - 1, fC - 1
             elif a.endswith("暴挡暴"):
                 mC, fC = mC - 1, fC - 1
-            elif a == "m:暴劈":
-                mC, fhp = mC - 1, fhp - self.m_dc
-                if self.m_shock and not msu:
+            elif a == "m:暴劈" or a == "m:普劈":
+                dmg = self.m_dc if a == "m:暴劈" else self.m_dn
+                mN, mC = (mN, mC - 1) if a == "m:暴劈" else (mN - 1, mC)
+                if a == "m:暴劈" and self.m_shock and not msu:
                     msu = True
                     if fN > 0:
                         fN -= 1; note = "（Shock弃敌1普成）"
                     elif fC > 0:
                         fC -= 1; note = "（Shock弃敌1暴成）"
-            elif a == "m:普劈":
-                mN, fhp = mN - 1, fhp - self.m_dn
-            elif a == "f:暴劈":
-                fC, mhp = fC - 1, mhp - self.f_dc
-                if self.f_shock and not fsu:
+                if self.f_halve and not fhu:
+                    fhu = True; eff = self._halve(dmg); note += "（减半%d→%d）" % (dmg, eff)
+                else:
+                    eff = dmg
+                fhp -= eff
+            elif a == "f:暴劈" or a == "f:普劈":
+                dmg = self.f_dc if a == "f:暴劈" else self.f_dn
+                fN, fC = (fN, fC - 1) if a == "f:暴劈" else (fN - 1, fC)
+                if a == "f:暴劈" and self.f_shock and not fsu:
                     fsu = True
                     if mN > 0:
                         mN -= 1; note = "（Shock弃我1普成）"
                     elif mC > 0:
                         mC -= 1; note = "（Shock弃我1暴成）"
-            elif a == "f:普劈":
-                fN, mhp = fN - 1, mhp - self.f_dn
+                if self.m_halve and not mhu:
+                    mhu = True; eff = self._halve(dmg); note += "（减半%d→%d）" % (dmg, eff)
+                else:
+                    eff = dmg
+                mhp -= eff
             steps.append("我方%d血/敌方%d血 %s%s" % (mhp, fhp, a, note))
             turn = 1 - turn
         tag_m = "我死" if mhp <= 0 else ("我受创" if 2 * max(mhp, 0) < self.m_start else "我%d血" % mhp)
@@ -354,6 +389,13 @@ def selftest():
     (vn, _), _ = d_n.solve(0, 1, 2, 0, 12, 12, 0)
     assert vs >= vn - 1e-9, (vs, vn)
     print("Shock击震方向性 ✓ （带%.2f ≥ 无%.2f——首暴劈弃掉敌1普成）" % (vs, vn))
+    # 首伤减半方向性(v1.3): 带减半方承伤更低（首刀6→3）；只减首次
+    d_h = Duel(3, 4, 3, 6, 15, 15, m_halve=True)
+    d_n2 = Duel(3, 4, 3, 6, 15, 15)
+    (_, _), (mh_h, _) = d_h.solve(0, 0, 0, 2, 15, 15, 1)
+    (_, _), (mh_n, _) = d_n2.solve(0, 0, 0, 2, 15, 15, 1)
+    assert mh_h == 6 and mh_n == 3, (mh_h, mh_n)  # 敌2暴: 无减半吃12→剩3; 减半吃9→剩6
+    print("首伤减半 ✓ （敌两暴6/6: 无减半吃12血, 减半后吃%d血——首刀6→3）" % (15 - mh_h))
     # 单调性：攻骰更多→杀率不降；敌血更低→杀率不降；分布归一
     wpn_m = dict(A=5, hit=3, dn=3, dc=4)
     wpn_f = dict(A=4, hit=3, dn=3, dc=4)
