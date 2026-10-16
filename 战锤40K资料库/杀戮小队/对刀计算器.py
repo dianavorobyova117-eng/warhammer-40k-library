@@ -232,6 +232,36 @@ class Duel:
         self.solve(mN, mC, fN, fC, mhp, fhp, turn, msu, fsu, mhu, fhu)
         return self.memo[(mN, mC, fN, fC, mhp, fhp, turn, msu, fsu, mhu, fhu)][1]
 
+    def stance_root(self, mN, mC, fN, fC, side):
+        """刀锋架势层(v1.4)：序列开始前，架势方把自己的**一颗**成功提前结算为挡
+        （不占正常轮换——原文"resolve one of your successes before the normal
+        order"，攻防两用·2026-10-16原文核验；骰少时最优解=跳过，由收益自动判定）。
+        side: 0=m方持架势, 1=f方。返回 (收益对, 终局血量对)。"""
+        st0 = (mN, mC, fN, fC, self.m_hp0, self.f_hp0, self.first)
+        opts = [("跳过", st0)]
+        if side == 0:
+            if mN > 0 and fN > 0:
+                opts.append(("普挡普", (mN - 1, mC, fN - 1, fC, self.m_hp0, self.f_hp0, self.first)))
+            if mC > 0 and fN > 0:
+                opts.append(("暴挡普", (mN, mC - 1, fN - 1, fC, self.m_hp0, self.f_hp0, self.first)))
+            if mC > 0 and fC > 0:
+                opts.append(("暴挡暴", (mN, mC - 1, fN, fC - 1, self.m_hp0, self.f_hp0, self.first)))
+            idx = 0
+        else:
+            if fN > 0 and mN > 0:
+                opts.append(("普挡普", (mN - 1, mC, fN - 1, fC, self.m_hp0, self.f_hp0, self.first)))
+            if fC > 0 and mN > 0:
+                opts.append(("暴挡普", (mN - 1, mC, fN, fC - 1, self.m_hp0, self.f_hp0, self.first)))
+            if fC > 0 and mC > 0:
+                opts.append(("暴挡暴", (mN, mC - 1, fN, fC - 1, self.m_hp0, self.f_hp0, self.first)))
+            idx = 1
+        best = None
+        for _, st in opts:
+            val = self.solve(*st)
+            if best is None or val[0][idx] > best[0][idx]:
+                best = val
+        return best
+
     def trace(self, mN, mC, fN, fC):
         """固定骰型下的逐刀最优轨迹（教学/验收用）。"""
         mhp, fhp, turn = self.m_hp0, self.f_hp0, self.first
@@ -396,6 +426,13 @@ def selftest():
     (_, _), (mh_n, _) = d_n2.solve(0, 0, 0, 2, 15, 15, 1)
     assert mh_h == 6 and mh_n == 3, (mh_h, mh_n)  # 敌2暴: 无减半吃12→剩3; 减半吃9→剩6
     print("首伤减半 ✓ （敌两暴6/6: 无减半吃12血, 减半后吃%d血——首刀6→3）" % (15 - mh_h))
+    # 刀锋架势方向性(v1.4): 持架势方收益≥无架势同款（攻防两用；最优解可自动跳过）
+    d_t = Duel(4, 4, 4, 4, 15, 15)
+    (vn2, _), _ = d_t.solve(2, 0, 1, 0, 15, 15, 0)
+    (vs2, _), _ = d_t.stance_root(2, 0, 1, 0, 0)
+    assert vs2 >= vn2 - 1e-9, (vs2, vn2)
+    print("刀锋架势 ✓ （攻方2普vs1普: 无架势打4血, 带架势开局垫挡后打%.0f血——不占先手刀）"
+          % (vs2,))
     # 单调性：攻骰更多→杀率不降；敌血更低→杀率不降；分布归一
     wpn_m = dict(A=5, hit=3, dn=3, dc=4)
     wpn_f = dict(A=4, hit=3, dn=3, dc=4)
