@@ -96,7 +96,8 @@ class Duel:
 
     def __init__(self, m_dn, m_dc, f_dn, f_dc, m_hp, f_hp,
                  m_start=None, f_start=None, m_att="标准", f_att="标准", first=0,
-                 m_shock=False, f_shock=False, m_halve=False, f_halve=False):
+                 m_shock=False, f_shock=False, m_halve=False, f_halve=False,
+                 m_block2=False, f_block2=False):
         self.m_dn, self.m_dc = m_dn, m_dc
         self.f_dn, self.f_dc = f_dn, f_dc
         self.m_hp0, self.f_hp0 = m_hp, f_hp
@@ -111,7 +112,25 @@ class Duel:
         # 无畏探索者类"每TP首次被攻击骰伤害减半(上取整,最低2)"(星旅者页原文2026-10-16
         # 核验——近战劈砍同适用)；1伤刀按字面会升伤不合理，实现取"只减不增"口径
         self.m_halve, self.f_halve = m_halve, f_halve
+        # 镇压Repress挡二(强征页原文2026-10-16核验:"Each of your blocks can be
+        # allocated to block two unresolved successes (instead of one)"——**无条件**,
+        # 攻防均生效；普挡取消至多2颗敌普成、暴挡取消至多2颗合法pending[按伤害取高])
+        self.m_block2, self.f_block2 = m_block2, f_block2
         self.memo = {}
+
+    def _nblock(self, foeN, block2):
+        return (min(2, foeN) if block2 else 1) if foeN > 0 else 0
+
+    def _cblock(self, foeN, foeC, block2, dn_val, dc_val):
+        """暴挡取消的(普成数,暴成数)：非挡二=1颗合法最高伤；挡二=至多2颗最高伤。"""
+        if not block2:
+            if foeC > 0 and dc_val >= dn_val:
+                return 0, 1
+            if foeN > 0:
+                return 1, 0
+            return 0, 1 if foeC > 0 else 0
+        picks = sorted(([dn_val] * foeN + [dc_val] * foeC), reverse=True)[:2]
+        return picks.count(dn_val), picks.count(dc_val)
 
     def _halve(self, dmg):
         """首次伤害减半：上取整、最低2、只减不增（1伤原样）。"""
@@ -158,11 +177,11 @@ class Duel:
         acts = []
         if turn == 0:
             if mN > 0 and fN > 0:
-                acts.append(("m:普挡普", (mN - 1, mC, fN - 1, fC, mhp, fhp, 1, msu, fsu, mhu, fhu)))
-            if mC > 0 and fN > 0:
-                acts.append(("m:暴挡普", (mN, mC - 1, fN - 1, fC, mhp, fhp, 1, msu, fsu, mhu, fhu)))
-            if mC > 0 and fC > 0:
-                acts.append(("m:暴挡暴", (mN, mC - 1, fN, fC - 1, mhp, fhp, 1, msu, fsu, mhu, fhu)))
+                k = self._nblock(fN, self.m_block2)
+                acts.append(("m:普挡普", (mN - 1, mC, fN - k, fC, mhp, fhp, 1, msu, fsu, mhu, fhu)))
+            if mC > 0 and fN + fC > 0:
+                cn, cc = self._cblock(fN, fC, self.m_block2, self.f_dn, self.f_dc)
+                acts.append(("m:暴挡", (mN, mC - 1, fN - cn, fC - cc, mhp, fhp, 1, msu, fsu, mhu, fhu)))
             if mC > 0:
                 # Shock: 首次暴劈额外弃对面1颗pending普成(无普成弃暴成)
                 x_fN, x_fC = fN, fC
@@ -187,11 +206,11 @@ class Duel:
             idx = 0
         else:
             if fN > 0 and mN > 0:
-                acts.append(("f:普挡普", (mN - 1, mC, fN - 1, fC, mhp, fhp, 0, msu, fsu, mhu, fhu)))
-            if fC > 0 and mN > 0:
-                acts.append(("f:暴挡普", (mN - 1, mC, fN, fC - 1, mhp, fhp, 0, msu, fsu, mhu, fhu)))
-            if fC > 0 and mC > 0:
-                acts.append(("f:暴挡暴", (mN, mC - 1, fN, fC - 1, mhp, fhp, 0, msu, fsu, mhu, fhu)))
+                k = self._nblock(mN, self.f_block2)
+                acts.append(("f:普挡普", (mN - k, mC, fN - 1, fC, mhp, fhp, 0, msu, fsu, mhu, fhu)))
+            if fC > 0 and mN + mC > 0:
+                cn, cc = self._cblock(mN, mC, self.f_block2, self.m_dn, self.m_dc)
+                acts.append(("f:暴挡", (mN - cn, mC - cc, fN, fC - 1, mhp, fhp, 0, msu, fsu, mhu, fhu)))
             if fC > 0:
                 x_mN, x_mC = mN, mC
                 x_fsu = fsu or self.f_shock
@@ -273,14 +292,19 @@ class Duel:
                 break
             note = ""
             if a.endswith("普挡普"):
-                mN, fN = mN - 1, fN - 1
-            elif a.endswith("暴挡普"):
                 if a[0] == "m":
-                    mC, fN = mC - 1, fN - 1
+                    k = self._nblock(fN, self.m_block2)
+                    mN, fN = mN - 1, fN - k
                 else:
-                    mN, fC = mN - 1, fC - 1
-            elif a.endswith("暴挡暴"):
-                mC, fC = mC - 1, fC - 1
+                    k = self._nblock(mN, self.f_block2)
+                    fN, mN = fN - 1, mN - k
+            elif a.endswith("暴挡"):
+                if a[0] == "m":
+                    cn, cc = self._cblock(fN, fC, self.m_block2, self.f_dn, self.f_dc)
+                    mC, fN, fC = mC - 1, fN - cn, fC - cc
+                else:
+                    cn, cc = self._cblock(mN, mC, self.f_block2, self.m_dn, self.m_dc)
+                    fC, mN, mC = fC - 1, mN - cn, mC - cc
             elif a == "m:暴劈" or a == "m:普劈":
                 dmg = self.m_dc if a == "m:暴劈" else self.m_dn
                 mN, mC = (mN, mC - 1) if a == "m:暴劈" else (mN - 1, mC)
@@ -433,6 +457,13 @@ def selftest():
     assert vs2 >= vn2 - 1e-9, (vs2, vn2)
     print("刀锋架势 ✓ （攻方2普vs1普: 无架势打4血, 带架势开局垫挡后打%.0f血——不占先手刀）"
           % (vs2,))
+    # 镇压挡二方向性(v1.5): 挡二方承伤更低（一颗暴挡吃掉对面两颗普成）
+    d_b2 = Duel(3, 3, 4, 4, 15, 15, f_block2=True)
+    d_b0 = Duel(3, 3, 4, 4, 15, 15)
+    (_, _), (mh2, fh2) = d_b2.solve(2, 0, 0, 1, 15, 15, 0)   # 攻2普 vs 守1暴
+    (_, _), (mh0, fh0) = d_b0.solve(2, 0, 0, 1, 15, 15, 0)
+    assert mh2 >= mh0, (mh2, mh0)
+    print("镇压挡二 ✓ （守方1暴挡我2普: 无镇压我终%d血, 带镇压%d血）" % (mh0, mh2))
     # 单调性：攻骰更多→杀率不降；敌血更低→杀率不降；分布归一
     wpn_m = dict(A=5, hit=3, dn=3, dc=4)
     wpn_f = dict(A=4, hit=3, dn=3, dc=4)
