@@ -96,7 +96,13 @@ def rule_tag(r):
         parts.append("Shock")
     if r.get("block2"):
         parts.append("挡二")
-    return "+".join(parts) if parts else "—"
+    return "+".join(parts) if parts else ""
+
+
+def stat_tag(A, H, dn, dc, r):
+    t = "%d/%d+ %d/%d" % (A, H, dn, dc)
+    rt = rule_tag(r)
+    return t + ("·" + rt if rt else "")
 
 
 def main():
@@ -120,7 +126,8 @@ def main():
         hdr += "%12s" % nm[:6]
     print("\n" + hdr)
     for i, nm in enumerate(names):
-        row = "%-8s%-10s" % (nm[:6], rule_tag(ws[i][1][4]))
+        A_, H_, dn_, dc_, r_ = ws[i][1][1]
+        row = "%-8s%-16s" % (nm[:6], stat_tag(A_, H_, dn_, dc_, r_))
         for j in range(len(names)):
             if i == j:
                 row += "         ----"
@@ -131,14 +138,15 @@ def main():
 
     # 摘要
     print("\n== 摘要（跨全部12个对手的均值）==")
-    print("%-10s %-12s %8s %8s %8s" % ("武器", "词条", "攻期望", "守承伤", "攻防差"))
+    print("%-10s %-18s %8s %8s %8s" % ("武器", "面板·词条", "攻期望", "守承伤", "攻防差"))
     stats = []
     for i, nm in enumerate(names):
         atk = sum(res[(i, j)][0] for j in range(len(names)) if j != i) / (len(names) - 1)
         dfn = sum(res[(j, i)][1] for j in range(len(names)) if j != i) / (len(names) - 1)
-        stats.append((nm, rule_tag(ws[i][1][4]), atk, dfn, atk - dfn))
+        A_, H_, dn_, dc_, r_ = ws[i][1][1]
+        stats.append((nm, stat_tag(A_, H_, dn_, dc_, r_), atk, dfn, atk - dfn))
     for nm, tag, a, d, diff in sorted(stats, key=lambda x: -x[2]):
-        print("%-10s %-12s %8.2f %8.2f %+8.2f" % (nm, tag, a, d, diff))
+        print("%-10s %-18s %8.2f %8.2f %+8.2f" % (nm, tag, a, d, diff))
 
 
 if __name__ == "__main__":
