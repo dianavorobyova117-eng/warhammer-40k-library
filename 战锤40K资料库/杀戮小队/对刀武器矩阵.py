@@ -136,17 +136,19 @@ def main():
                 row += "  %4.1f/%4.1f" % (o, n)
         print(row)
 
-    # 摘要
+    # 摘要（四列全口径: 攻方造伤/攻方承伤/守方造伤/守方承伤）
     print("\n== 摘要（跨全部12个对手的均值）==")
-    print("%-10s %-18s %8s %8s %8s" % ("武器", "面板·词条", "攻期望", "守承伤", "攻防差"))
+    print("%-10s %-18s %8s %8s %8s %8s %8s" % ("武器", "面板·词条", "攻造伤", "攻承伤", "守造伤", "守承伤", "总交换差"))
     stats = []
     for i, nm in enumerate(names):
-        atk = sum(res[(i, j)][0] for j in range(len(names)) if j != i) / (len(names) - 1)
-        dfn = sum(res[(j, i)][1] for j in range(len(names)) if j != i) / (len(names) - 1)
+        a_out = sum(res[(i, j)][0] for j in range(len(names)) if j != i) / (len(names) - 1)
+        a_in = sum(res[(i, j)][1] for j in range(len(names)) if j != i) / (len(names) - 1)
+        d_out = sum(res[(j, i)][1] for j in range(len(names)) if j != i) / (len(names) - 1)
+        d_in = sum(res[(j, i)][0] for j in range(len(names)) if j != i) / (len(names) - 1)
         A_, H_, dn_, dc_, r_ = ws[i][1]
-        stats.append((nm, stat_tag(A_, H_, dn_, dc_, r_), atk, dfn, atk - dfn))
-    for nm, tag, a, d, diff in sorted(stats, key=lambda x: -x[2]):
-        print("%-10s %-18s %8.2f %8.2f %+8.2f" % (nm, tag, a, d, diff))
+        stats.append((nm, stat_tag(A_, H_, dn_, dc_, r_), a_out, a_in, d_out, d_in, a_out + d_out - a_in - d_in))
+    for nm, tag, ao, ai, do, di, diff in sorted(stats, key=lambda x: -x[6]):
+        print("%-10s %-18s %8.2f %8.2f %8.2f %8.2f %+8.2f" % (nm, tag, ao, ai, do, di, diff))
 
 
 if __name__ == "__main__":
