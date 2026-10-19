@@ -97,7 +97,7 @@ class Duel:
     def __init__(self, m_dn, m_dc, f_dn, f_dc, m_hp, f_hp,
                  m_start=None, f_start=None, m_att="标准", f_att="标准", first=0,
                  m_shock=False, f_shock=False, m_halve=False, f_halve=False,
-                 m_block2=False, f_block2=False):
+                 m_block2=False, f_block2=False, m_brutal=False, f_brutal=False):
         self.m_dn, self.m_dc = m_dn, m_dc
         self.f_dn, self.f_dc = f_dn, f_dc
         self.m_hp0, self.f_hp0 = m_hp, f_hp
@@ -116,6 +116,9 @@ class Duel:
         # allocated to block two unresolved successes (instead of one)"——**无条件**,
         # 攻防均生效；普挡取消至多2颗敌普成、暴挡取消至多2颗合法pending[按伤害取高])
         self.m_block2, self.f_block2 = m_block2, f_block2
+        # 残暴Brutal(附录2026-10-16核验:"Your opponent can only block with critical
+        # successes")——对面普成不能挡本方pending(普挡普对本方非法)，暴挡照常
+        self.m_brutal, self.f_brutal = m_brutal, f_brutal
         self.memo = {}
 
     def _nblock(self, foeN, block2):
@@ -176,7 +179,7 @@ class Duel:
         # 轮到方动作清单（破平序：挡[省暴成] > 暴劈 > 普劈）
         acts = []
         if turn == 0:
-            if mN > 0 and fN > 0:
+            if mN > 0 and fN > 0 and not self.f_brutal:
                 k = self._nblock(fN, self.m_block2)
                 acts.append(("m:普挡普", (mN - 1, mC, fN - k, fC, mhp, fhp, 1, msu, fsu, mhu, fhu)))
             if mC > 0 and fN + fC > 0:
@@ -205,7 +208,7 @@ class Duel:
                 acts.append(("m:普劈", (mN - 1, mC, fN, fC, mhp, fhp - eff, 1, msu, fsu, mhu, x_fhu)))
             idx = 0
         else:
-            if fN > 0 and mN > 0:
+            if fN > 0 and mN > 0 and not self.m_brutal:
                 k = self._nblock(mN, self.f_block2)
                 acts.append(("f:普挡普", (mN - k, mC, fN - 1, fC, mhp, fhp, 0, msu, fsu, mhu, fhu)))
             if fC > 0 and mN + mC > 0:
@@ -464,6 +467,14 @@ def selftest():
     (_, _), (mh0, fh0) = d_b0.solve(2, 0, 0, 1, 15, 15, 0)
     assert mh2 >= mh0, (mh2, mh0)
     print("镇压挡二 ✓ （守方1暴挡我2普: 无镇压我终%d血, 带镇压%d血）" % (mh0, mh2))
+    # 残暴方向性(v1.6): 对面普成失去挡格资格——判例: 我3普(4伤)砍9血敌1普:
+    # 无残暴他挡一刀活1血; 有残暴挡不了→我全劈(12伤)必杀
+    d_br = Duel(4, 4, 4, 4, 15, 9, m_brutal=True)
+    d_b0 = Duel(4, 4, 4, 4, 15, 9)
+    (_, _), (_, fhb) = d_br.solve(3, 0, 1, 0, 15, 9, 0)
+    (_, _), (_, fh0) = d_b0.solve(3, 0, 1, 0, 15, 9, 0)
+    assert fhb <= 0 and fh0 == 1, (fhb, fh0)
+    print("残暴 ✓ （3普砍9血: 无残暴敌挡一刀活1血, 带残暴挡不了被劈死）")
     # 单调性：攻骰更多→杀率不降；敌血更低→杀率不降；分布归一
     wpn_m = dict(A=5, hit=3, dn=3, dc=4)
     wpn_f = dict(A=4, hit=3, dn=3, dc=4)
