@@ -21,7 +21,7 @@ d2 = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(d2)
 Duel, dice_dist = d2.Duel, d2.dice_dist
 
-HP = 15  # 标准局血量（双方同）
+# 血量=各武器归属者（见WEAPONS表）；受创线按各自起始血自动生效
 
 
 def mkpool(A, hit, lethal=None, rending=False):
@@ -42,20 +42,23 @@ def mkpool(A, hit, lethal=None, rending=False):
 
 # 武器清单（代表面板；同类合并注明出处）
 WEAPONS = [
-    #  名称              A  hit 普伤 暴伤 词条(致命/撕裂/Shock/挡二)
-    ("凡人刺刀",   3, 4, 2, 3, dict(),                                  "DKK士兵刺刀"),
-    ("手斧/匕首",   3, 4, 3, 4, dict(),                                  "DKK手斧=卡舍津格斗匕首(同类)"),
-    ("星际战士拳",  4, 3, 3, 4, dict(),                                  "星际战士基准"),
-    ("作战刃",     5, 3, 3, 4, dict(),                                  "VSM装备件"),
-    ("分子细剑",   4, 3, 3, 6, dict(lethal=5),                           "Elucia(致命5+同类不单列)"),
-    ("骨镰",      5, 3, 4, 5, dict(),                                  "蛇虫全系=NC斩首者刀(同类)"),
-    ("撕裂镰",     5, 3, 4, 5, dict(rending=True),                       "蛇虫首脑=剧团爱抚(同类)"),
-    ("残暴拥抱",   5, 3, 4, 5, dict(brutal=True),                        "剧团拥抱(残暴)"),
-    ("刀刃",      5, 3, 4, 6, dict(),                                  "剧团舞者/主角"),
-    ("动力武器",   5, 3, 4, 6, dict(lethal=5),                           "剧团主角=千子弯刀=星旅刽子手(同类)"),
-    ("之吻",      5, 3, 3, 7, dict(),                                  "剧团"),
-    ("镇压警棍盾",  4, 4, 4, 4, dict(shock=True, block2=True),             "强征盾兵(监督官支配锤4/3+同族)"),
-    ("重雷神锤",   5, 4, 6, 7, dict(shock=True),                         "DW破坏者"),
+    #  名称                血量  A  hit 普伤 暴伤 词条
+    ("凡人刺刀",      7,  3, 4, 2, 3, dict(),                              "DKK士兵"),
+    ("手斧/匕首",      8,  3, 4, 3, 4, dict(),                              "卡舍津=DKK海员"),
+    ("星际战士拳",     15, 4, 3, 3, 4, dict(),                              "星际战士基准"),
+    ("作战刃",        12, 5, 3, 3, 4, dict(),                              "VSM渗透者"),
+    ("分子细剑",       8,  4, 3, 3, 6, dict(lethal=5),                       "Elucia"),
+    ("NC战术刀",      15, 5, 3, 4, 5, dict(),                              "NC斩首者"),
+    ("蛇虫骨镰",      18, 5, 3, 4, 5, dict(),                              "蛇虫战士"),
+    ("首脑撕裂镰",     19, 5, 3, 4, 5, dict(rending=True),                   "蛇虫首脑"),
+    ("剧团撕裂镰",      8, 5, 3, 4, 5, dict(rending=True),                   "剧团爱抚"),
+    ("残暴拥抱",        8, 5, 3, 4, 5, dict(brutal=True),                    "剧团舞者"),
+    ("刀刃",          8, 5, 3, 4, 6, dict(),                              "剧团舞者(主角9近似)"),
+    ("动力·剧团",      9, 5, 3, 4, 6, dict(lethal=5),                        "剧团主角(刽子手8近似)"),
+    ("动力·千子",     15, 5, 3, 4, 6, dict(lethal=5),                        "千子巫师"),
+    ("之吻",          8, 5, 3, 3, 7, dict(),                              "剧团舞者"),
+    ("镇压警棍盾",      8,  4, 4, 4, 4, dict(shock=True, block2=True),         "强征盾兵"),
+    ("重雷神锤",       15, 5, 4, 6, 7, dict(shock=True),                      "DW破坏者"),
 ]
 
 
@@ -65,22 +68,22 @@ def build(A, hit, dn, dc, rules):
 
 
 def duel_expect(a, b):
-    """a攻b（a先手）→ (a期望造伤, a期望承伤)。15/15标准局。"""
-    (aA, aH, aDn, aDc, aR), (bA, bH, bDn, bDc, bR) = a, b
+    """a攻b（a先手）→ (a期望造伤, a期望承伤)。各自归属者血量。"""
+    (aHp, aA, aH, aDn, aDc, aR), (bHp, bA, bH, bDn, bDc, bR) = a, b
     mp = mkpool(aA, aH, lethal=aR.get("lethal"), rending=aR.get("rending", False))
     fp = mkpool(bA, bH, lethal=bR.get("lethal"), rending=bR.get("rending", False))
-    s = Duel(aDn, aDc, bDn, bDc, HP, HP, HP, HP, first=0,
+    s = Duel(aDn, aDc, bDn, bDc, aHp, bHp, aHp, bHp, first=0,
              m_shock=aR.get("shock", False), f_shock=bR.get("shock", False),
              m_block2=aR.get("block2", False), f_block2=bR.get("block2", False),
              m_brutal=aR.get("brutal", False), f_brutal=bR.get("brutal", False))
     dist = defaultdict(float)
     for (mN, mC), p1 in mp.items():
         for (fN, fC), p2 in fp.items():
-            _, (mh, fh) = s.solve(mN, mC, fN, fC, HP, HP, 0)
+            _, (mh, fh) = s.solve(mN, mC, fN, fC, aHp, bHp, 0)
             dist[(max(mh, 0), max(fh, 0))] += p1 * p2
     t = sum(dist.values())
-    e_out = sum((HP - fh) * p for (mh, fh), p in dist.items()) / t
-    e_in = sum((HP - mh) * p for (mh, fh), p in dist.items()) / t
+    e_out = sum((bHp - fh) * p for (mh, fh), p in dist.items()) / t
+    e_in = sum((aHp - mh) * p for (mh, fh), p in dist.items()) / t
     return e_out, e_in
 
 
@@ -99,14 +102,14 @@ def rule_tag(r):
     return "+".join(parts) if parts else ""
 
 
-def stat_tag(A, H, dn, dc, r):
-    t = "%d/%d+ %d/%d" % (A, H, dn, dc)
+def stat_tag(hp, A, H, dn, dc, r):
+    t = "%d血 %d/%d+ %d/%d" % (hp, A, H, dn, dc)
     rt = rule_tag(r)
     return t + ("·" + rt if rt else "")
 
 
 def main():
-    ws = [(nm, (A, H, dn, dc, r), src) for nm, A, H, dn, dc, r, src in WEAPONS]
+    ws = [(nm, (hp, A, H, dn, dc, r), src) for nm, hp, A, H, dn, dc, r, src in WEAPONS]
     names = [w[0] for w in ws]
     res = {}
     for i, (an, ap, _) in enumerate(ws):
@@ -116,9 +119,9 @@ def main():
             res[(i, j)] = duel_expect(ap, bp)
 
     # 面板清单（含词条）
-    print("== 武器面板（A/命中 普伤/暴伤 | 词条）==")
-    for nm, (A, H, dn, dc, r), src in ws:
-        print("  %-8s %d/%d+ %d/%d | %-12s [%s]" % (nm, A, H, dn, dc, rule_tag(r), src))
+    print("== 武器面板（血量 A/命中 普伤/暴伤 | 词条）==")
+    for nm, (hp, A, H, dn, dc, r), src in ws:
+        print("  %-8s %d血 %d/%d+ %d/%d | %-12s [%s]" % (nm, hp, A, H, dn, dc, rule_tag(r), src))
 
     # 全矩阵（行=攻/先手, 列=守; 格=打E/挨E）
     hdr = "%-8s%-10s" % ("攻\\守", "词条")
@@ -126,8 +129,8 @@ def main():
         hdr += "%12s" % nm[:6]
     print("\n" + hdr)
     for i, nm in enumerate(names):
-        A_, H_, dn_, dc_, r_ = ws[i][1]
-        row = "%-8s%-16s" % (nm[:6], stat_tag(A_, H_, dn_, dc_, r_))
+        hp_, A_, H_, dn_, dc_, r_ = ws[i][1]
+        row = "%-8s%-18s" % (nm[:6], stat_tag(hp_, A_, H_, dn_, dc_, r_))
         for j in range(len(names)):
             if i == j:
                 row += "         ----"
@@ -145,8 +148,8 @@ def main():
         a_in = sum(res[(i, j)][1] for j in range(len(names)) if j != i) / (len(names) - 1)
         d_out = sum(res[(j, i)][1] for j in range(len(names)) if j != i) / (len(names) - 1)
         d_in = sum(res[(j, i)][0] for j in range(len(names)) if j != i) / (len(names) - 1)
-        A_, H_, dn_, dc_, r_ = ws[i][1]
-        stats.append((nm, stat_tag(A_, H_, dn_, dc_, r_), a_out, a_in, d_out, d_in, a_out + d_out - a_in - d_in))
+        hp_, A_, H_, dn_, dc_, r_ = ws[i][1]
+        stats.append((nm, stat_tag(hp_, A_, H_, dn_, dc_, r_), a_out, a_in, d_out, d_in, a_out + d_out - a_in - d_in))
     for nm, tag, ao, ai, do, di, diff in sorted(stats, key=lambda x: -x[6]):
         print("%-10s %-18s %8.2f %8.2f %8.2f %8.2f %+8.2f" % (nm, tag, ao, ai, do, di, diff))
 
