@@ -84,6 +84,21 @@ def duel_expect(a, b):
     return e_out, e_in
 
 
+def rule_tag(r):
+    parts = []
+    if r.get("lethal"):
+        parts.append("致命5+")
+    if r.get("rending"):
+        parts.append("撕裂")
+    if r.get("brutal"):
+        parts.append("残暴")
+    if r.get("shock"):
+        parts.append("Shock")
+    if r.get("block2"):
+        parts.append("挡二")
+    return "+".join(parts) if parts else "—"
+
+
 def main():
     ws = [(nm, (A, H, dn, dc, r), src) for nm, A, H, dn, dc, r, src in WEAPONS]
     names = [w[0] for w in ws]
@@ -94,13 +109,18 @@ def main():
                 continue
             res[(i, j)] = duel_expect(ap, bp)
 
+    # 面板清单（含词条）
+    print("== 武器面板（A/命中 普伤/暴伤 | 词条）==")
+    for nm, (A, H, dn, dc, r), src in ws:
+        print("  %-8s %d/%d+ %d/%d | %-12s [%s]" % (nm, A, H, dn, dc, rule_tag(r), src))
+
     # 全矩阵（行=攻/先手, 列=守; 格=打E/挨E）
-    hdr = "%-8s" % "攻\\守"
+    hdr = "%-8s%-10s" % ("攻\\守", "词条")
     for nm in names:
         hdr += "%12s" % nm[:6]
-    print(hdr)
+    print("\n" + hdr)
     for i, nm in enumerate(names):
-        row = "%-8s" % nm[:6]
+        row = "%-8s%-10s" % (nm[:6], rule_tag(ws[i][1][4]))
         for j in range(len(names)):
             if i == j:
                 row += "         ----"
@@ -111,14 +131,14 @@ def main():
 
     # 摘要
     print("\n== 摘要（跨全部12个对手的均值）==")
-    print("%-10s %8s %8s %8s" % ("武器", "攻期望", "守承伤", "攻防差"))
+    print("%-10s %-12s %8s %8s %8s" % ("武器", "词条", "攻期望", "守承伤", "攻防差"))
     stats = []
     for i, nm in enumerate(names):
         atk = sum(res[(i, j)][0] for j in range(len(names)) if j != i) / (len(names) - 1)
         dfn = sum(res[(j, i)][1] for j in range(len(names)) if j != i) / (len(names) - 1)
-        stats.append((nm, atk, dfn, atk - dfn))
-    for nm, a, d, diff in sorted(stats, key=lambda x: -x[1]):
-        print("%-10s %8.2f %8.2f %+8.2f" % (nm, a, d, diff))
+        stats.append((nm, rule_tag(ws[i][1][4]), atk, dfn, atk - dfn))
+    for nm, tag, a, d, diff in sorted(stats, key=lambda x: -x[2]):
+        print("%-10s %-12s %8.2f %8.2f %+8.2f" % (nm, tag, a, d, diff))
 
 
 if __name__ == "__main__":
