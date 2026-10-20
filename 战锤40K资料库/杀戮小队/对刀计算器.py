@@ -125,15 +125,24 @@ class Duel:
         return (min(2, foeN) if block2 else 1) if foeN > 0 else 0
 
     def _cblock(self, foeN, foeC, block2, dn_val, dc_val):
-        """暴挡取消的(普成数,暴成数)：非挡二=1颗合法最高伤；挡二=至多2颗最高伤。"""
+        """暴挡取消的(普成数,暴成数)：非挡二=1颗合法最高伤；挡二=至多2颗最高伤。
+        同伤时优先弃暴成；**按类计数不按伤害值计数**(2026-10-16修: 4/4武器伤害值
+        相等导致count()把两颗都归普成→扣出负数骰)。"""
+        if foeN + foeC == 0:
+            return 0, 0
         if not block2:
             if foeC > 0 and dc_val >= dn_val:
                 return 0, 1
             if foeN > 0:
                 return 1, 0
-            return 0, 1 if foeC > 0 else 0
-        picks = sorted(([dn_val] * foeN + [dc_val] * foeC), reverse=True)[:2]
-        return picks.count(dn_val), picks.count(dc_val)
+            return 0, 1
+        if dn_val > dc_val:
+            cn = min(foeN, 2)
+            cc = min(foeC, 2 - cn)
+        else:  # 暴伤≥普伤(含同伤): 优先弃暴成
+            cc = min(foeC, 2)
+            cn = min(foeN, 2 - cc)
+        return cn, cc
 
     def _halve(self, dmg):
         """首次伤害减半：上取整、最低2、只减不增（1伤原样）。"""
@@ -475,6 +484,13 @@ def selftest():
     (_, _), (_, fh0) = d_b0.solve(3, 0, 1, 0, 15, 9, 0)
     assert fhb <= 0 and fh0 == 1, (fhb, fh0)
     print("残暴 ✓ （3普砍9血: 无残暴敌挡一刀活1血, 带残暴挡不了被劈死）")
+    # 挡二vs同伤武器回归(v1.6b修): 4/4武器0普2暴被暴挡二→弃2暴成, 禁负骰
+    d_eq = Duel(4, 4, 3, 5, 12, 12, f_block2=True)
+    assert d_eq._cblock(0, 2, True, 4, 4) == (0, 2)
+    assert d_eq._cblock(1, 1, True, 4, 4) == (1, 1)  # 挡二=两颗全弃(1普+1暴)
+    (_, _), (mhq, fhq) = d_eq.solve(0, 2, 0, 2, 12, 12, 0)
+    assert mhq >= 0 and fhq >= 0, (mhq, fhq)
+    print("挡二同伤武器 ✓ （4/4双暴被暴挡二正确弃2暴成，无负骰）")
     # 单调性：攻骰更多→杀率不降；敌血更低→杀率不降；分布归一
     wpn_m = dict(A=5, hit=3, dn=3, dc=4)
     wpn_f = dict(A=4, hit=3, dn=3, dc=4)

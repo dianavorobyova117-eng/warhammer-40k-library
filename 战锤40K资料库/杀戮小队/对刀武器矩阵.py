@@ -57,7 +57,8 @@ WEAPONS = [
     ("动力·剧团",      9, 5, 3, 4, 6, dict(lethal=5),                        "剧团主角(刽子手8近似)"),
     ("动力·千子",     15, 5, 3, 4, 6, dict(lethal=5),                        "千子巫师"),
     ("之吻",          8, 5, 3, 3, 7, dict(),                              "剧团舞者"),
-    ("镇压警棍盾",      8,  4, 4, 4, 4, dict(shock=True, block2=True),         "强征盾兵"),
+        ("镇压警棍盾",      8,  4, 4, 4, 4, dict(shock=True, block2=True, defender_first=True), "强征盾兵(Repress阵营规则)"),
+    ("DW盾卫锤盾",     15, 5, 3, 4, 6, dict(shock=True, block2=True, defender_first=True), "DW盾卫(反击先手=用户卡面口径,Wahapedia未录·App终审)"),
     ("重雷神锤",       15, 5, 4, 6, 7, dict(shock=True),                      "DW破坏者"),
 ]
 
@@ -72,14 +73,15 @@ def duel_expect(a, b):
     (aHp, aA, aH, aDn, aDc, aR), (bHp, bA, bH, bDn, bDc, bR) = a, b
     mp = mkpool(aA, aH, lethal=aR.get("lethal"), rending=aR.get("rending", False))
     fp = mkpool(bA, bH, lethal=bR.get("lethal"), rending=bR.get("rending", False))
-    s = Duel(aDn, aDc, bDn, bDc, aHp, bHp, aHp, bHp, first=0,
+    first = 1 if bR.get("defender_first") else 0
+    s = Duel(aDn, aDc, bDn, bDc, aHp, bHp, aHp, bHp, first=first,
              m_shock=aR.get("shock", False), f_shock=bR.get("shock", False),
              m_block2=aR.get("block2", False), f_block2=bR.get("block2", False),
              m_brutal=aR.get("brutal", False), f_brutal=bR.get("brutal", False))
     dist = defaultdict(float)
     for (mN, mC), p1 in mp.items():
         for (fN, fC), p2 in fp.items():
-            _, (mh, fh) = s.solve(mN, mC, fN, fC, aHp, bHp, 0)
+            _, (mh, fh) = s.solve(mN, mC, fN, fC, aHp, bHp, first)
             dist[(max(mh, 0), max(fh, 0))] += p1 * p2
     t = sum(dist.values())
     e_out = sum((bHp - fh) * p for (mh, fh), p in dist.items()) / t
@@ -99,6 +101,8 @@ def rule_tag(r):
         parts.append("Shock")
     if r.get("block2"):
         parts.append("挡二")
+    if r.get("defender_first"):
+        parts.append("反击先手")
     return "+".join(parts) if parts else ""
 
 
