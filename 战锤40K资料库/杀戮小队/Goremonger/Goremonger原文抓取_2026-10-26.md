@@ -38,16 +38,23 @@
 
 ## Sanguavitae六项（每次使用降一格罐）
 
-总限制：同一Sanguavitae每次激活/反击至多用一次；每次激活/反击至多共两次；**Mania与Fury同次激活互斥**。
+**⚠逐字时机核验（2026-10-26第三次抓取，翻译差异第7案候选）**：总则原文="Each SANGUAVITAE rule specifies when it can be used"——**时机按条各写各的，激活/反应之分不是一刀切**：
+- Rejuvenate："During a friendly GOREMONGER operative's **activation or counteraction**, before or after it performs an action"——**激活或反应都行**
+- Mania／Fury："During ... **activation**, before or after it performs an action"——**仅激活**
+- Rake："When ... performs the Charge action **during its activation**"——**仅激活**
+- Surge："When ... performs the Charge or Reposition action"——**无激活限定→反应里也能开**
+- Rage："When ... performs the Fight action"——**无激活限定→反应里也能开**（含Gorethirst反应的Fight）
 
-| 名称 | 时机 | 效果 |
+总限制逐字："You cannot use the same SANGUAVITAE rule more than once per **activation or counteraction**"／"you cannot use more than two SANGUAVITAE rules per **activation or counteraction**"／"You cannot use Mania and Fury during the same activation."——总限制句的"or counteraction"措辞大概率就是中文翻译"激活或反应都能用"印象的来源；实际只有Rejuvenate/Surge/Rage反应可用。
+
+| 名称 | 时机（逐字口径） | 效果 |
 |---|---|---|
-| Rejuvenate | 激活/反击中动作前后 | 回复至多D3+1已损失血 |
-| Mania | 激活中动作前后 | 至其下次激活开始APL+1 |
-| Fury | 激活中动作前后 | 本次激活可两次Fight，第二次免费 |
-| Rake | 执行Charge时 | 该动作移动结束后对控制范围内一名敌人造D3伤 |
-| Surge | Charge或Reposition时 | 该动作结束前移动+1寸 |
-| Rage | 执行Fight时 | 该动作中近战武器攻+1 |
+| Rejuvenate | **激活或反应**，动作前后 | 回复至多D3+1已损失血 |
+| Mania | 仅激活，动作前后 | 至其下次激活开始APL+1 |
+| Fury | 仅激活，动作前后 | 本次激活可两次Fight，第二次免费 |
+| Rake | 仅激活中的Charge | 该动作移动结束后对控制范围内一名敌人造D3伤 |
+| Surge | 任意Charge/Reposition（**含反应**） | 该动作结束前移动+1寸 |
+| Rage | 任意Fight（**含反应**） | 该动作中近战武器攻+1 |
 
 ## Gore Tank
 

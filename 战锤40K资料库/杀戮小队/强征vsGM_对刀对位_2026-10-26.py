@@ -28,10 +28,14 @@ def mkpool(A, hit, lethal=None, rending=False, balance=0):
     return dict(out)
 
 
-def run(att, dfn, att_halve=False, dfn_halve=False, brutish_target=False, label="",
-        att_start=None, dfn_start=None):
+def run(att, dfn, att_halve=False, dfn_halve=False, brutish_target=False, brutish_defender=False,
+        label="", att_start=None, dfn_start=None):
     """att攻dfn。武器=(血,A,hit,dn,dc,规则dict)。返回E_out/E_in/杀率。
-    brutish_target=True: 守方带Brutish→攻方暴成全转普成(N+C,0)。
+    brutish_target=True: 守方(Skullclaimer)带Brutish→攻方暴成全转普成(N+C,0)。
+    brutish_defender=True: 攻方(Skullclaimer)带Brutish→守方暴成全转普成（2026-10-26修正方向：
+      旧版大链斧进攻行错把变换套在斧方自己池上）。
+    注：强征近战全为平伤武器(4/4、5/5)——Brutish对劈砍伤害无影响，池变换实际效果=废Shock触发+废暴挡
+    （暴挡本不必降——过度惩罚方向，读数偏保守）。
     att_start/dfn_start: 起始血（带伤冲锋场景——已受创者hit恶化1由引擎处理）。"""
     aHp, aA, aH, aDn, aDc, aR = att
     fHp, fA, fH, fDn, fDc, fR = dfn
@@ -41,6 +45,8 @@ def run(att, dfn, att_halve=False, dfn_halve=False, brutish_target=False, label=
     fp = mkpool(fA, fH + (1 if 2 * fHp < fSt else 0), fR.get("lethal"), fR.get("rending", False), fR.get("balance", 0))
     if brutish_target:
         mp = {(N + C, 0): p for (N, C), p in mp.items()}
+    if brutish_defender:
+        fp = {(N + C, 0): p for (N, C), p in fp.items()}
     first = 1 if fR.get("defender_first") else 0
     s = Duel(aDn, aDc, fDn, fDc, aHp, fHp, aSt, fSt, first=first,
              m_shock=aR.get("shock", False), f_shock=fR.get("shock", False),
@@ -64,7 +70,7 @@ def run(att, dfn, att_halve=False, dfn_halve=False, brutish_target=False, label=
 # ── 强征（Repress=挡二仅反击+反击先手；规则dict与矩阵同键名） ──
 SHIELD = (8, 4, 4, 4, 4, dict(shock=True, block2_def=True, defender_first=True))          # 盾兵 电击警棍&盾
 MAUL   = (9, 4, 3, 4, 4, dict(lethal=5, shock=True, block2_def=True, defender_first=True))  # 监督官 支配锤&盾
-PAIN   = (8, 4, 3, 5, 5, dict(shock=True, block2_def=True, defender_first=True))          # 惩戒官 拷问锤(裂解不建模=近战无甲)
+PAIN   = (8, 4, 3, 5, 5, dict(shock=True))          # 惩戒官 拷问锤(2026-10-26四抓:无Repress——Repress仅支配锤&盾/电击警棍&盾两把;Rending歧义按无词条保守)
 
 # ── GM近战（10~11血；撕裂/残暴） ──
 GLAIVE  = (10, 4, 3, 4, 5, dict(rending=True))   # Aspirant 锁链镰
@@ -95,9 +101,9 @@ rows = [
     ("锁链镰→惩戒官", GLAIVE, PAIN, {}),
     ("锁链刃(Herald)→盾兵", BLADE, SHIELD, {}),
     ("锁链刃→监督官", BLADE, MAUL, {}),
-    ("大链斧(Skullclaimer)→盾兵", AXE, SHIELD, dict(brutish=True)),
-    ("大链斧→监督官", AXE, MAUL, dict(brutish=True)),
-    ("大链斧→惩戒官", AXE, PAIN, dict(brutish=True)),
+    ("大链斧(Skullclaimer)→盾兵", AXE, SHIELD, dict(brutish_def=True)),
+    ("大链斧→监督官", AXE, MAUL, dict(brutish_def=True)),
+    ("大链斧→惩戒官", AXE, PAIN, dict(brutish_def=True)),
     ("仪式刃(Bloodtaker)→盾兵", RITUAL, SHIELD, {}),
     ("掘裂爪(Stalker)→盾兵", PICKS, SHIELD, {}),
     ("刺入档(Impaler)→盾兵", STAB, SHIELD, {}),
@@ -113,9 +119,9 @@ for lbl, a, f, kw in [
     ("锁链镰+Rage→监督官", GLAIVE_R, MAUL, {}),
     ("锁链镰+Rage+GoryTenacity→盾兵", GLAIVE_R, SHIELD, dict(att_halve=True)),
     ("锁链镰+Rage+EnhancedViolence→盾兵", GLAIVE_RB, SHIELD, {}),
-    ("大链斧+Rage+Brutish→盾兵", AXE_R, SHIELD, dict(brutish=True)),
-    ("大链斧+Rage+Brutish→监督官", AXE_R, MAUL, dict(brutish=True)),
-    ("大链斧+Rage+Brutish+GoryTenacity→监督官", AXE_R, MAUL, dict(brutish=True, att_halve=True)),
+    ("大链斧+Rage+Brutish→盾兵", AXE_R, SHIELD, dict(brutish_def=True)),
+    ("大链斧+Rage+Brutish→监督官", AXE_R, MAUL, dict(brutish_def=True)),
+    ("大链斧+Rage+Brutish+GoryTenacity→监督官", AXE_R, MAUL, dict(brutish_def=True, att_halve=True)),
 ]:
     eo, ei, ka, kd, inj = run(a, f, brutish_target=kw.get("brutish", False), att_halve=kw.get("att_halve", False))
     print(f"{lbl}: {eo:.1f}/{ei:.1f} | 杀{ka*100:.0f}%↔{kd*100:.0f}% (GM受创{inj*100:.0f}%)")
@@ -141,21 +147,21 @@ for lbl, a, f, st, kw in [
     ("锁链镰+Rage(5血)→盾兵", G5, SHIELD, 10, {}),
     ("锁链镰+Rage(5血)→监督官", G5, MAUL, 10, {}),
     ("锁链镰+Rage(5血)→惩戒官", G5, PAIN, 10, {}),
-    ("大链斧+Rage(5血)+Brutish→盾兵", A5, SHIELD, 10, dict(brutish=True)),
-    ("大链斧+Rage(5血)+Brutish→惩戒官", A5, PAIN, 10, dict(brutish=True)),
+    ("大链斧+Rage(5血)+Brutish→盾兵", A5, SHIELD, 10, dict(brutish_def=True)),
+    ("大链斧+Rage(5血)+Brutish→惩戒官", A5, PAIN, 10, dict(brutish_def=True)),
     ("Herald锁链刃(6血)→监督官", B6, MAUL, 11, {}),
 ]:
-    eo, ei, ka, kd, inj = run(a, f, brutish_target=kw.get("brutish", False), att_start=st)
+    eo, ei, ka, kd, inj = run(a, f, brutish_target=kw.get("brutish", False), brutish_defender=kw.get("brutish_def", False), att_start=st)
     print(f"{lbl}: {eo:.1f}/{ei:.1f} | 杀{ka*100:.0f}%↔{kd*100:.0f}% (强征反杀{kd*100:.0f}%)")
 
 print()
 print("== 惩戒官带支援(+1命中=hit2+)主动冲锋（支援者=被围的炮手/盾，条件见速查14b支援）==")
-PAIN_SUP = (8, 4, 2, 5, 5, dict(shock=True, block2_def=True, defender_first=True))
+PAIN_SUP = (8, 4, 2, 5, 5, dict(shock=True))
 for lbl, a, f, kw in [
     ("惩戒官(支援2+)→锁链镰", PAIN_SUP, GLAIVE, {}),
     ("惩戒官(支援2+)→锁链镰+GT", PAIN_SUP, GLAIVE, dict(dfn_halve=True)),
     ("惩戒官(支援2+)→锁链镰+Rage", PAIN_SUP, GLAIVE_R, {}),
     ("惩戒官(支援2+)→大链斧+Brutish", PAIN_SUP, AXE, dict(brutish=True)),
 ]:
-    eo, ei, ka, kd, inj = run(a, f, brutish_target=kw.get("brutish", False), dfn_halve=kw.get("dfn_halve", False))
+    eo, ei, ka, kd, inj = run(a, f, brutish_target=kw.get("brutish", False), brutish_defender=kw.get("brutish_def", False), dfn_halve=kw.get("dfn_halve", False))
     print(f"{lbl}: {eo:.1f}/{ei:.1f} | 杀{ka*100:.0f}%↔{kd*100:.0f}%")

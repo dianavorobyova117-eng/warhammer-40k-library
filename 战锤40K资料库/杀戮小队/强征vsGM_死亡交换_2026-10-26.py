@@ -62,7 +62,7 @@ def band(dist, fHp):
     return dict(out)
 
 # ── 武器 (A,hit,dn,dc,规则) ──
-GUNNER_BATON = (3, 4, 2, 3, dict(block2_def=True, defender_first=True))       # 炮手镇压警棍
+GUNNER_BATON = (3, 4, 2, 3, dict())       # 炮手镇压警棍(2026-10-26四抓:警棍词条栏为空——无Repress,用户指出)
 SHIELD_MAUL  = (4, 4, 4, 4, dict(shock=True, block2_def=True, defender_first=True))  # 盾兵电击警棍&盾
 GLAIVE_R     = (5, 3, 4, 5, dict(rending=True))              # 锁链镰+Rage
 GLAIVE       = (4, 3, 4, 5, dict(rending=True))
@@ -77,20 +77,20 @@ for lbl, aW, aBrutal in [("锁链镰(裸)", GLAIVE, False), ("锁链镰+Rage", G
     d = duel_dist(aW, GUNNER_BATON, 10, 8, 10, 8, first=1, a_brutal=aBrutal, brutish_def=False)
     t = sum(d.values())
     edealt = sum((10 - mh) * p for (mh, fh), p in d.items()) / t
-    p0 = sum(p for (mh, fh), p in d.items() if mh == 8) / t
-    p2 = sum(p for (mh, fh), p in d.items() if mh == 6) / t
-    p3 = sum(p for (mh, fh), p in d.items() if mh == 5) / t
+    p0 = sum(p for (mh, fh), p in d.items() if mh == 10) / t
+    p2 = sum(p for (mh, fh), p in d.items() if mh == 8) / t
+    p3 = sum(p for (mh, fh), p in d.items() if mh == 7) / t
     p4 = sum(p for (mh, fh), p in d.items() if 10 - mh >= 4) / t
     die = sum(p for (mh, fh), p in d.items() if fh <= 0) / t
     kill = sum(p for (mh, fh), p in d.items() if mh <= 0) / t
     cd = sum((10 - mh) * p for (mh, fh), p in d.items() if fh <= 0)
     cond = cd / (die * t) if die > 0 else 0
-    print(f"{lbl}: E={edealt:.2f} | {p0*100:.0f}%/{p2*100:.0f}%/{p3*100:.0f}%/{p4*100:.0f}% | 死{die*100:.0f}% 反杀{kill*100:.0f}% | 死时E={cond:.2f}")
+    print(f"{lbl}: E={edealt:.2f} | 打0={p0*100:.0f}% 打2={p2*100:.0f}% 打3={p3*100:.0f}% 打4+={p4*100:.0f}% | 炮手死{die*100:.0f}% 反杀{kill*100:.0f}% | 死时E={cond:.2f}")
 
 print()
 print("== 场景B：盾兵手枪先射(4/4+ 3/3 vs 5+甲)→冲锋挡位→满罐GM全配开近战（含Fury第二刀白板）==")
 pistol = sz.shoot_dist(4, 4, 3, 3, 5)
-def scenario(lbl, gm_base, gm_rage_severe, gm_rage, gm_hp0, a_brutal, gt):
+def scenario(lbl, gm_base, gm_rage_severe, gm_rage, gm_hp0, a_brutal, gt, fury=True):
     total_die = total_kill = total_both_live = 0.0
     e_shield_dealt = e_shield_taken = 0.0
     for dmg, pw in pistol.items():
@@ -103,6 +103,8 @@ def scenario(lbl, gm_base, gm_rage_severe, gm_rage, gm_hp0, a_brutal, gt):
                 total_die += w; e_shield_dealt += w * (gm_hp0 - mh); e_shield_taken += w * (8 - fh); continue
             if mh <= 0:
                 total_kill += w; e_shield_dealt += w * gm_hp0; e_shield_taken += w * (8 - fh); continue
+            if not fury:
+                total_both_live += w; e_shield_dealt += w * (gm_hp0 - mh); e_shield_taken += w * (8 - fh); continue
             # Fury第二刀：白板武器（无Rage/无Severe/GT已用）
             d2 = duel_dist(gm_base, SHIELD_MAUL, mh, fh, gm_hp0, 8, first=1, a_brutal=a_brutal)
             for (mh2, fh2), p2 in d2.items():
@@ -116,4 +118,5 @@ scenario("Aspirant锁链镰+Rage+UA严重+Fury (10血)", GLAIVE, GLAIVE_RS, GLAI
 scenario("同上+GoryTenacity(战略CP改买GT)", GLAIVE, GLAIVE_RS, GLAIVE_R, 10, False, True)
 scenario("Skullclaimer大链斧+Rage+UA+Brutish+Fury (10血)", (4, 3, 5, 6, dict(brutal=True)), AXE_RS, AXE_R, 10, True, False)
 scenario("Herald锁链刃+Rage+UA+Fury (11血)", (4, 3, 4, 5, dict(rending=True)), (5, 3, 4, 5, dict(rending=True, severe=True)), (5, 3, 4, 5, dict(rending=True)), 11, False, False)
-scenario("对照:裸锁链镰无罐无计策单刀 (10血)", GLAIVE, GLAIVE, GLAIVE, 10, False, False)
+scenario("裸锁链镰+Fury二连(不花罐不花CP) (10血)", GLAIVE, GLAIVE, GLAIVE, 10, False, False)
+scenario("对照:裸锁链镰单刀(无Fury) (10血)", GLAIVE, GLAIVE, GLAIVE, 10, False, False, fury=False)
