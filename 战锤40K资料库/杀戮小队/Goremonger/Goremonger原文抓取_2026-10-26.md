@@ -57,9 +57,57 @@
 
 **含义：每人开场自带半罐=自带一次性Sanguavitae/Gore-Fuel使用权，不需要击杀。"不送死卡半罐"的真实含义=对面每人有一发免费罐技，第二次开始才需要人头。**
 
-## 待建册补充项（下次抓取）
+## 全员数据卡（2026-10-26第二次抓取）
 
-- 其余干员数据卡（Aspirant/Inciter/Bloodtaker等）全表
-- 阵营计策全文（Enhanced Violence/Gory Tenacity/Hunt for Blood/Unbridled Aggression/Destructive Demise——Unbridled Aggression近战上下文给严重的原文待锚）
-- Runes of Khorne限伤8原文
-- 任务/装备池
+构成：1 Blood Herald（领袖）+7选（Aspirant可重复，其余各限1）。全员APL2/移7寸/甲5+/32mm。
+
+| 干员 | 血 | 远程 | 近战 | 特殊 |
+|---|---|---|---|---|
+| **Blood Herald** | 11 | 圣像Icon of Khorne 4/**2+** 4/4 射8 **饱和**；autopistol | Chainblade 4/3+ 4/5 撕裂 | Khorne's Favour（激活内动作前后：空罐可升一格，每激活一次）；Impending Apotheosis（每场一次：忽略一颗攻骰的普伤） |
+| **Aspirant**（可重复） | 10 | autopistol 4/4+ 2/3 射8 | Chainglaive 4/3+ 4/5 撕裂 | Obsessive Bloodlust（每TP一次：Fight结束不在敌控内→免费Charge（最多移2寸），已冲锋过也不禁，且不阻止后续Charge/Dash/Reposition） |
+| **Bloodtaker** | 10 | autopistol | Ritual blade 4/3+ 3/5；Ritual（序列内首次造伤且目标在其控制范围内→可升自己一格罐，与击杀充罐叠加） | Transfusion Ritual（1AP）：降自己罐→升8寸内另一GM的罐（替代Sanguavitae；敌控内/空罐禁用） |
+| **Impaler** | 10 | autopistol；**Fleshskewer**（上文全档） | Fleshskewer stab 4/3+ 3/4 无词条 | Gore-Fuel（上文） |
+| **Inciter** | 10 | **聚焦**双枪 4/3+ 2/2 无休止+Dev1+撕裂；**贴脸**双枪 4/3+ 3/4 无休止+撕裂（均射8） | — | Dash and Spray（1AP：免费Dash+免费Shoot任意序，仅聚焦档；隐蔽令/敌控内禁）；Incite the Hunt（>2寸外远程击杀→升8寸内一名友方GM罐；任一双枪档非致命命中→目标获得Bleeding标记：GM激活/反击时8寸内有Bleeding敌→移除标记升自己罐） |
+| **Skullclaimer** | 10 | autopistol | **Great chainaxe 4/3+ 5/6 残暴Brutal** | Brutish（任一攻骰将对本体造暴伤→可改判为普伤）；Claim Skull（每TP一次：大斧击杀→+1CP） |
+| **Stalker** | 10 | autopistol | Pickrippers 4/3+ 4/5 撕裂 | Climbing Picks（垂直攀爬按2寸计）；Rooftop Stalker（本激活曾从制高点跳落或目标在制高点上→近战武器带无情） |
+
+撕裂Rending/无休止Ceaseless/残暴Brutal等词条定义见规则速查与造伤计算器引擎（已入模；残暴近战语义=对面普挡普对本方非法，见对刀计算器v1.6）。
+
+## Runes of Khorne（原文）
+
+> "Each friendly GOREMONGER operative cannot lose more than 8 wounds per Shoot action."
+
+- 按**射击动作**封顶（双射=两个动作各自封顶→两动作合计可杀10血）。
+- 原型：Seek & Destroy / Recon。
+
+## 计策全文（第二次抓取）
+
+**战略**：
+| 计策 | 效果 |
+|---|---|
+| Enhanced Violence | 半罐=近战武器带平衡；满罐=带无情 |
+| Augmented Endurance | 被射击时：半罐=重投1颗防御骰；满罐=重投任意防御骰 |
+| Gory Tenacity | 其近战/反击中，**对其造的该序列首刀伤害减半（上取整最低2）** |
+| Hunt for Blood | 选一名友方：隐蔽令改交战令→免费Charge（最多移3寸） |
+
+**交战**：
+| 计策 | 效果 |
+|---|---|
+| Unbridled Aggression | 冲锋过的激活中近战时，掷攻骰步结束时：近战武器该序列带严重 |
+| Gorethirst | 用隐蔽令GM乘隙反击：须转交战令，限Charge/Shoot/Fight |
+| Destructive Demise | 被击倒移除前：对控制范围内一名敌人造伤——空罐D3/半罐D3+1/满罐D3+2 |
+| Lacerate Flesh | 空罐干员激活/反击时：升罐→激活结束降罐（该降不能付Sanguavitae）；不能降则受D3 |
+
+## 装备（4件）
+
+| 装备 | 效果 |
+|---|---|
+| Gory Totem（标记） | 放己方区域、距其他标记>2寸；3寸内敌人射击/近战/反击**不能重投攻骰** |
+| Bloody Cadaver（标记） | 放己方区域；友方可拾取；每个Ready阶段一名控制它的干员可升罐（敌控内禁） |
+| Chaos Sigil | 每TP一次：被射击时掷防御骰步开始——来袭穿X恶化1（穿1被忽略） |
+| Wrist Chains | 每TP一次射击动作：chainblade/chainglaive/great chainaxe（失去残暴）/pickrippers视作射程2寸远程至动作结束；Enhanced Violence给的平衡/无情**不**随之携带（FAQ） |
+
+## 待建册补充项
+
+- 任务页/装备分值、App终审项（计策CP费用）
+- App级交互裁定：Repress挡二×残暴Brutal、Brutish×Shock/致命5+、Gory Tenacity×反击先手时序
