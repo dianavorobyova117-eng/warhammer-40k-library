@@ -147,3 +147,15 @@ for lbl, a, f, st, kw in [
 ]:
     eo, ei, ka, kd, inj = run(a, f, brutish_target=kw.get("brutish", False), att_start=st)
     print(f"{lbl}: {eo:.1f}/{ei:.1f} | 杀{ka*100:.0f}%↔{kd*100:.0f}% (强征反杀{kd*100:.0f}%)")
+
+print()
+print("== 惩戒官带支援(+1命中=hit2+)主动冲锋（支援者=被围的炮手/盾，条件见速查14b支援）==")
+PAIN_SUP = (8, 4, 2, 5, 5, dict(shock=True, block2_def=True, defender_first=True))
+for lbl, a, f, kw in [
+    ("惩戒官(支援2+)→锁链镰", PAIN_SUP, GLAIVE, {}),
+    ("惩戒官(支援2+)→锁链镰+GT", PAIN_SUP, GLAIVE, dict(dfn_halve=True)),
+    ("惩戒官(支援2+)→锁链镰+Rage", PAIN_SUP, GLAIVE_R, {}),
+    ("惩戒官(支援2+)→大链斧+Brutish", PAIN_SUP, AXE, dict(brutish=True)),
+]:
+    eo, ei, ka, kd, inj = run(a, f, brutish_target=kw.get("brutish", False), dfn_halve=kw.get("dfn_halve", False))
+    print(f"{lbl}: {eo:.1f}/{ei:.1f} | 杀{ka*100:.0f}%↔{kd*100:.0f}%")

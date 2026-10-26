@@ -88,3 +88,12 @@ for lbl, d in [("Autopistol 4/4+ 2/3 vs 4+甲", ap),
                ("Fleshskewer+Gore-Fuel严重 vs 4+甲", fsSev),
                ("Fleshskewer+严重 vs 盾兵3+甲", fs3)]:
     print(f"| {lbl} | {E(d):5.2f} | {killP(d,8)*100:5.1f}% |")
+
+print()
+print("## 炮手三选对比（vs GM甲5+；列=期望伤|双射杀10血）")
+frag = shoot_dist(4, 4, 2, 4, S5)
+krak = shoot_dist(5, 4, 4, 5, S5, pierce=1)
+for lbl, d in [("榴弹frag 4/4+ 2/4（单目标；爆炸2寸为场景层×目标数）", frag),
+               ("榴弹krak 5/4+ 4/5 穿1", krak),
+               ("网枪 4/3+ 4/5 严酷+晕（射12）", webber)]:
+    print(f"| {lbl} | {E(capped(d,8)):5.2f} | {double_kill(d,10)*100:5.1f}% |")
