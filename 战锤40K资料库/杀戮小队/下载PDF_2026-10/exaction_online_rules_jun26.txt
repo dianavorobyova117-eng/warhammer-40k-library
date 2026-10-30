@@ -1,0 +1,721 @@
+                                                                                                APL        MOVE         SAVE      WOUNDS
+ARBITES PROCTOR-EXACTANT
+                                                                                                    2          6"         4 +         9
+         NAME                                      ATK      HIT DMG          WR
+         Combat shotgun (close range)                4      2+       4/4     Range 6"
+         Combat shotgun (long range)                 4      4+       2/2     -
+         Shotpistol                                  4      3+       3/3     Range 8"
+         Dominator maul & assault shield 4                  3+       4/4     Lethal 5+, Shock, Repress*
+         Repression baton                            3      3+       2/3     -
+
+Assault Shield: If this operative has a dominator maul & assault
+shield, it has a 3+ Save stat.
+
+
+
+
+                                                                                         RULES CONTINUE ON OTHER SIDE
+EXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, LEADER, PROCTOR-EXACTANT                                                                    28
+
+
+                                                                                                APL        MOVE         SAVE      WOUNDS
+ARBITES PROCTOR-EXACTANT
+                                                                                                    2          6"         4 +         9
+Nuncio-aquila:                                                             DEPLOY NUNCIO-AQUILA                                       0AP
+• Whenever an enemy operative is within 3" of your                           If your Nuncio-aquila marker isn’t in the killzone, place it
+  Nuncio-aquila marker (or this operative if your Nuncio-aquila              within 6" horizontally of this operative; otherwise, move your
+  marker isn’t in the killzone), your opponent must spend 1                  Nuncio-aquila marker up to 6" horizontally. If this operative
+  additional AP for that enemy operative to perform the Pick                 is removed from the killzone, remove your Nuncio-aquila
+  Up Marker and mission actions.                                             marker from the killzone.
+• Whenever determining control of a marker, treat the total
+  APL stat of enemy operatives that contest it as 1 lower if                 This operative cannot perform this action while within control
+  at least one of those enemy operatives is within 3" of your                range of an enemy operative.
+  Nuncio-aquila marker (or this operative if your Nuncio-aquila
+  marker isn’t in the killzone). Note this isn’t a change to the APL
+  stat, so any changes are cumulative with this.
+
+
+
+
+                                                                                                APL        MOVE         SAVE      WOUNDS
+ARBITES CHIRURGANT
+                                                                                                    2          6"         4+          8
+         NAME                                      ATK      HIT DMG          WR
+         Combat shotgun (close range)                4      3+       4/4     Range 6"
+         Combat shotgun (long range)                 4      5+       2/2     -
+         Repression baton                            3      4+       2/3     -
+
+Medic!: The first time during each turning point that another friendly EXACTION SQUAD operative would be incapacitated while
+visible to and within 3" of this operative, you can use this rule, providing neither this nor that operative is within control range of an
+enemy operative. If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be incapacitated for the
+remainder of the action. After that action, that friendly operative can immediately perform a free Dash action, but must end that
+move within this operative’s control range. Subtract 1 from this and that operative’s APL stats until the end of their next activations
+respectively, and if this rule was used during that friendly operative’s activation, that activation ends. You cannot use this rule if this
+operative is incapacitated, or if it’s a Shoot action and this operative would be a primary or secondary target.
+
+
+                                                                                         RULES CONTINUE ON OTHER SIDE
+EXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, MEDIC, CHIRURGANT                                                                           28
+
+
+                                                                                                APL        MOVE         SAVE      WOUNDS
+ARBITES CHIRURGANT
+                                                                                                    2          6"         4 +         8
+ MEDIKIT                                                      1AP
+    Select one friendly EXACTION SQUAD operative
+    within this operative’s control range to regain up to 2D3 lost
+    wounds. It cannot be an operative that the Medic! rule was
+    used on during this turning point.
+
+    This operative cannot perform this action while within control
+    range of an enemy operative.
+                                                                                                  APL        MOVE        SAVE      WOUNDS
+ARBITES LEASHMASTER
+                                                                                                      2          6"        4  +        8
+         NAME                                      ATK     HIT DMG             WR
+         Combat shotgun (close range)               4       3+       4/4       Range 6"
+         Combat shotgun (long range)                4       5+       2/2       -
+         Shotpistol                                 4       4+       3/3       Range 8”
+         Repression baton                           3       4+       2/3       -
+
+Handler: Whenever this operative is            Attack Pattern: STRATEGIC GAMBIT in the first turning point. Select two
+activated, you can activate a ready            of the following attack patterns for a friendly EXACTION SQUAD R-VR
+friendly EXACTION SQUAD R-VR                   CYBER-MASTIFF operative to have for the battle:
+CYBER-MASTIFF operative at the
+same time. Complete their activations          • Aggressive: Its melee weapons have the Relentless weapon rule.
+action by action in any order.                 • Swift: Add 2" to its Move stat.
+                                               • Defensive: Improve its Save stat by 1.
+                                                                                           RULES CONTINUE ON OTHER SIDE
+EXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, LEASHMASTER                                                                                  28
+
+
+                                                                                                  APL        MOVE        SAVE      WOUNDS
+ARBITES LEASHMASTER
+                                                                                                      2          6"        4  +        8
+ R-VR COMMAND                                                 0AP
+    Select one friendly EXACTION SQUAD R-VR
+    CYBER-MASTIFF operative and change one of its
+    attack patterns.
+
+
+
+
+                                                                                                  APL        MOVE        SAVE      WOUNDS
+R-VR CYBER-MASTIFF
+                                                                                                      2          6"        4+          8
+         NAME                                      ATK     HIT DMG             WR
+         Mechanical bite                            4       4+       3/5       Lethal 5+
+
+Beast: This operative cannot perform             APPREHEND                                                                              0AP
+any actions other than Apprehend,
+                                                   Select one enemy operative within this operative’s control range. Until that enemy
+Charge, Dash, Fall Back, Fight,
+                                                   operative is no longer within this operative’s control range, or until this operative
+Guard, Reposition, Pick Up
+                                                   performs this action again (whichever comes first), worsen the Hit stat of that
+Marker and Place Marker. It
+                                                   enemy operative’s weapons by 1 (this isn’t cumulative with being injured); in
+cannot use any weapons that aren’t on
+                                                   addition, that enemy operative cannot perform the Fall Back action.
+its datacard.
+                                                   This operative cannot perform this action unless an enemy operative is within its
+                                                   control range.
+
+
+
+
+EXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, R-VR CYBER-MASTIFF                                                                           25
+
+
+                                                                                                  APL        MOVE        SAVE      WOUNDS
+ARBITES CASTIGATOR
+                                                                                                      2          6"        4  +        8
+         NAME                                      ATK     HIT DMG             WR
+         Combat shotgun (close range)               4       3+       4/4       Range 6"
+         Combat shotgun (long range)                4       5+       2/2       -
+         Excruciator maul                           4       3+       5/5       Rending, Shock
+
+Engendered Focus: You can ignore any changes to this                       Castigator’s Arrest: Whenever an enemy operative is within
+operative’s stats (including its weapons’ stats, but excluding its         control range of this operative, if no other enemy operatives
+Save stat).                                                                are within this operative’s control range, that enemy operative
+                                                                           cannot perform the Fall Back action.
+Zealous Dedication: Whenever an attack dice inflicts damage of
+3 or more on this operative, roll one D6: on a 5+, subtract 1 from
+that inflicted damage.
+
+
+
+
+EXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, CASTIGATOR                                                                                   28
+                                                                                               APL        MOVE        SAVE       WOUNDS
+ARBITES GUNNER
+                                                                                                  2           6"         4 +         8
+          NAME                                   ATK      HIT DMG         WR
+          Grenade launcher                         5      4+     4/5      Piercing 1
+          Heavy stubber (focused)                  5      4+     4/5      Heavy (Dash Only)
+          Heavy stubber (sweeping)                 4      4+     4/5      Heavy (Dash Only), Torrent 1"
+          Webber                                   4      3+     4/5      Range 12", Severe, Stun
+          Repression baton                         3      4+     2/3      -
+
+
+
+
+EXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, GUNNER                                                                                     28
+
+
+                                                                                               APL        MOVE        SAVE       WOUNDS
+ARBITES MALOCATOR
+                                                                                                  2           6"         4 +         8
+          NAME                                   ATK      HIT DMG         WR
+          Combat shotgun (close range)             4      3+     4/4      Range 6"
+          Combat shotgun (long range)              4      5+     2/2      -
+          Repression baton                         3      4+     2/3      -
+
+Acute Focus: Once during           VERISCANT                                                                                          1AP
+each of this operative’s
+                                      Select one enemy operative visible to this operative. Until the start of this operative’s next
+activations, it can perform the
+                                      activation, until it’s incapacitated or until it performs this action again (whichever comes first),
+Pick Up Marker, Place
+                                      whenever a friendly EXACTION SQUAD operative is shooting against, fighting against or
+Marker, Veriscant or a
+                                      retaliating against that enemy operative, that friendly operative’s weapons have the Lethal 5+
+mission action for 1 less AP.
+                                      and Severe weapon rules.
+
+                                      This operative cannot perform this action while within control range of an enemy operative.
+
+
+EXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, MALOCATOR                                                                                  28
+
+
+                                                                                               APL        MOVE        SAVE       WOUNDS
+ARBITES MARKSMAN
+                                                                                                  2           6"         4+          8
+          NAME                                   ATK      HIT DMG         WR
+          Executioner shotgun (concealed) 4               2+     4/0      Devastating 4, Heavy, Silent, Concealed Position*
+          Executioner shotgun (mobile)             4      3+     4/4      -
+          Executioner shotgun (stationary) 4              2+     4/0      Devastating 4, Heavy
+          Repression baton                         3      4+     2/3      -
+
+*Concealed Position: This operative can only use this weapon the first time it’s performing the Shoot action during the battle.
+
+ OPTICS                                                                                                                               1AP
+   Until the start of this operative’s next activation:
+• The concealed and stationary profiles of its executioner shotgun have the Lethal 5+ weapon rule.
+• Whenever it’s shooting with its executioner shotgun, enemy operatives cannot be obscured.
+    This operative cannot perform this action while within control range of an enemy operative.
+
+EXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, MARKSMAN                                                                                   28
+
+
+                                                                                               APL        MOVE        SAVE       WOUNDS
+ARBITES REVELATUM
+                                                                                                  2           6"         4 +         8
+          NAME                                   ATK      HIT DMG         WR
+          Scoped shotpistol (short range) 4               3+     3/3      Range 8", Lethal 5+
+          Scoped shotpistol (long range)           4      3+     3/3      -
+          Repression baton                         3      4+     2/3      -
+
+First in the Field:                SPOT                                                                                               1AP
+STRATEGIC GAMBIT
+                                      Select one enemy operative visible to and within 8" of this operative. Until the end of the turning
+in the first turning point.
+                                      point, whenever a friendly EXACTION SQUAD operative is shooting that enemy operative,
+If this operative is wholly
+                                      you can use this effect. If you do:
+within your drop zone, it can
+immediately perform a free        • That friendly operative’s ranged weapons have the Seek Light weapon rule.
+Reposition action.                • That enemy operative cannot be obscured.
+
+                                      This operative cannot perform this action while within control range of an enemy operative.
+
+EXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, REVELATUM                                                                                  28
+                                                                                          APL     MOVE   SAVE   WOUNDS
+ARBITES SUBDUCTOR
+                                                                                              2     6"    3 +     8
+          NAME                                     ATK      HIT DMG         WR
+          Shotpistol                                 4      4+        3/3   Range 8"
+          Shock maul & assault shield                4      4+        4/4   Shock, Repress*
+
+Stubborn Subjugator: You can ignore any changes to the Hit stat
+of this operative’s melee weapons.
+
+
+
+
+EXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, SUBDUCTOR                                                               28
+
+
+                                                                                          APL     MOVE   SAVE   WOUNDS
+ARBITES VIGILANT
+                                                                                              2     6"    4 +     8
+          NAME                                     ATK      HIT DMG         WR
+          Combat shotgun (close range)               4      3+        4/4   Range 6"
+          Combat shotgun (long range)                4      5+        2/2   -
+          Repression baton                           3      4+        2/3   -
+
+Close Quarters Vigilance: This operative can perform the
+Shoot action (excluding Guard) while within control range of
+an enemy operative, but only if it hasn’t performed the Charge
+action during the activation, or if it’s a counteraction. Note this
+operative isn’t restricted from performing the Charge action
+after performing the Shoot action.
+
+
+
+
+EXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, VIGILANT                                                                28
+
+
+                                                                                          APL     MOVE   SAVE   WOUNDS
+ARBITES VOX-SIGNIFIER
+                                                                                              2     6"    4+      8
+          NAME                                     ATK      HIT DMG         WR
+          Combat shotgun (close range)               4      3+        4/4   Range 6"
+          Combat shotgun (long range)                4      5+        2/2   -
+          Repression baton                           3      4+        2/3   -
+
+ SIGNAL                                                        1AP
+    SUPPORT. Select one other friendly EXACTION
+    SQUAD operative visible to this operative. Until the end of
+    that operative’s next activation, add 1 to its APL stat.
+
+    This operative cannot perform this action while within control
+    range of an enemy operative.
+
+
+
+EXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, VOX-SIGNIFIER                                                           28
+
+
+
+NOTES:
+                                                      Other than GUNNER, SUBDUCTOR and VIGILANT
+EXACTION SQUAD                                        operatives, your kill team can only include each
+KILL TEAM                                             operative on this list once. Your kill team can
+                                                      only include up to two GUNNER operatives (each
+ARCHETYPES: SECURITY, SEEK & DESTROY
+                                                      must have a different option) and up to four
+OPERATIVES                                            SUBDUCTOR operatives.
+
+↘ 1 EXACTION SQUAD PROCTOR-EXACTANT
+  operative with one of the following options:
+   • Combat shotgun; repression baton
+   • Shotpistol; dominator maul & assault shield
+
+↘ 10 EXACTION SQUAD operatives selected
+  from the following list:
+   • CASTIGATOR           • MARKSMAN
+   • CHIRURGANT           • REVELATUM
+   • LEASHMASTER          • SUBDUCTOR
+   • R-VR                 • VIGILANT
+     CYBER-MASTIFF        • VOX-SIGNIFIER
+   • MALOCATOR
+   • GUNNER with one of the following options:
+     ○ Grenade launcher; repression baton
+     ○ Heavy stubber; repression baton
+     ○ Webber; repression baton
+CONTINUES ON OTHER SIDE
+
+
+
+
+            EXACTION SQUAD                                        EXACTION SQUAD
+              FACTION RULE                                           FACTION RULE
+RUTHLESS EFFICIENCY                                   MARKED FOR JUSTICE
+A target, whether marked to be apprehended or         Exaction Squads prioritise their targets, focusing their
+eliminated, stands little chance of escaping the      ire on those marked for immediate punishment before
+attention of an Adeptus Arbites Exaction Squad.       moving on to the next transgressor.
+Whenever a friendly EXACTION SQUAD                    STRATEGIC GAMBIT. Select one enemy operative
+operative is shooting (excluding with frag or krak    to be your mark for the turning point. Whenever a
+grenades) and you’re selecting a valid target, you    friendly EXACTION SQUAD operative is shooting
+can use this rule. If you do, having other friendly   against, fighting against or retaliating against
+EXACTION SQUAD operatives within an enemy             your mark, that friendly operative's weapons
+operative’s control range doesn’t prevent that        have the Punishing weapon rule. Whenever your
+enemy operative from being selected.                  mark is incapacitated, you can select a new
+                                                      enemy operative to be your mark for the turning
+                                                      point (and can continue to do so during this
+                                                      turning point).
+            EXACTION SQUAD                                             EXACTION SQUAD
+               FACTION RULE                                      MARKER/TOKEN GUIDE
+REPRESS
+Experienced in suppressing riots, rebellions and various
+other kinds of unrest, the Adeptus Arbites are resilient
+in the face of any oncoming foe, no matter their origin.
+Some weapons in this team’s rules have the                  Medic token          Apprehend          Marked for
+Repress weapon rule below.                                                         token           Justice token
+
+*Repress: Whenever this operative is using
+this weapon:
+• Each of your blocks can be allocated to block
+  two unresolved successes (instead of one).
+• If this operative is retaliating, you resolve
+  the first attack dice (i.e. defender instead             Veriscant token       Spot token         Aggressive
+  of attacker).                                                                                       token
+
+
+
+
+                                                             Swift token         Defensive        Nuncio-aquila
+                                                                                  token             marker
+
+
+
+
+            EXACTION SQUAD                                             EXACTION SQUAD
+             STRATEGY PLOY                                              STRATEGY PLOY
+GUILT REVEALS ITSELF                                       INVIOLATE JURISDICTION
+Exaction Squads are relentless in their pursuit of the     Emboldened by the authority they hold, Exaction
+condemned. Few escape their clutches.                      Squads will fight with zealous determination to hold key
+                                                           positions against the foe.
+Whenever you’re selecting a valid target for a
+friendly EXACTION SQUAD operative, enemy                   Whenever an operative is shooting a friendly
+operatives within 4" of it cannot be in cover              EXACTION SQUAD operative that’s within 2" of
+(instead of 2"). While this can allow such                 an objective marker or an enemy operative, you
+operatives to be targeted (assuming they’re                can re-roll one of your defence dice.
+visible), it doesn’t remove their cover save (if
+any), unless the friendly EXACTION SQUAD
+operative is within 2" as normal.
+             EXACTION SQUAD                                      EXACTION SQUAD
+              STRATEGY PLOY                                       STRATEGY PLOY
+DISPENSE JUSTICE                                     TERMINAL DECREE
+In pursuit of the guilty, Arbitrators are focused,   A dangerous quarry has been judged guilty of heinous
+disciplined and utterly determined.                  crimes against the Imperium and must be terminated
+                                                     with extreme prejudice.
+Whenever a friendly EXACTION SQUAD
+operative is fighting or retaliating, if it hasn’t   Whenever a friendly EXACTION SQUAD
+moved more than its Move stat during the             operative is shooting an enemy operative within
+activation, or if it's a counteraction, its melee    6" of it, or whenever a friendly EXACTION
+weapons have the Ceaseless weapon rule.              SQUAD GUNNER operative is shooting, that
+                                                     friendly operative’s ranged weapons have the
+                                                     Balanced weapon rule.
+
+
+
+
+             EXACTION SQUAD                                      EXACTION SQUAD
+             FIREFIGHT PLOY                                       FIREFIGHT PLOY
+LONG ARM OF THE EMPEROR'S LAW                        EXACT PUNISHMENT
+No one escapes the merciless judgement of the        To strike against an Arbitrator is an offence punishable
+Adeptus Arbites.                                     by immediate termination.
+Use this firefight ploy when a friendly EXACTION     Use this firefight ploy after an enemy operative
+SQUAD operative is performing the Shoot              shoots against or fights against a friendly
+action and you select a weapon with the Range        EXACTION SQUAD operative within 6" of it, and
+x weapon rule (excluding frag or krak grenade).      that friendly operative isn’t incapacitated as a
+Until the end of that action, add 3" to x.           result. That friendly operative can immediately
+                                                     perform either a free Shoot or a free Fight action,
+                                                     but you cannot select any other enemy operative
+                                                     as a valid target or to fight against during that
+                                                     action (note that secondary targets from the Blast
+                                                     weapon rule can still be targeted).
+            EXACTION SQUAD                                         EXACTION SQUAD
+            FIREFIGHT PLOY                                         FIREFIGHT PLOY
+BRUTAL BACKUP                                          EXECUTION ORDER
+When combating the most belligerent of foes,           Those who have earned the ire of the Imperium are
+Arbitrators may combine their considerable might to    marked by the Adeptus Arbites for execution, their
+bludgeon the guilty with baton and maul.               termination prioritised.
+Use this firefight ploy during a friendly EXACTION     Use this firefight ploy when an enemy operative
+SQUAD operative’s activation, before or after it       performs a mission action (excluding Operate
+performs an action. Select one enemy operative         Hatch). Alternatively, use it at the end of the
+within its control range. One other friendly           Firefight phase and select one enemy operative
+EXACTION SQUAD operative can immediately               that controls an objective marker.
+perform a free Fight action, but you cannot select
+                                                       In either case, the next time your opponent would
+any other enemy operative to fight against during
+                                                       activate that enemy operative, you can interrupt
+that action.
+                                                       that activation and activate a ready friendly
+                                                       EXACTION SQUAD operative. If you do, during
+                                                       that activation, that friendly operative must shoot
+                                                       against or fight against that enemy operative, and
+                                                       cannot do so against any other enemy operatives
+                                                       until it does (if this isn’t possible, that friendly
+                                                       operative’s activation is cancelled).
+                                                       After completing that friendly operative’s
+                                                       activation, continue that enemy operative’s
+                                                       activation (if possible). You cannot use this ploy
+                                                       again until that enemy operative is activated
+                                                       or incapacitated.
+
+
+            EXACTION SQUAD                                         EXACTION SQUAD
+        FACTION EQUIPMENT                                      FACTION EQUIPMENT
+REINFORCED MIRROR-VISOR                                MANACLES
+This armoured visor is designed to shield the wearer   These adamantine manacles prevent captive subjects
+from blinding and disorientating weapons or devices.   from escaping custody.
+You can ignore any changes to the APL stat of          Whenever an enemy operative would perform
+friendly EXACTION SQUAD operatives, and                the Fall Back action while within control range
+they aren’t affected by enemy operatives’ Shock        of a friendly EXACTION SQUAD operative, if no
+weapon rule.                                           other enemy operatives are within that friendly
+                                                       operative’s control range, you can use this rule.
+                                                       If you do, roll two D6, or one D6 if that enemy
+                                                       operative has a higher Wounds stat than that
+                                                       friendly operative. If any result is a 4+, that enemy
+                                                       operative cannot perform that action during that
+                                                       activation/counteraction (no AP are spent on it),
+                                                       and you cannot use this rule again during this
+                                                       turning point.
+             EXACTION SQUAD                                                EXACTION SQUAD
+         FACTION EQUIPMENT                                             FACTION EQUIPMENT
+STROBING PHOSPHOR-LUMEN                                        SPECIAL ISSUE SHELLS
+The brilliant white, flickering light of this rotating lumen   Arbites shotguns can be loaded with a wide range of
+device has the effect of disorientating foes caught in         specialist ammunition, including but not limited to
+its beam.                                                      incendiary rounds and armour-piercing slugs.
+Whenever an enemy operative is shooting                        Up to twice per turning point, when a friendly
+against, fighting against or retaliating against a             EXACTION SQUAD operative is performing the
+friendly EXACTION SQUAD operative within 2" of                 Shoot action and you select a combat shotgun,
+it, your opponent cannot re-roll their attack dice             executioner shotgun, scoped shotpistol or
+results of 1.                                                  shotpistol, you can use this rule. If you do, select
+                                                               one of the following weapon rules for that weapon
+                                                               to have until the end of that action:
+                                                               • Saturate.
+                                                               • Piercing 1, but only if the target has a Save stat
+                                                                 of 3+ or better.
+                                                               • Torrent 1", but you cannot select more than
+                                                                 one secondary target.
+
+
+
+
+NOTES:                                                         NOTES:
+                EXACTION SQUAD: UPDATE LOG
+Rules will be periodically updated to maintain fair balance and interact more smoothly with the game. Rules changes
+will be updated directly into online documents and then listed below. Any minor changes to standardise wording that
+don’t have any practical impact on the rule will be updated directly into online documents but not be listed here.
+
+
+RULES COMMENTARIES                                                                                     JUNE ’26
+This section provides clarification on ambiguous and complex
+rules interactions.
+
+ Q: When using the Marked for Justice STRATEGIC GAMBIT,
+if my mark is incapacitated while shooting multiple operatives
+during an action (e.g. as a result of the Blast or Torrent weapon
+rules), when do I select a new operative to be my mark?
+
+A: At the end of that action, after incapacitated operatives
+are removed.
+                                                                                                    PREVIOUS ERRATAS
+This section collects amendments to the rules. Amended text       this operative’s control range. Subtract 1 from this and that
+for clarification and edits are shown in blue, while amended      operative’s APL stats until the end of their next activations
+text for balance updates are shown in magenta.                    respectively, and if this rule was used during that friendly
+                                                                  operative’s activation, that activation ends. You cannot
+LEASHMASTER OPERATIVE, ATTACK PATTERN RULE                        use this rule if this operative is incapacitated, or if it’s a
+Relevant part of second sentence changed to read:                 Shoot action and this operative would be a primary or
+‘Select two of the following attack patterns […]’                 secondary target.’
+
+LEASHMASTER OPERATIVE, R-VR COMMAND ACTION                        LEASHMASTER OPERATIVE, WEAPONS LIST
+Relevant part of effect changed to read:                          ‘Shotpistol’ weapon added.
+‘[…] and change one of its attack patterns.’
+                                                                  MALOCATOR OPERATIVE, VERISCANT ACTION
+GUNNER OPERATIVE, GRENADE LAUNCHER WEAPON                         Relevant parts of second sentence of effect changed to read:
+Atk stat changed to ‘5’.                                          ‘[…] that friendly operative’s weapons have the Lethal 5+ and
+                                                                  Severe weapon rules ; if the weapon already has that weapon
+Dmg stats changed to ‘4/5’.                                       rule, it also has the Lethal 5+ weapon rule.’
+
+REVELATUM OPERATIVE, SPOT ACTION                                  FACTION RULES
+First paragraph of effect changed to read:                        ‘Repress’ faction rule added.
+‘SUPPORT. Select one enemy operative visible to and within
+8” of this operative. Until the end of the turning point,         FIREFIGHT PLOYS, EXECUTION ORDER
+whenever a friendly EXACTION SQUAD operative within 3” of         Relevant part of first sentence of second paragraph changed
+this operative is shooting that enemy operative, you can use      to read:
+this effect. If you do:’                                          ‘In either case, the next time your opponent would activate
+                                                                  that enemy operative, […]’
+CHIRURGANT OPERATIVE, MEDIC! RULE
+Changed to read:                                                  FACTION EQUIPMENT, SPECIAL ISSUE SHELLS
+‘The first time during each turning point that another friendly   Relevant part of first sentence changed to read:
+EXACTION SQUAD operative would be incapacitated                   ‘Up to twice per turning point, […]’
+while visible to and within 3" of this operative, you can use
+this rule, providing neither this nor that operative is within    FACTION EQUIPMENT, MANACLES
+control range of an enemy operative. If you do, that friendly     Last sentence changed to read:
+operative isn’t incapacitated, has 1 wound remaining and          ‘If any result is a 4+, that enemy operative cannot perform
+cannot be incapacitated for the remainder of the action. After    that action during that activation/counteraction (no AP are
+that action, that friendly operative can then immediately         spent on it), and you cannot use this rule again during this
+perform a free Dash action, but must end that move within         turning point.’
+
+
+                                                                               PREVIOUS RULES COMMENTARIES
+ Q: If a friendly operative attempts to shoot or fight against    within 2" (e.g. HERNKYN YAEGIR In Position), does this
+the specified enemy operative in the Execution Order firefight    increase the 2" distance exception to 4"?
+ploy, but is prevented from doing so by an opponent’s rule
+(e.g. SANCTIFIER Confessor Commanding Declamation,                A: Yes.
+NOVITIATE Blinding Aura), is that friendly operative’s
+activation still cancelled?                                        Q: My LEASHMASTER and R-VR CYBER-MASTIFF operatives
+                                                                  are activating simultaneously as a result of the Handler rule.
+ A: No. Continue its activation as though the requirements of     Can I use the Brutal Backup firefight ploy to select one of
+the Execution Order firefight ploy have been fulfilled.           those operatives that has already performed a Fight action
+                                                                  during that activation to fight again?
+ Q: When using the Guilt Reveals Itself strategy ploy, if my
+opponent has a rule that says it cannot be selected as a valid    A: No.
+target, taking precedence over all other rules except being
+    EXACTION SQUAD OPERATIVES
+    It is the responsibility of the Adeptus Arbites to enforce Imperial law. Exaction Squads are formed from the most
+    highly skilled and experienced Arbitrators. They are tasked with hunting down and securing the most heinous of
+    criminals, returning them alive to face the full extent of the Emperor’s justice.
+
+
+    ARBITES PROCTOR-EXACTANT                                        ARBITES CHIRURGANT
+2   Exaction Squads are selected and led by Proctors-exactant.      These Arbitrators are highly skilled medical specialists, used
+    These experienced Arbitrators are ruthless tacticians and       to treating debilitating wounds inflicted by those resisting
+    savvy fighters. They are also intimidating embodiments of       detention. They are also skilled in the tactical questioning of
+    Imperial justice and employ nuncio-aquilas to broadcast         prisoners and have studied the limits to which the body can be
+    deafening orations that cow the guilty into submission.         pushed to elicit answers.
+
+
+    ARBITES CASTIGATOR                                              ARBITES GUNNER
+    It is the Castigator’s role to ensure that the guilty receive   Gunners provide substantial firepower to Exaction Squad
+    due punishment, their hood-like helms steeling their resolve    operations using weapons such as heavy stubbers – rapid-
+    against curses and pleas alike. Once the quarry is located,     firing cannons whose solid shot can scythe through mobs.
+    the Castigator is charged with their subdual by any means – a   More specialist weapons may fire chemicals that paralyse, or
+    task they perform with zealous dedication.                      grenades that crack open doors and armour alike.
+
+
+                                                                    ARBITES LEASHMASTER
+                                                                    Leashmasters are specialists who command the caniform
+                                                                    servitors known as Cyber-mastiffs. They direct override the
+                                                                    construct’s basic protocols with advanced commands, and
+                                                                    broadcast shouted orders to their guilt-ridden prey via the
+                                                                    Cyber-mastiff’s emitters.
+
+
+                                                                    R-VR CYBER-MASTIFF
+                                                                    Arbitrators employ many servo-constructs for intimidation,
+                                                                    security and pursuit. The Rantal-class Venatus Reclamator
+                                                                    is an advanced Cyber-mastiff used by Exaction Squads. The
+                                                                    R-VR’s detectors enable them to track their prey, while their
+                                                                    iron jaws can break bones or kill on command.
+
+
+
+
+                                                                    ‘INNOCENCE IS IRRELEVANT. YOU HAVE BEEN
+                                                                      JUDGED GUILTY OF TRANSGRESSING THE LEX
+                                                                      IMPERIALIS. DO NOT COMPOUND YOUR GUILT BY
+                                                                      EVADING PUNISHMENT; AS THERE ARE GREATER
+                                                                      CRIMES, SO ARE THERE GREATER SENTENCES.’
+                                                                                   - Arbitrator Mallox, Precinct 9 Reclamator
+                                                                                                                                   3
+
+
+
+
+ARBITES MALOCATOR                                                   ARBITES SUBDUCTOR
+Technically gifted, Malocators carry bio-sample extractors          Subductors possess one of the most recognisable – and
+to gather trace evidence on their team’s quarry. They               feared – silhouettes to the Imperium’s criminal classes.
+operate with an icy calm under fire, scrutinising evidence via      Bearing Subjugation-pattern assault shields and crackling
+their veriscant multi-lens array and informing their team of        shock mauls, they are brutal front line brawlers capable of
+enemy weaknesses.                                                   crushing the most stubborn dissent.
+
+
+ARBITES MARKSMAN                                                    ARBITES VIGILANT
+The rabble-rouser lurking behind those they incite, the heavily     Vigilants brutally sweep the guilty from existence with the
+armed bodyguard or the fleeing criminal about to escape –           signature combat shotgun of the Adeptus Arbites. These
+such are the targets of the Marksman. Their long-barrelled          grim men and women are ever-alert to malfeasance and
+shotguns fire shells so powerful that they leave wounds more        unwavering in its punishment, unleashing devastating blasts
+akin to gory craters than bullet holes.                             at close range.
+
+
+ARBITES REVELATUM                                                   ARBITES VOX-SIGNIFIER
+Revelatums reconnoitre their target’s movements in advance          The team’s Vox-signifier listens for coded missives from
+of the rest of the team, scouting hideouts and ascertaining         mission command on their powerful precinct vox-relay. They
+criminal contacts. They then lead other Arbitrators straight to     issue updates to the rest of the Exaction Squad arising from
+the guilty, using their soulguilt scanners to identify threats to   changes to mission priorities and new intelligence – likely
+their fellow officers.                                              painfully extracted from prisoners.
+                                       EXACTION SQUAD KILL TEAM
+                                                               elow you will find a list of
+                                                              B
+                                                                                               PROCTOR-EXACTANT
+                                                              the operatives that make up a        Dominator maul
+                                                                                                                    Combat
+                                                              EXACTION SQUAD kill team,
+                                                                                                                    shotgun
+                                                              including, where relevant,
+                                                              any weapons specified for
+            4                                                 that operative.
+
+
+                                       OPERATIVES
+EXACTION SQUAD » KILL TEAM SELECTION
+
+
+
+
+                                                                                                                      Shotpistol
+                                       ↘ 1 EXACTION SQUAD PROCTOR-EXACTANT
+                                          operative with one of the following options:                                  Assault
+                                          • Combat shotgun; repression baton                                            shield
+                                          • Shotpistol; dominator maul & assault shield
+
+                                       ↘ 10 EXACTION SQUAD operatives selected from
+                                         the following list:
+                                          • CASTIGATOR
+                                          • CHIRURGANT
+                                                                                               CASTIGATOR                     CHIRURGANT
+                                          • LEASHMASTER                                       Excruciator maul               Repression baton
+                                          • R-VR CYBER-MASTIFF
+                                          • MALOCATOR                                         Combat shotgun                 Combat shotgun
+                                          • MARKSMAN
+                                          • REVELATUM
+                                          • SUBDUCTOR
+                                          • VIGILANT
+                                          • VOX-SIGNIFIER
+                                          • GUNNER with one of the following options:
+                                            ○ Grenade launcher; repression baton
+                                            ○ Heavy stubber; repression baton
+                                            ○ Webber; repression baton
+
+                                       Other than GUNNER, SUBDUCTOR and VIGILANT
+                                       operatives, your kill team can only include each
+                                       operative on this list once. Your kill team can
+                                       only include up to two GUNNER operatives (each
+                                                                                               LEASHMASTER                    R-VR CYBER
+                                       must have a different option) and up to four
+                                                                                               Combat shotgun
+                                                                                                                              MASTIFF
+                                       SUBDUCTOR operatives.
+                                                                                                  Shotpistol
+                                       ARCHETYPES
+                                                                   Archetypes are used in
+                                                                   certain mission packs,
+                                                                   e.g. Approved Ops. The
+                                                       SEEK &      game sequence will
+                                        SECURITY
+                                                      DESTROY      specify how.
+MALOCATOR                             MARKSMAN                             REVELATUM
+                                      Executioner shotgun                  Scoped shotpistol
+
+
+
+                                                                                                           5
+
+
+
+
+                                                                                               EXACTION SQUAD » KILL TEAM SELECTION
+                                                            Repression
+                                                                baton
+
+
+
+
+GUNNER
+Grenade launcher                       Webber                                Heavy stubber
+
+
+
+
+                                                              Repression baton
+
+
+
+
+SUBDUCTOR                             VIGILANT                             VOX-SIGNIFIER
+                   Shock maul and     Combat shotgun                       Combat shotgun
+                     assault shield
+
+
+
+
+Shotpistol
+

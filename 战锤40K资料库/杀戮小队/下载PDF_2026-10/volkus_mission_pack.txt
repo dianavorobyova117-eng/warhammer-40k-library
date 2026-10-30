@@ -1,0 +1,629 @@
+                        KILLZONE UPGRADE:
+                        COMPOUND SIEGE
+Killzone Upgrade: Compound Siege has 6x stockades, 2x bunkers and 6x fire steps; their rules are found over the
+following pages. This killzone is an upgrade to Killzone: Volkus (Kill Team Core Book).
+
+
+STOCKADE
+A stockade terrain feature has a breach point that has two statuses: closed and open. Its terrain types depend upon that status.
+A stockade’s breach point begins the battle closed, and can be opened during the battle (at which point it cannot be closed again).
+
+Closed                                                              Open
+While a stockade’s breach point is closed:                          While a stockade’s breach point is open:
+• The removable part of the stockade must be attached.             • The removable part of the stockade must be removed from
+• The whole stockade is Heavy terrain.                                the killzone.
+                                                                    • Its breach point is Accessible, Insignificant and
+                                                                       Exposed terrain.
+                                                                    • The rest of the stockade is Heavy terrain.
+
+
+
+
+                     Closed breach point                                                  Open breach point
+
+
+
+
+                     Closed breach point                                                  Open breach point
+
+
+
+
+                     Closed breach point                                                  Open breach point
+  Operatives can perform the Open Stockade Door action at
+                        this stockade.
+
+
+                                                                               KILLZONE UPGRADE: COMPOUND SIEGE » TERRAIN RULES
+BUNKER
+A bunker terrain feature is Heavy terrain. While an operative is on the inside of a bunker that’s within its control range, it can
+perform the Guard action (see Killzone: Gallowdark, Kill Team Core Book), but you can only interrupt an enemy operative when
+that enemy operative is on the outside of this bunker, and when you do, that friendly operative can only shoot against or fight
+against an enemy operative on the outside.
+
+                                                             Outside                                      If small gaps
+                                                                                                          accidentally develop
+                                                                                                          between bunkers
+                                                                                                          and stockades, or
+                                                                        Inside                            the strongholds they
+                                                                                                          should be connected
+                                                                                                          to, treat these gaps
+                                                                                                          as Blocking terrain.
+
+
+
+
+FIRE STEP
+A fire step is Vantage, Insignificant and Exposed terrain.
+
+
+
+
+                                                                                KILLZONE UPGRADE: COMPOUND SIEGE » TERRAIN RULES
+FORTIFIED POSITION
+Bunker and stockade terrain features create a fortified position that makes it harder for operatives to attack those on the other
+side of them.
+
+
+
+Visibility
+• Visibility cannot be drawn over Heavy terrain of a bunker           • Visibility cannot be drawn through the windows of a bunker
+   or stockade terrain feature unless the operative, or what              or stockade terrain feature unless the operative or what
+   they’re trying to see, is at least 2" higher than the bottom           they’re trying to see is horizontally within 1" of that window.
+   of that bunker or stockade (for an operative, remember
+   to measure from its base). Note this has no effect when
+   drawing visibility through an open breach point or window.
+
+
+
+                                                                                                            Operative B cannot see
+                                                                                                            Operative A over the
+                                                                                                            stockade terrain feature
+                                                                                                            (and there’s no window to
+                                                                                                            see through it). However,
+                                                                                       C                    operative C is at least 2"
+                                                                                                            higher than the bottom of
+                                                                                                            the stockade, so it can see
+               A                                                                                            Operative A over it (and
+                                                                                                            vice versa).
+
+
+
+
+                                                             B
+
+
+
+  Shooting                                                               Fighting
+  • Whenever an enemy operative is shooting a friendly                  Whenever an operative on one side of a bunker or stockade
+     operative that’s on the other side of a bunker or stockade          terrain feature is retaliating against an operative on the other,
+     terrain feature and in cover from it (e.g. at its window), that     the defender resolves first (this takes precedence over all
+     friendly operative ignores the Piercing weapon rule.                other rules). This has no effect if either operative’s visibility
+  • For the Blast and Torrent weapon rules, secondary targets           is drawn through an open stockade’s breach point (in other
+     must be on the same side of the bunker or stockade terrain          words, it’s only relevant when operatives are fighting through
+     feature as the primary target.                                      a bunker or stockade’s window).
+  • x" Devastating can only affect operatives on the same side
+     of the bunker or stockade terrain feature as the target.
+  • These have no effect when visibility/intervening for each of        Climbing
+     the above is through an open breach point.                          When climbing Heavy terrain of a bunker or stockade terrain
+                                                                         feature, treat the vertical distance as 4" (even though the
+                                                                         operative moves less). Note this has no effect when moving
+                                                                         through an open breach point.
+
+
+
+
+                                                                                     KILLZONE UPGRADE: COMPOUND SIEGE » TERRAIN RULES
+OPENING A STOCKADE
+Whenever a friendly operative is performing the Shoot action:       • Treat the Hit stat of the active operative’s weapons as 2+,
+                                                                       then apply any other changes to these stats as normal
+• You can select a stockade terrain feature as a valid                (e.g. injured).
+   target, as long as its removable part is visible to the          • Whenever damage of 5 or less would be inflicted on the
+   active operative.                                                   stockade, ignore that inflicted damage. Note this is for each
+• The stockade can be obscured (treat its breach point as its         instance of damage, not total damage.
+   base), but cannot be in cover.
+• Treat the Hit stat of the active operative’s weapons as 2+,      Each stockade terrain feature has a Wounds stat of 8. If its
+   then apply any other changes to these stats as normal            wounds are reduced to 0 or less, its status is changed to open.
+   (e.g. injured).
+• Your opponent rolls an additional defence dice for the           Operatives can perform the following mission action.
+   stockade (usually four, unless the weapon has Piercing), but
+   defence dice cannot be re-rolled.
+• The stockade has a Save stat of 4+.                              OPEN STOCKADE DOOR                                         1AP
+• Whenever damage of 3 or less would be inflicted on the                pen a stockade terrain feature that has a door, if
+                                                                        O
+   stockade, ignore that inflicted damage. Note this is for each        the inside of its breach point is within the operative’s
+   instance of damage, not total damage.                                control range.
+
+Whenever a friendly operative is performing the Fight action:           An
+                                                                         operative cannot perform this action if it’s on the
+                                                                        outside of the stockade, if that stockade is already open
+• You can select a stockade terrain feature to fight against,          or it doesn’t have a door.
+   as long as its removable part is within the active operative’s
+   control range.
+• The stockade cannot retaliate.
+
+
+
+
+                                                                               KILLZONE UPGRADE: COMPOUND SIEGE » TERRAIN RULES
+                          VOLKUS COMPOUND
+                          MISSION PACK
+This is a PvP (player vs player) and PvE (player vs environment) mission pack for thematic and narrative gameplay.
+It’s defined by Killzone Upgrade: Compound Siege – one kill team is attacking the compound, while another defends it.
+
+Theme and narrative are the primary focuses of this mission           specify Offence and Defence drop zones, territories and
+pack. Players should think about selecting appropriate kill           killzone edges (although Defence doesn’t have a killzone edge).
+teams for each of the roles (Offence and Defence explained
+below). For example, a shooting kill team that’s defensive is         The aim of a compound siege is simple: hold the compound at
+suitable for guarding the compound, whilst an aggressive kill         the end of the battle, either by controlling its centre point, or
+team is suitable for attacking it. After your first battle, you can   by incapacitating all opposition. These victory conditions are
+even try swapping roles for a different experience.                   specified in the game sequence.
+
+This mission pack use the terms ‘Offence’ and ‘Defence’.              This mission pack includes a section for PvE (cooperative and
+Offence is the player attacking the compound, whilst Defence          solo gameplay); if you are playing PvP, ignore that section.
+is the player that occupies it and must repel the attackers.          Finally, it includes a section for ruses to add further variety
+Players are assigned to Offence or Defence in the Set Up the          to the mission, as well as a helping hand for any teams that
+Battle step of the game sequence, and the mission maps                need it.
+
+
+
+
+                                                                                             VOLKUS COMPOUND MISSION PACK » RULES
+GAME SEQUENCE
+ 1. SET UP THE BATTLE                                                           5. END THE BATTLE
+• Decide if you are playing PvP or PvE.                             • The battle ends after four turning points have been
+• Each player selects a kill team for the battle. If playing PvE,      completed, or when all of one kill team is incapacitated
+   see the Kill Team Selection section.                                 (whichever comes first).
+• Assign the players to Offence or Defence as appropriate, or       • If all of one kill team is incapacitated, their opponent is
+   roll-off and the winner decides.                                     the winner. Otherwise, if a player’s operatives control the
+• Defence selects a mission map.                                       objective marker when the battle ends, they are the winner.
+• Set up the killzone using Killzone: Volkus and Killzone           • If neither of these are true, work out your kill grade by
+   Upgrade: Compound Siege, placing terrain features and                adding up the number of enemy operatives that are
+   objective markers as specified by that mission map.                  incapacitated and consulting the table below (the row
+   Defence can also place up to six fire step terrain features if       you use is determined by the starting number of enemy
+   they wish.                                                           operatives). The player with the higher kill grade is the
+• Drop zones are assigned to Offence and Defence as                    winner. If the players are tied, it’s a draw.
+   specified by the mission map.
+
+                                                                                                                NUMBER OF INCAPACITATED ENEMY OPERATIVES
+
+ 2. SELECT OPERATIVES                                                                                             1        2         3        4         5
+
+                                                                                                           5      1        2         3        4         5
+• Each player secretly selects their operatives for the battle,
+   adhering to the selection requirements in their kill team’s                                             6      1        2         4        5         6
+                                                                     STARTING NUMBER OF ENEMY OPERATIVES
+
+
+
+
+   rules. They then reveal their selections simultaneously.
+• Each player secretly selects up to four equipment options.                                              7      1        3         4        6         7
+   Each option cannot be selected more than once per player.
+   They then reveal their selections simultaneously.                                                       8      2        3         5        6         8
+• Each player gains 2CP.
+                                                                                                           9      2        4         5        7         9
+
+                                                                                                           10     2        4         6        8         10
+
+ 3. SET UP OPERATIVES                                                                                      11     2        4         7        9         11
+
+                                                                                                           12     2        5         7        10        12
+• Each player alternates setting up an item of equipment
+   that’s set up before the battle (ladders etc.), starting with                                           13     3        5         8        10        13
+   Defence. Note it’s item by item, not option by option.
+• Each player alternates setting up one third of their kill team                                          14     3        6         8        11        14
+   (rounding up), starting with Defence. When a player sets up
+   an operative, it must be wholly within their drop zone and
+   must be given a Conceal order.
+
+
+
+
+ 4. PLAY THE BATTLE
+• In the first turning point, Offence decides who has initiative.
+
+
+
+
+                                                                                                                VOLKUS COMPOUND MISSION PACK » GAME SEQUENCE
+                    MISSION MAP KEY
+                    The maps in this mission pack use the terrain features found in Killzone Upgrade: Compound Siege and
+                    Killzone: Volkus below. Killzone: Volkus has 2x strongholds, 2x large ruins, 2x small ruins, 2x heavy rubble
+                    and 3x light rubble; their rules can be found on pgs 62‑65 of the Kill Team Core Book.
+
+
+STRONGHOLD                                                                                            L
+
+         A                                                   B
+
+
+                                                                                                      M
+
+
+
+
+                                                                                                      N
+
+
+
+
+LARGE RUIN                                                                            SMALL RUIN
+                                                                                       E
+ C                                          D
+
+
+
+
+                                                                                                          F
+
+
+
+
+HEAVY RUBBLE                                                         LIGHT RUBBLE
+                                                                                              J
+     G                                  H
+
+                                                                       I
+                                                                                                            K
+
+
+
+
+          If a piece of a terrain feature is
+         underneath Vantage terrain, it’s             J                                    The position of a door is represented
+         represented by these thin white                         C                         by these thick white dashed lines.
+                              dashed lines.
+
+
+
+
+                                                                               VOLKUS COMPOUND MISSION PACK » MISSION MAP KEY
+BUNKER
+
+
+
+
+A bunker terrain feature is     Stockade terrain features connect to bunker
+represented by the outline      terrain features using the notches highlighted in
+shown above.                    orange on the image above.
+
+
+
+
+STOCKADE
+A stockade terrain feature is represented by a single line, connected to the bunker terrain feature as described above.
+
+
+
+                                                                                        A closed breach point is represented
+                                                                                        by thick red dashed lines. The
+                                                                                        position of the dashes indicates the
+                                                                                        alignment of the stockade.
+
+
+
+
+                                                A stockade with a door is represented by thick white
+                                                dashed lines.
+
+
+
+
+  When aligning a stockade                       A                B
+  terrain feature against pieces
+   A and B of a stronghold
+  terrain feature, there are two
+  buffer pieces that rest against
+  each piece, as shown to
+  the right.
+
+  Placing the
+  stockade
+  pieces against
+  these will help
+  you to create
+  the mission
+  maps correctly.
+
+
+
+
+                                                                              VOLKUS COMPOUND MISSION PACK » MISSION MAP KEY
+     VOLKUS COMPOUND
+
+     MISSION MAP
+    Offence   F
+
+
+
+
+                               G
+
+
+
+                                                            A
+                                         M
+
+
+                               Defence
+
+                       J                     I
+
+
+
+
+                                     N
+              L
+
+
+
+
+                           B
+                                             H
+
+
+
+
+                                                                  E
+
+
+
+
+                                                                      Offence
+
+
+
+
+                                                VOLKUS COMPOUND MISSION PACK » MISSION MAPS
+    VOLKUS COMPOUND
+
+    MISSION MAP
+              Offence
+                                                          H
+      E
+
+
+
+
+                        L
+
+
+      B
+                                J
+
+                            N       Defence
+
+
+                                                          M
+                                     I
+
+
+
+
+                                                               A
+      K
+
+
+
+
+          G                                   F
+
+              Offence
+
+
+
+
+                                             VOLKUS COMPOUND MISSION PACK » MISSION MAPS
+PVE COOPERATIVE/SOLO RULES
+KILL TEAM SELECTION                                                  BEHAVIOUR
+The players use one kill team. If you are playing solo,              NPOs have a behaviour in their name that determines what
+simply select your kill team as normal. If you are playing           they do.
+cooperatively, either select a kill team as normal and split
+the operatives between you, or take half of any kill team            • Each behaviour will specify what order they have
+each. If it’s an odd number, round up (or down for more of a            when activated.
+challenge). If you’ve taken separate teams, remember that            • Whenever an NPO would perform an action (including when
+some rules specify certain operatives through keywords, so              counteracting), perform the first action it can do from its
+one kill team’s rules won’t necessarily interact with another’s.        behaviour. If it cannot do any, it’s expended (or pass, in the
+                                                                        case of counteracting).
+Your kill team will fight against procedurally generated
+nonplayer operatives (known as NPOs). Unlike your highly
+trained operatives, NPOs are standard soldiers from their
+army – sentries, frontline troops, guards, etc. As such, you                              The behaviours in this mission pack
+don’t select a kill team for them. Instead, you select the                                will be familiar from those found in
+appropriate datacards from this mission pack. Alternatively,                              the Joint Ops mission pack (Kill Team
+you can create your own datacards to accurately reflect their                             Core Book). This time, however, the
+stats using existing kill teams as a guide – just ignore rules                            following exceptions apply:
+that wouldn’t be appropriate for standard soldiers.
+                                                                         • If NPOs are Defence, they shouldn’t move out
+Select any combination of NPOs with a combined Wounds                       of their drop zone (the compound) unless it
+stat of up to 90. To increase or decrease the difficulty, simply            feels appropriate in the circumstances. They’ll
+increase or decrease this number as appropriate.                            also perform Guard actions (even though it’s
+                                                                            not mentioned in their behaviour), but only one
+
+EQUIPMENT                                                                   operative can be on guard at each bunker terrain
+                                                                            feature. This should only be done when appropriate,
+When selecting equipment for NPOs, use options from the Kill                particularly at the start of a turning point if they
+Team Upgrade: Equipment Pack (light barricades, ammo pile,                  couldn’t otherwise Shoot or Fight.
+etc.) and set them up as feels appropriate.                              • If NPOs are Offence, they’ll try to move into
+                                                                            Defence’s drop zone (the compound) as safely
+
+SET UP                                                                      as possible to control the objective marker. This
+                                                                            means they’ll climb the stockade terrain features
+Set up NPOs as normal, except spread them out in cover                      and attempt to open them, but will do so with
+relatively evenly so they can attack/defend from either side                caution (unless four turning points are nearly
+of the compound as appropriate. If they are Defence, spread                 complete and they need to move fast to control the
+them out between the bunker, stockade and stronghold                        objective marker).
+terrain features and the middle of the compound.
+
+
+INITIATIVE
+When rolling off to decide who has initiative, roll one dice
+for the NPOs and one dice for the solo/co-op kill team. If the
+NPOs win the roll-off, they will always choose to have initiative.
+
+
+GAMBIT STEP
+In the Gambit step, NPOs will always pass.
+
+
+
+
+                                                                      VOLKUS COMPOUND MISSION PACK » PVE COOPERATIVE/SOLO RULES
+NPO BEHAVIOURS
+    BRAWLER                                                                MARKSMAN
+This operative will move towards the enemy to fight them, but          This operative will move to an ideal position to shoot
+will seek cover on the way.                                            the enemy.
+
+When activated, if this NPO can perform either of its first two        When activated, if this NPO can perform the Shoot action
+actions during that activation, give it an Engage order. If it         during that activation, give it an Engage order. If it cannot, give
+cannot, give it a Conceal order.                                       it a Conceal order.
+
+1. Fight                                                               1. Fall Back to cover. If possible, to a location where there’s
+2. Charge the closest enemy operative via the shortest                    a valid target that isn’t obscured. If not, where there’s an
+    possible route.                                                        objective marker visible to this NPO.
+3. Reposition towards the closest enemy operative, to cover if        2. Shoot.
+    possible (a subsequent Dash action can fulfil this, if able).      3. Reposition to cover. If possible, to a location where there’s
+4. Dash towards the closest enemy operative, to cover                     a valid target that isn’t obscured, if not, where there’s an
+    if possible.                                                           objective marker visible to this NPO (a subsequent Dash
+                                                                           action can fulfil these, if able).
+                                                                       4. Dash to cover. If possible, to a location where there’s a valid
+                                                                           target that isn’t obscured, if not, where there’s an objective
+                                                                           marker visible to this NPO.
+
+
+THREAT PRINCIPLE
+When making decisions for NPOs, use the threat principle: go with the option that’s worst for you. This can determine which
+ready NPO activates, how an NPO moves, shoots and fights, how to resolve their dice, etc. There are a few examples below
+(containing decisions in order of priority) that you can use as a guide, but if one option feels worse for you, go with that. If you still
+cannot decide, randomly choose one.
+
+
+
+Activation Priority                                                    Shoot action
+Multiple NPOs are ready, so the players activate the NPO that:         An NPO performs the Shoot action and multiple enemy
+                                                                       operatives are valid targets. It shoots the enemy operative
+1. Can perform the Fight or Shoot action (as determined by            that is/has:
+    its behaviour, but remember the Guard action is treated as
+    a Shoot action so is included), and is the most threatening        1. N ot obscured.
+    to do so (e.g. it has a better weapon, is more likely to           2. N ot in cover.
+    incapacitate an enemy operative, etc.).                            3. A n objective marker within its control range.
+2. Is not in cover from a player’s operative.                         4. Closest.
+3. Is closer to a player’s operative.                                 5. Wounded.
+                                                                       6. Ready.
+
+Reposition or Dash action
+An NPO moves to cover where there’s a valid target. If there           Fight action
+are multiple locations for this, then the best valid target is         An NPO performs the Fight action and multiple enemy
+determined as per the Shoot action opposite.                           operatives are within its control range. It fights the enemy
+                                                                       operative that is/has:
+
+                                                                       • Wounded
+                                                                       • An objective marker within its control range.
+                                                                       • Ready.
+
+
+
+
+                                                                                           VOLKUS COMPOUND MISSION PACK » NPO RULES
+NPO DATACARDS
+TROOPER                                  BRAWLER            TROOPER                                MARKSMAN
+Numerous and bloodthirsty, these enemies seek               Typical of expendable sentries, henchmen and garrison
+to overwhelm your elite operatives with their sheer         troops the galaxy over, these gun-wielding combatants
+numbers and ferocity.                                       can wear your operatives down with weight of fire.
+
+       APL         MOVE           SAVE         WOUNDS            APL            MOVE           SAVE        WOUNDS
+       2           6"             5+             7               2              6"             5+            7
+       NAME              ATK HIT DMG      WR                     NAME                ATK HIT DMG      WR
+       Blades             4   4+ 3/4      Ceaseless              Firearm              4   4+ 2/3      -
+                                                                 Special weapon*      4   4+ 4/5      Piercing 1
+                                                                 Knife                3   4+ 2/3      -
+                                                            *Only 1 in 3 Trooper (Marksman) can have this weapon.
+
+
+
+
+TOUGH                                    BRAWLER            WARRIOR                                MARKSMAN
+Brutish and resilient, these foes can soak up an alarming   Skilful, dedicated and wielding potent firearms, enemies
+amount of punishment. The time required to neutralise       such as these pose a real threat to even the most
+them may risk your operatives being overwhelmed.            experienced of your operatives.
+
+       APL         MOVE           SAVE         WOUNDS            APL            MOVE           SAVE        WOUNDS
+       2           6"             4+            10               2              6"             4+            8
+       NAME              ATK HIT DMG      WR                     NAME                ATK HIT DMG      WR
+       Blades             4   4+ 4/5      Ceaseless              Firearm              4   4+ 3/4      -
+                                                                 Knife                3   4+ 2/3      -
+
+
+
+
+HEAVY                                    BRAWLER            HEAVY                                  MARKSMAN
+To approach an enemy such as this is to risk a swift and    Even a single such adversary is capable of laying down
+violent death. They will show no mercy to any of your       a devastating hail of fire that can punch your operatives
+operatives foolish enough to meet them at close quarters.   from their feet and tear the heart from your kill team.
+
+       APL         MOVE           SAVE         WOUNDS            APL            MOVE           SAVE        WOUNDS
+       3           6"             3+            14               3              6"             3+           14
+       NAME              ATK HIT DMG      WR                     NAME                ATK HIT DMG      WR
+       Blades             5   3+ 4/5      Ceaseless              Firearm              4   3+ 3/4      -
+This operative can perform two Fight actions during              Knife                4   3+ 3/4      -
+its activation.                                             This operative can perform two Shoot actions during
+                                                            its activation.
+
+
+
+
+                                                                        VOLKUS COMPOUND MISSION PACK » NPO DATACARDS
+RUSES
+This section provides a selection of optional rules that can be used at players’ discretion. Both players could select
+one to add further variety, one player could select some to aid them in the battle ahead, or they could be used to
+adjust the experience as appropriate for a solo/cooperative game. If you are using ruses, select and reveal them at
+the same time as equipment.
+
+
+OFFENCE                                                                             DEFENCE
+Surprise Attack                            Breaching Charges                        Razor Wire Perimeter
+He who strikes first strikes hardest.      The use of explosives allows opposing    Coils of razor wire have been carefully placed so as to
+Even the most formidable fortifications    forces to bring down walls and           slow advancing foes.
+can be overcome if the enemy is            barricades, burying their enemies
+caught flatfooted.                         in rubble.                               Whenever an operative climbs over a stockade
+                                                                                    or bunker terrain feature, or moves into/out of a
+In each Strategy phase, Offence            Offence operatives have the              stronghold terrain feature, inflict D3 damage on
+rolls two D6 for the initiative roll-off   following melee weapon, but it           that operative. This has no effect if an operative
+and selects which to use. However,         can only be selected when fighting       moves into/out of a stronghold and remains
+the first time they don’t have             against a stockade terrain feature.      wholly within Defence’s drop zone while it does
+initiative during the battle (e.g.                                                  so (i.e. it’s only when an operative is moving into
+they lose the roll-off, or choose not      NAME                 ATK HIT DMG         or out of the compound).
+to have it), they can no longer use            Breaching         3     2+ 5/8
+this ruse.                                      charge
+                                                                                    Booby Traps
+                                                                                    Tripwire bombs, pitfall traps, snares and mines have
+Night Assault                              Preliminary Bombardment                  been placed throughout the compound.
+Sparsely lit by search-lumen, the          The compound is well fortified against
+darkened compound provides plenty of       bombardments, but a preparatory          The first time an operative moves through each
+opportunities for combatants to conceal    barrage still forces defenders to        door and each breach point during the battle,
+themselves in shadow.                      take cover.                              roll one D6: on a 4+, inflict that much damage on
+                                                                                    that operative. Note you only roll for each door
+Whenever an operative is shooting,         During the first turning point:          and each breach point once during the battle.
+the target is obscured unless any of
+the following are true:                    • Whenever a Defence operative
+                                              is performing an action in which      Stockpile
+• The target is within 6" of it.             it moves (or is removed and set       The defenders have stockpiled equipment and
+• The target is wholly within                up again), it cannot move more        ammunition in order to repel the foe.
+   Defence’s drop zone.                       than 3" (or be set up more than
+• The target is a stockade                   3" away).                             Defence can select one additional
+   terrain feature.                        • Offence operatives cannot move        equipment option.
+• It’s using a weapon with the               in Defence’s drop zone unless
+   Blast weapon rule, the target              their base is underneath Vantage
+   is a secondary target, and the             terrain while they do so.             Command Station
+   primary target wasn’t obscured.         • Offence operatives cannot be          The compound is a command centre for the area that
+                                              removed and set up in Defence’s       contains advanced vox and surveillance systems.
+                                              drop zone unless their base is
+                                              underneath Vantage terrain when       At the end of the Select Operatives step,
+                                              they are set up there.                Defence gains 1 additional CP.
+
+
+
+
+                                                                                               VOLKUS COMPOUND MISSION PACK » RUSES
+

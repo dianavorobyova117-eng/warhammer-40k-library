@@ -1,0 +1,264 @@
+     UNIVERSAL EQUIPMENT                                         UNIVERSAL EQUIPMENT
+1X AMMO CACHE                                              1X RAZOR WIRE
+Whether stockpiles deliberately set out for warriors to    Spooled rapidly out and affixed to jutting posts, razor
+access quickly, or the abandoned munitions of the slain,   wire acts as an easily deployed barrier and a painful
+these caches can prove vital for a swift reload in the     deterrent to enemy operatives seeking to attack along
+heat of battle.                                            particular routes.
+Before the battle, you can set up one of your              Razor wire is Exposed and Obstructing terrain.
+Ammo Cache markers wholly within your territory.           Before the battle, you can set it up wholly within
+Friendly operatives can perform the following              your territory, on the killzone floor and more than
+mission action during the battle.                          2" from other equipment terrain features, access
+                                                           points and Accessible terrain.
+AMMO RESUPPLY                                    0AP       Obstructing: Whenever an operative would cross
+    One of your Ammo Cache markers the
+                                                           over this terrain feature within 1" of it, treat the
+    active operative controls is used during this
+                                                           distance as an additional 1".
+    turning point.
+    Until the start of the next turning point,
+    whenever this operative is shooting with a
+    weapon from its datacard, you can re‑roll
+    one of your attack dice.
+    An operative cannot perform this action
+    while within control range of an enemy
+    operative, if that marker isn’t yours, or if that
+    marker has been used this turning point.
+
+
+
+
+     UNIVERSAL EQUIPMENT                                         UNIVERSAL EQUIPMENT
+1X COMMS DEVICE                                            1X MINES
+Communications devices can be swiftly hijacked and         The battlefields of the 41st Millennium are plagued
+employed to coordinate operations or call in support       by myriad types of mine, from simple frag charges to
+during a firefight.                                        monofilament web‑snares and microplasma charges.
+                                                           Ultimately, all serve a similar, horrible purpose.
+Before the battle, you can set up one of your
+Comms Device markers wholly within your                    Before the battle, you can set up one of your
+territory. While a friendly operative controls this        Mines markers wholly within your territory
+marker, add 3" to the distance requirements                and more than 2" from other markers, access
+of its SUPPORT rules that refer to friendly                points and Accessible terrain. The first time that
+operatives (e.g. ‘select one friendly operative            marker is within an operative’s control range,
+within 6"’ would be 9" instead). Note that you             remove that marker and inflict D3+3 damage on
+cannot benefit from your opponent’s Comms                  that operative.
+Device markers.
+     UNIVERSAL EQUIPMENT                                        UNIVERSAL EQUIPMENT
+2X LIGHT BARRICADES                                       2X LADDERS
+Designed to be lugged into place and then deployed by     Carried into battle in their compacted forms, these
+operatives and combat engineers, these barriers are       ladders provide a rapid route of ingress to strongholds,
+proof against small arms fire.                            or access to vital vantage points.
+Light barricades are Light terrain, except the feet,      Ladders are Insignificant and Exposed terrain.
+which are Insignificant and Exposed. Before the           Before the battle, you can set up any of them
+battle, you can set up any of them wholly within          as follows:
+your territory, on the killzone floor and more than
+                                                          • Wholly within your territory.
+2" from other equipment terrain features, access
+                                                          • Upright against terrain that’s at least 2" tall.
+points and Accessible terrain.
+                                                          • More than 2" from other equipment
+                                                            terrain features.
+1X HEAVY BARRICADE                                        • More than 1" from doors and access points.
+A redoubtable slab of plasteel and adamantine, this       Once per action, whenever an operative is
+layered protective barrier provides shelter amidst the    climbing the terrain feature a ladder is placed
+fiercest firefights.                                      against, treat the vertical distance as 1" if the
+A heavy barricade is Heavy terrain. Before the            ladder is within that operative’s control range
+battle, you can set it up wholly within 4" of your        during that entire climb.
+drop zone, on the killzone floor and more than 2"
+from other equipment terrain features, access
+points and Accessible terrain.
+
+
+
+
+     UNIVERSAL EQUIPMENT                                        UNIVERSAL EQUIPMENT
+UTILITY GRENADES                                          EXPLOSIVE GRENADES
+From neuro‑suppressant psybombs to smoke‑belching         A variety of offensive grenades are employed by the
+chemical charges, grenades of this sort can suppress      forces of the 41st Millennium. These range from
+the enemy and be the difference between life and death.   simple fragmentation grenades to plasma and gravitic
+                                                          concussion grenades, while even more exotic devices
+When you select this equipment, select two utility
+                                                          are used to crack open enemy armour.
+grenades (2 smoke, 2 stun, or 1 smoke and 1
+stun). Each selection is a unique action your             When you select this equipment, select two
+operatives can perform, but your kill team can            explosive grenades (2 frag, 2 krak, or 1 frag and
+only perform that action a total number of times          1 krak). Each selection is a ranged weapon your
+during the battle equal to your selection.                operatives can use, but your kill team can only
+                                                          use that weapon a total number of times during
+STUN GRENADE                                      1AP     the battle equal to your selection.
+    Select one enemy operative visible to and
+    within 6" of this operative. That operative           NAME                                 ATK HIT DMG
+    and each other operative within 1" of it                 Frag grenade                       4      4+     2/4
+    takes a stun test. For an operative to take
+    a stun test, roll one D6: on a 3+, subtract           WR
+    1 from its APL stat until the end of its              Range 6", Blast 2", Saturate
+    next activation.
+    An operative cannot perform this action while
+                                                          NAME                                 ATK HIT DMG
+    within control range of an enemy operative,              Krak grenade                       4      4+     4/5
+    or if you have reached the total number of
+    times your kill team can perform it.                  WR
+                                                          Range 6", Piercing 1, Saturate
+     UNIVERSAL EQUIPMENT                                     UNIVERSAL EQUIPMENT
+BREACHING CHARGE                                        1X PORTABLE BARRICADE
+This explosive device can blast a tactical insertion    Little more than a suppression shield with armoured
+point through even the most formidable bulkhead or      feet, these barricades can be hefted and borne forwards
+bunker wall.                                            to provide mobile cover.
+Once per battle, when a friendly operative              A portable barricade is Light, Protective and
+performs the Breach action, you can use this rule.      Portable terrain, except the feet which are
+If you do, that operative can perform that action       Insignificant and Exposed. Before the battle,
+for 1 less AP (to a minimum of 1AP) as though it        you can set it up wholly within your territory, on
+had the word ‘breach marker’ on its datacard.           the killzone floor and more than 2" from other
+                                                        equipment terrain features, access points and
+                                                        Accessible terrain.
+                                                        Protective: While an operative is in cover from
+                                                        this terrain feature, improve its Save stat by 1 (to
+                                                        a maximum of 2+).
+
+                                                        RULE CONTINUES ON OTHER SIDE
+
+
+
+
+Portable: This terrain feature only provides cover
+while an operative is connected to it and if the
+                                                             UNIVERSAL EQUIPMENT
+shield is intervening (ignore its feet). Operatives
+connected to the inside of it can perform the           UTILITY GRENADES
+following unique action during the battle.              From neuro‑suppressant psybombs to smoke‑belching
+                                                        chemical charges, grenades of this sort can suppress
+MOVE WITH BARRICADE                               1AP   the enemy and be the difference between life and death.
+    The same as the Reposition action, except
+    the active operative can move no more than          When you select this equipment, select two utility
+    its Move stat minus 2" and cannot climb,            grenades (2 smoke, 2 stun, or 1 smoke and 1
+    drop, jump or use any kill team’s rules that        stun). Each selection is a unique action your
+    remove it and set it back up again (e.g.            operatives can perform, but your kill team can
+    HEARTHKYN SALVAGER FLY, MANDRAKE                    only perform that action a total number of times
+    SHADOW PASSAGE).                                    during the battle equal to your selection.
+
+    Before this operative moves, remove the             RULE CONTINUES ON OTHER SIDE
+    portable barricade it’s connected to. After it
+    moves, set up the portable barricade so it’s
+    connected again, but the portable barricade
+    cannot be set up within 2" of other
+    equipment terrain features, access points or
+    Accessible terrain. If this is not possible, the
+    portable barricade is not set up again.
+    This action is treated as a Reposition action.
+    An operative cannot perform this action while
+    within control range of an enemy operative,
+    or during the same activation in which it
+    performed the Fall Back or Charge action.
+SMOKE GRENADE                                 1AP
+   Place one of your Smoke Grenade markers              An operative cannot perform this action while
+   within 6" of this operative. It must be visible      within control range of an enemy operative,
+   to this operative, or on Vantage terrain             or if you have reached the total number of
+   of a terrain feature that’s visible to this          times your kill team can perform it.
+   operative. The marker creates an area of
+   smoke 1" horizontally and unlimited height
+   vertically from (but not below) it.
+   While an operative is wholly within an area
+   of smoke, it’s obscured to operatives more
+   than 2" from it, and vice versa. In addition,
+   whenever an operative is shooting an enemy
+   operative wholly within an area of smoke,
+   weapons with the Piercing 2 or Piercing
+   Crits 2 weapon rule have the Piercing 1 or
+   Piercing Crits 1 weapon rule (respectively)
+   instead, unless they’re within 2" of
+   each other.
+   In the Ready step of the next Strategy
+   phase, roll one D3. Remove that Smoke
+   Grenade marker after a number of
+   activations equal to the result have been
+   completed or at the end of the turning point
+   (whichever comes first).
+
+RULE CONTINUES ON OTHER SIDE
+
+
+
+
+NOTES:                                               NOTES:
+                         UNIVERSAL EQUIPMENT:
+                         UPDATE LOG
+Rules will be periodically updated to maintain fair balance and interact more smoothly with the game. Rules changes
+will be updated directly into online documents and then listed below. Any minor changes to standardise wording that
+don’t have any practical impact on the rule will be updated directly into online documents but not be listed here.
+
+
+RULES COMMENTARY                                                                                  OCTOBER ’26
+This section provides clarification on ambiguous and complex
+rules interactions.
+
+ Q: Can an operative continue the same climb after a ladder is
+no longer within its control range and still reduce the vertical
+distance it climbed with the ladder (e.g. to reach the highest
+level of the Killzone: Volkus large stronghold from the outside)?
+
+A: No.
+                                                                                                     PREVIOUS ERRATAS
+This section collects amendments to the rules. Amended text       HEAVY BARRICADE
+for clarification and edits are shown in blue, while amended      Second sentence changed to read:
+text for balance updates are shown in magenta.                    ‘Before the battle, you can set it up wholly within 4" of
+                                                                  your drop zone, on the killzone floor and more than 2"
+RAZOR WIRE                                                        from other equipment terrain features, access points and
+Second sentence changed to read:                                  Accessible terrain.’
+‘Before the battle, you can set it up wholly within your
+territory, on the killzone floor and more than 2" from            PORTABLE BARRICADE
+other equipment terrain features, access points and               First sentence changed to read:
+Accessible terrain.’                                              ‘A portable barricade is Light, Protective and Portable terrain,
+                                                                  except the feet which are Insignificant and Exposed.’
+Obstructing rule changed to read:
+‘Whenever an operative would cross over this terrain feature      Second sentence changed to read:
+within 1" of it, treat the distance as an additional 1".’         ‘Before the battle, you can set it up wholly within your
+                                                                  territory, on the killzone floor and more than 2" from
+MINES                                                             other equipment terrain features, access points and
+First sentence changed to read:                                   Accessible terrain.’
+‘Before the battle, you can set up one of your Mines markers
+wholly within your territory and more than 2" from other          Final sentence of Portable rule changed to read:
+markers, access points and Accessible terrain.’                   ‘Operatives connected to the inside of it can perform the
+                                                                  following unique action during the battle.’
+LADDERS
+First paragraph changed to read:                                  First effect of Move With Barricade action changed to read:
+‘Ladders are Insignificant and Exposed terrain. Before the        ‘The same as the Reposition action, except the active
+battle, you can set up any of them as follows:’                   operative can move no more than its Move stat minus 2"
+                                                                  and cannot climb, drop, jump or use any kill team’s rules
+Second paragraph changed to read:                                 that remove it and set it back up again (e.g. HEARTHKYN
+‘In addition, an operative can either move through ladders        SALVAGER FLY, MANDRAKE SHADOW PASSAGE).’
+as if they aren’t there (but cannot finish on them), or climb
+them. Once per action, whenever an operative is climbing the      Additional text added to end of second sentence of second
+terrain feature a ladder is placed against, treat the vertical    effect of Move With Barricade action:
+distance as 1" if the ladder is within that operative’s control   ‘After it moves, set up the portable barricade so it’s connected
+range during that entire climb. Note that if an operative         again, but the portable barricade cannot be set up within 2" of
+then continues climbing another terrain feature during that       other equipment terrain features, access points or Accessible
+action (including another ladder), that distance is determined    terrain. If this is not possible, the portable barricade is not set
+as normal.’                                                       up again.’
+
+LIGHT BARRICADES                                                  UTILITY GRENADES, SMOKE GRENADE ACTION
+Changed to read:                                                  Second sentence of second effect changed to read:
+‘Light barricades are Light terrain, except the feet, which are   ‘In addition, whenever an operative is shooting an enemy
+Insignificant and Exposed. Before the battle, you can set up      operative wholly within an area of smoke, weapons with the
+any of them wholly within your territory, on the killzone floor   Piercing 2 or Piercing Crits 2 weapon rule have the Piercing 1
+and more than 2" from other equipment terrain features,           or Piercing Crits 1 weapon rule (respectively) instead, unless
+access points and Accessible terrain.’                            they’re within 2" of each other.’
+
+                                                                  NEW UNIVERSAL EQUIPMENT
+                                     Top-down view                ‘Breaching Charge’ universal equipment added.
+
+
+
+
+                                  Feet are Insignificant
+                                      and Exposed
+                                                                            PREVIOUS RULES COMMENTARIES
+ Q: When an operative is being shot with a weapon that has      Q: Can I place a ladder wholly within my territory against
+the Piercing 2 weapon rule, can I use the effects of a smoke   terrain that’s on the centreline?
+grenade from universal equipment to reduce it to Piercing 1,
+then another rule that worsens the Piercing weapon rule by 1   A: Yes.
+(e.g. DEATHWATCH AEGIS VETERAN Storm Shield) to ignore
+the Piercing weapon rule entirely?                             Q: Can I climb a ladder if there are no other climbable parts
+                                                               of terrain within 1" of my operative to a vantage that’s over 3"
+A: Yes.                                                        above that operative?
+
+                                                               A: Yes.
+

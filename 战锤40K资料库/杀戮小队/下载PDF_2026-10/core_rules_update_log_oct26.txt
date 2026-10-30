@@ -1,0 +1,334 @@
+                          CORE RULES:
+                          UPDATE LOG
+Rules will be periodically updated to maintain fair balance and interact more smoothly with the game. Rules changes
+will be updated directly into online documents and then listed below. Any minor changes to standardise wording that
+don’t have any practical impact on the rule will be updated directly into online documents but not be listed here.
+
+
+
+
+CORE BOOK
+ERRATA                                                                                                         OCTOBER ’26
+This section collects amendments to the rules. Amended text          ACTIONS, FIGHT, RESOLVE ATTACK DICE
+for clarification and edits are shown in blue, while amended         Add following text to end of second sentence of
+text for balance updates are shown in magenta.                       first paragraph:
+                                                                     ‘[...] or one operative in that fight is incapacitated (see
+KILLZONES, TERRAIN TYPES, VANTAGE                                    damage on pg 47), at which point the action ends, then any
+Add following text after fourth paragraph:                           incapacitated operatives are removed.
+‘Fourthly, for the purposes of cover and intervening, when
+targeting an operative on Vantage terrain from below, if a
+rampart that’s above the targeting line is within the target’s
+control range, it’s intervening.
+
+In example 1, the targeting lines pass through the Heavy
+terrain. However, it’s not within the target’s control range as
+it’s not visible, so the target is in Light cover from the Vantage
+and rampart.
+
+In example 2, the Heavy terrain rampart is both above the
+targeting line and within the target’s control range, so it is
+treated as intervening, meaning the target is in Heavy cover.’
+
+
+
+
+     EXAMPLE 1                                                       EXAMPLE 2
+RULES COMMENTARY                                                                                                   OCTOBER ’26
+This section provides clarification on ambiguous and complex         Q: If an operative is injured during an interruption while
+rules interactions.                                                  performing a move action (e.g. due to a Guard action after
+                                                                     an Operate Hatch action), is the move allowance for that
+ Q: If a rule would interrupt or cancel my attempt to activate       action reduced?
+a friendly operative (e.g. EXACTION SQUAD Execution Order,
+MANDRAKES NIGHTFIEND Harrowing Whispers), do I give                  A: No.
+that friendly operative an order before or after that rule has
+finished resolving?                                                  Q: If a rule would interrupt ‘after an action,’ can it do so during
+                                                                     an action consisting of two actions (e.g. KOMMANDOS DAKKA
+A: After.                                                            BOY Dakka Dash), and can it do so even if it’s the last action of
+                                                                     an activation?
+Q: If a rule would take effect ‘after an activation,’ can it do so
+even if it’s the last activation of the turning point?               A: Yes to both.
+
+A: Yes.
+                                                                                                     PREVIOUS ERRATAS
+KEY PRINCIPLES, DAMAGE                                             APPENDIX, WEAPON RULES, TORRENT
+Add following text to end of first paragraph:                      Change first sentence to read:
+‘Some rules allow an incapacitated operative to perform a          ‘Select a valid target as normal as the primary target, then
+free action before being removed from the killzone. Such           select any number of other valid targets within x of the first
+an operative cannot perform more than one free action              valid target, but not within control range of friendly operatives,
+(excluding Place Marker) in this instance, and that operative’s    as secondary targets, e.g. Torrent 2".’
+player decides the order of any of its rules that occur before
+it’s removed from the killzone (taking precedence over the         APPENDIX, WEAPON RULES, SEVERE
+player with initiative deciding).’                                 Change second sentence to read:
+                                                                   ‘The Devastating and Piercing Crits weapon rules still take
+KEY PRINCIPLES, DISTANCES                                          effect, but Punishing and Rending don’t.’
+Change relevant part of last sentence of second paragraph
+to read:                                                           KILLZONES, TERRAIN AND MOVEMENT, JUMPING
+‘If an operative is carrying a mission or objective marker, that   Change to read:
+marker is the same distance as that operative.’                    ‘Operatives can jump from Vantage terrain higher than
+                                                                   2" from the killzone floor when they move off it. You can
+KEY PRINCIPLES, DATACARDS, OPERATIVE STATS                         move them up to 4" horizontally from the edge when they
+Change 2nd designer’s note to read:                                jump, done like any other move except in one straight-line
+‘If an operative’s stats or its weapons’ stats are changed         increment. The operative must then drop or climb from there.
+during an action, apply the change once the action has             When jumping from Vantage terrain, if there is a terrain part
+been completed. Note that changes to weapon rules are              such as a rampart at the edge the operative would jump from,
+applied immediately.’                                              the operative must climb it first then jump from the highest
+                                                                   point it must climb over. When jumping to a terrain feature,
+KEY PRINCIPALS, PRECEDENCE                                         you can ignore its height difference of 1" or less, including
+Add the following bullet point and adjust the subsequent point     its rampart (if any). However, when jumping from a terrain
+to lower precedence:                                               feature, if it has a rampart, you must climb it first.’
+‘5. The active operative’s controlling player decides.
+ 6. The player with initiative decides.’                           KILLZONES, TERRAIN TYPES
+                                                                   Add terrain type:
+FIREFIGHT PHASE, COUNTERACT                                        ‘Ceiling: Operatives with a round base of 50mm or less, or an
+Change relevant parts of first two sentences to read:              oval base of 60x35mm, can move underneath Ceiling terrain
+‘[…] you can select an expended friendly operative with an         regardless of the operative’s height (this takes precedence
+Engage order to perform a 1AP action (excluding Guard) for         over Terrain and Movement on pg 56). The operative must still
+free. Each operative can only counteract once per turning          finish the action in a location it can be placed.’
+point. That operative cannot move more than or be removed
+and set up more than 2" away while counteracting […]’              KILLZONE: BHETA-DECIMA, HAZARDOUS AREAS, EQUIPMENT
+                                                                   Change to read:
+ACTIONS, SHOOT, SELECT VALID TARGET                                ‘Equipment can be set up on Vantage terrain and within
+Add following text:                                                2" of Accessible terrain (this takes precedence over the
+‘An operative cannot be in cover from and obscured by the          usual restrictions).’
+same terrain feature. If it would be, the defender must select
+one of them (cover or obscured) for that sequence when their       KILLZONE: VOLKUS, CITYFIGHT RULES, CONDENSED
+operative is selected as the valid target.’                        STRONGHOLD
+                                                                   Change relevant part to read:
+APPENDIX, WEAPON RULES, HEAVY                                      ‘[…] if the target is wholly within a stronghold terrain feature
+Change first sentence to read:                                     and on the killzone floor or a fire step.’
+‘An operative cannot use this weapon in an activation or
+counteraction in which it moved, and it cannot move in an
+activation or counteraction in which it used this weapon.’
+KILLZONE: GALLOWDARK & KILLZONE: TOMB WORLD, CLOSE                KILLZONE: VOLKUS, STRONGHOLD
+QUARTERS, GUARD ACTION                                            Add the following bullet points:
+Add the following to the first bullet point:                      ‘• E. The three barrel containers on Stronghold A are Blocking
+‘ • It performs any action, moves or is set up.’                      and Heavy terrain.
+                                                                   • F. The small broken ramparts on the edge of the Vantage
+KILLZONE: GALLOWDARK & KILLZONE: TOMB WORLD, CLOSE                    terrain of Stronghold A are Insignificant and Exposed terrain.
+QUARTERS, ON GUARD                                                 • G. The gap on the lower Vantage terrain of Stronghold B is
+Add following text to end of first paragraph:                         Accessible terrain.
+‘If you do, that friendly operative cannot counteract during       • H. You cannot have more than one friendly operative on
+the turning point.’                                                   the highest upper level of Stronghold B at once, and that
+                                                                      operative must be placed on one side or the other of that
+KILLZONE: VOLKUS, CITYFIGHT RULES, DOOR FIGHT                         level, it cannot be placed in the middle (this means an
+Change first sentence of second effect to read:                       enemy operative cannot be prevented from moving onto
+‘In the Select Enemy Operative step, instead select an enemy          or being set up on the other side). If an operative’s base is
+operative on the killzone floor and within 2" of, and on the          too big to be placed there, it must move (or be set up) on as
+other side of, a door the active operative is touching.’              far as possible (otherwise it cannot complete that move),
+                                                                      then place it to one side instead and treat it as being there.
+KILLZONE: VOLKUS, LARGE RUIN                                          Hold it as far on that level as possible when it matters for
+Change first sentence of first bullet point to read:                  checking other rules (e.g. control range, visibility, distance
+‘The upper level of a large ruin terrain feature is Ceiling and       to other operatives, etc.). This takes precedence over the
+Vantage terrain.’                                                     rules for bases and being in a location it can be placed.’
+
+KILLZONE: VOLKUS, LARGE RUIN
+Add following text to end of third bullet point:
+‘The door is Accessible and Heavy terrain. For the purposes of
+control range, ignore the door when determining visibility.’
+
+KILLZONE: VOLKUS, STRONGHOLD
+Change first bullet point to read:
+‘The upper level(s) of a stronghold terrain feature is Ceiling
+and Vantage terrain.’
+
+
+
+
+                                                                                          H
+                           F                                                                                 G
+    KILLZONE: VOLKUS                                     E          KILLZONE: VOLKUS
+    STRONGHOLD A                                                    STRONGHOLD B
+                                                                                PREVIOUS RULES COMMENTARIES
+Q: In the Resolve Attack Dice step of the Shoot action,             Q: When counteracting, if a rule has increased or decreased
+what order are successes resolved in? How does this interact       the cost of an action, does this affect what actions an operative
+with my rules that reduce or ignore damage from the first          can perform? For example, can the ANGEL OF DEATH Mobile
+attack dice (e.g. CORSAIR VOIDSCARRED Warding Shield,              Chapter Tactic allow an operative to perform the Fall Back
+HERNKYN YAEGIR Tough Survivalists)?                                action while counteracting now it’s 1AP?
+
+ A: Successes resolve simultaneously. The defender can             A: Yes.
+select one of the successes being resolved to reduce or ignore
+(as appropriate to their rule).                                     Q: If a rule allows an operative to move ‘any remaining move
+                                                                   distance’ from a previous action (e.g. TEMPESTUS AQUILON
+ Q: How does the Guard action interact with rules where            PRECURSOR Dynamic, VOID-DANCER TROUPE Darting
+the operative must perform the Shoot action with a specific        Salvo) and its Move stat is changed between those actions
+weapon (e.g. PHOBOS STRIKE TEAM Astartes, KOMMANDO                 (e.g. as a result of becoming injured), is the remaining move
+Dakka Dash)?                                                       distance changed?
+
+ A: The operative can perform the Guard action, so long as         A: No.
+the relevant weapon is selected if it performs the Shoot action
+during the interrupt.                                              Q: Can operatives that can only perform a restricted set
+                                                                   of actions (WRECKA KREW BOMB SQUIG, ELUCIDIAN
+ Q: How does the Guard action work when the operative must         STARSTRIDER CANID) perform actions that are treated as
+spend an additional AP to perform two Shoot actions with the       one of those actions, e.g. Hatchway Fight?
+same weapon (e.g. WARPCOVEN Astartes)?
+                                                                    A: Yes, if that operative is permitted to perform the action it’s
+ A: The operative can perform the Guard action for 1AP             treated as.
+as normal, but if it performs the Shoot action during the
+interrupt, you cannot select the relevant weapon unless it had     Q: Can rules that ignore or reduce damage inflicted by an
+the AP remaining to do so during its activation.                   attack dice (e.g. KOMMANDO Just a Scratch, CORSAIR
+                                                                   VOIDSCARRED Warding Shield) ignore or reduce
+Q: If an operative’s rules allow you to place a                    additional damage inflicted by that attack dice (e.g. VESPID
+marker (e.g. HERNKYN YAEGIR Hy-Pex Mines,                          STINGWING Vicious Venom, LEGIONARY Blood for the
+VESPID STINGWING Neutron Bombardment), then that                   Blood God)?
+operative is removed from the killzone, is that marker
+also removed?                                                      A: Yes.
+
+A: No, unless specified otherwise.                                  Q: Is damage from the Devastating X weapon rule considered
+                                                                   to be additional damage inflicted by an attack dice, and can
+ Q: Can you explain further what it means when a rule states       it be ignored by rules that ignore or reduce damage from an
+that an operative is in cover and obscured if another target was   attack dice (e.g. CORSAIR VOIDSCARRED Warding Shield)
+(e.g. Blast X weapon rule, BLOODED Dark Favour).
+                                                                   A: No to both.
+ A: When determining cover and obscured for that operative,
+whatever was determined for the primary or original target is      Q: Can something be wholly within a territory while also being
+the same. For example, in the case of Blast, secondary targets     on the centreline?
+are not in cover/obscured if the primary target was not, and
+they are if the primary target was.                                A: Yes, but it wouldn’t be within the other territory.
+
+ Q: Do rules that prevent an operative from being selected as a     Q: If you automatically retain a dice as a success before
+valid target (e.g. HERNKYN YAEGIR In Position) prevent that        rolling it (e.g. cover save, Accurate weapon rule), can that dice
+operative from being a secondary target for a weapon with the      be re-rolled and does it have a numerical result?
+Blast X weapon rule?
+                                                                   A: No to both.
+A: No, as secondary targets from Blast are not selected.
+ Q: When retaining dice, if a rule retains a fail as a success        Q: In the third main feature of Vantage terrain, for the
+instead, or a success as a critical success, does it change the       purposes of obscured, what does ‘Heavy terrain connected to
+numerical result of the dice?                                         Vantage terrain’ mean?
+
+A: No.                                                                 A: ‘Connected’ here refers to any part of the same
+                                                                      terrain feature.
+ Q: While shooting, fighting or retaliating, if I retain a dice as
+a normal success (e.g. Accurate 1), can I use another rule to         Q: Does the additional movement cost to climb or
+retain it again as a critical success (e.g. Rending)?                 move through Accessible terrain features count towards
+                                                                      distance restrictions of rules (e.g. PLAGUE MARINE
+ A: No, a dice can only be retained once. Note, however, that         Lumbering Death)?
+some rules refer specifically to changing a retained dice (e.g.
+the Severe weapon rule) and that these allow a dice to be             A: Yes.
+changed after being retained.
+                                                                      Q: When does a player keep the initiative until?
+ Q: If I attempt to resolve a rule that allows a friendly operative
+to perform an action upon incapacitation (e.g. BROOD                   A: Until the winner of the roll-off decides who has initiative
+BROTHER Broodmind Devotion, DEATH KORPS In Death,                     in the next Initiative step. Note that this means the player
+Atonement) but that action cannot be completed (e.g. as a             that had initiative in the previous turning point would resolve
+result of HUNTER CLADE Scrapcode Overload, NOVITIATE                  the precedence of any simultaneous rules affecting the next
+Blinding Aura), have I used any limited number of uses for that       Initiative step.
+rule (e.g. once per turning point).
+                                                                       Q: When a rule states ‘in an order of your choice’ (e.g.
+A: Yes.                                                               SANCTIFIER CONFESSOR Lead the Procession) is that
+                                                                      referring to Conceal/Engage orders?
+Q: When resolving rules that relate to an operative being
+activated, what order should these be resolved in?                     A: No. ‘In an order of your choice’ refers to the sequence
+                                                                      in which the rule is resolved; in this example’s case, the
+ A: Resolve rules that specify when an operative ‘would’              sequence in which the operatives move.
+be activated first. Then resolve rules that specify when an
+operative ‘is’ activated, starting with rules that inflict damage      Q: In the core rules it states ‘You can never re-roll a dice
+(e.g. PLAGUE MARINE Poison).                                          roll more than once’. Can I use a rule to make my opponent
+                                                                      re-roll a dice that’s already been re-rolled (e.g. HAND OF THE
+ Q: When resolving rules that relate to an operative being            ARCHON SKYSPLINTER ASSASSIN Omen, WARPCOVEN
+incapacitated, what order should these be resolved in?                SORCERER OF DESTINY Ravage Destiny)?
+
+ A: Resolve rules that specify when an operative ‘would’ be           A: No.
+incapacitated first. Then resolve rules that specify when an
+operative ‘is’ incapacitated (including when an operative              Q: There are secondary targets of a Shoot action as a result of
+incapacitates another operative). This is followed by rules that      the Blast weapon rule. The primary target had a Conceal order
+specify ‘before’ an operative is removed from the killzone.           and was in cover from Light terrain, but was selected as a valid
+Note that in the case of the Medic! rule and similar, this rule       target as a result of the Vantage terrain rule so it received an
+would resolve first, but would then prevent any relevant ‘is’         improved cover save. Does each secondary target receive an
+and ‘before’ rules being resolved (if any, as the operative           improved cover save too?
+would no longer be incapacitated).
+                                                                      A: Yes.
+ Q: If my operative is on Vantage terrain and shooting with a
+weapon with the Seek Light weapon rule against an operative            Q: In Killzone: Volkus, if an operative is on the fire step of a
+in cover from Light terrain, can I elect to only use the Seek         stronghold, should the rest of the stronghold terrain feature be
+weapon rule, denying the improved cover saves from the                ignored for the purposes of determining if that operative or its
+Vantage terrain rule?                                                 target is obscured?
+
+A: Yes.                                                               A: No.
+Q: Do changes to a weapon’s Hit stat while shooting (e.g.              Q: If an operative can perform the Shoot action while
+PATHFINDER Markerlights) affect the D6 rolled for the Hot             within control range of an enemy operative (e.g. CORSAIR
+weapon rule?                                                          VOIDSCARRED STARSTORM DUELLIST Quick on the Trigger),
+                                                                      can it perform the Shoot action on the other side of a door
+A: Yes.                                                               that’s ignored when determining visibility for the purposes of
+                                                                      control range, even though the target isn’t visible to it?
+ Q: If a rule would prevent an action from being performed
+‘during that activation/counteraction’ (e.g. NEMESIS CLAW             A: No.
+Chain Snares), would it still prevent that action from being
+performed as a free action when it’s not an activation or             Q: Can an operative counteract if it performed the Guard
+counteraction (e.g. as a result of a STRATEGIC GAMBIT during          action earlier in the turning point, but has not performed the
+the Strategy phase)?                                                  Fight or Shoot action as a result of being on guard?
+
+A: Yes.                                                               A: Yes, but note that after counteracting that operative would
+                                                                      no longer be on guard.
+ Q: If an operative’s wounds are reduced to 0, but it then
+performs a free action that allows it to regain lost wounds            Q: Is the maximum of 2" an operative can move during a
+before it’s removed from the killzone (e.g. DEATH KORPS               counteraction affected by rules that increase or decrease
+In Death, Atonement, then Medikit), is that operative still           the distance that move counts as (e.g. Accessible terrain,
+incapacitated and removed from the killzone after that                equipment, or dropping)?
+free action?
+                                                                      A: Yes. Note that this means operatives cannot normally
+A: Yes.                                                               move through Accessible terrain during a counteraction.
+
+ Q: If an operative is activated and immediately expended              Q: How does a rule which allows you to ignore any changes
+without performing any actions, can an operative on guard             to an operative’s weapons stats (e.g. INQUISITORIAL
+interrupt that activation?                                            AGENTS The Emperor’s Will, EXACTION SQUAD
+                                                                      CASTIGATOR Engendered Focus) interact with rules which
+A: No.                                                                reduce the damage inflicted?
+
+ Q: If an operative on guard interrupts to perform a free action,      A: You can ignore rules which change the operative’s Dmg
+is it ‘during an activation’ for the purposes of firefight ploys or   stats (e.g. CANOPTEK CIRCLE Souldrain), but cannot ignore
+other rules?                                                          rules which cause the damage inflicted to be reduced (e.g.
+                                                                      PLAGUE MARINES Disgustingly Resilient).
+ A: Yes. Note that you cannot use rules for that action that
+specify they must be used ‘during this operative’s activation’.        Q: Does the fact that the first bullet point in the rules for Wall
+                                                                      terrain in Killzone: Gallowdark and Killzone: Tomb World takes
+ Q: If an operative performs a free action outside of the             precedence over all other rules really mean that operatives
+Firefight phase, can firefight ploys be used by a player in           cannot ever move through it, including as a result of Breach
+response to that action?                                              markers (IMPERIAL NAVY BREACHERS , WRECKA KREW )?
+
+A: No. Firefight ploys cannot be used outside of the Firefight         A: Yes, it really means that operatives cannot ever move
+phase unless specifically stated within the ploy.                     through it, regardless of the rule. Wall terrain being impassible
+                                                                      is a core feature of these killzones, and Breach markers or
+ Q: What happens if an operative’s APL stat is reduced during         similar rules can eliminate much of the intent of map design.
+its activation?
+
+ A: That operative can only spend AP equal to its new APL
+stat. Note that, in some instances, when the change is applied
+it will mean the operative has already spent more AP than
+its new APL stat – this is permitted in this situation. If that
+change lasts ‘until the end of that operative’s next activation’,
+the change applies to both this and the next activation that
+operative has.
+Q: How does climbing and dropping work across different
+parts of terrain or different terrain features during one action?
+
+A: Total up the combined vertical distance during the action
+before rounding increments. For climbing, an operative can
+continue its climb so long as the next terrain is within 1"
+horizontally and 3" vertically.
+
+In example 1, the operative moves over two different terrain
+features and moves a total of 2½" vertically up before
+dropping 1" once. It can climb the second terrain feature
+without dropping, as it’s within 1" of it before it needs to drop
+from the first.
+
+In example 2, the operative climbs one section of the terrain
+feature 2" up, then continues its climb another 1½" vertically.
+The distance is only rounded up once, meaning the operative
+uses 4" of its movement allowance towards the vertical
+distance of the climb.
+
+
+
+
+    EXAMPLE 1                                                       EXAMPLE 2
+
+
+                                              1"
+
+                 1½"
+                                                                                     1½"
+
+
+                                                                                2"
+

@@ -1,0 +1,670 @@
+                                                                                               APL        MOVE        SAVE      WOUNDS
+GOREMONGER BLOOD HERALD
+                                                                                                   2         7"         5  +       11
+         NAME                                       A      HIT      D        WR
+         Icon of Khorne                             4      2+      4/4       Range 8", Saturate
+         Chainblade                                 4      3+      4/5       Rending
+
+Khorne’s Favour: Once during each of this operative’s                    Impending Apotheosis: Once per battle, when an attack dice
+activations, before or after it performs an action, if its GORE          inflicts Normal Dmg on this operative, you can ignore that
+TANK is empty, you can increase its GORE TANK.                           inflicted damage.
+
+
+
+
+GOREMONGER , CHAOS, LEADER, BLOOD HERALD                                                                                              32
+
+
+                                                                                               APL        MOVE        SAVE      WOUNDS
+GOREMONGER ASPIRANT
+                                                                                                   2         7"         5  +       10
+         NAME                                       A      HIT      D        WR
+         Autopistol                                 4      4+      2/3       Range 8"
+         Chainglaive                                4      3+      4/5       Rending
+
+Obsessive Bloodlust: Once per turning point, when an operative
+with this rule ends the Fight action, if it’s no longer within
+control range of enemy operatives, you can use this rule. If you
+do, it can immediately perform a free Charge action (even if it’s
+already performed the Charge action during that activation),
+but it cannot move more than 2" during that action. Doing so
+doesn’t prevent it from performing the Charge, Dash or
+Reposition action afterwards during that activation.
+
+
+
+
+GOREMONGER , CHAOS, ASPIRANT                                                                                                          32
+
+
+                                                                                               APL        MOVE        SAVE      WOUNDS
+GOREMONGER BLOODTAKER
+                                                                                                   2         7"         5+         10
+         NAME                                       A      HIT      D        WR
+         Autopistol                                 4      4+      2/3       Range 8"
+         Ritual blade                               4      3+      3/5       Ritual*
+
+*Ritual: Whenever this operative is using this weapon, the                TRANSFUSION RITUAL                                        1AP
+first time you inflict damage on an operative within its control
+                                                                            Decrease this operative’s GORE TANK. Instead of using a
+range during that sequence, you can increase this operative’s
+                                                                            SANGUAVITAE rule, you can increase the GORE TANK
+GORE TANK. Note this is cumulative with the normal rules for
+                                                                            of one other friendly GOREMONGER operative within 8"
+increasing its GORE TANK (i.e. if it incapacitates an operative
+                                                                            of this operative.
+within its control range).
+                                                                            This operative cannot perform this action while within control
+                                                                            range of an enemy operative, or if its GORE TANK is empty.
+
+
+
+
+GOREMONGER , CHAOS, BLOODTAKER                                                                                                        32
+
+
+                                                                                               APL        MOVE        SAVE      WOUNDS
+GOREMONGER IMPALER
+                                                                                                   2         7"         5  +       10
+         NAME                                       A      HIT      D        WR
+         Autopistol                                 4      4+      2/3       Range 8"
+         Fleshskewer (ranged)                       4      3+      4/5       Range 8", Piercing Crits 1, Stun, Drag*
+         Fleshskewer (stab)                         4      3+      3/4       -
+
+*Drag: Whenever this operative is shooting with this weapon, at the start of the Resolve Attack Dice step (before inflicting damage),
+you can move the target up to x". X is your total number of successful unblocked attack dice, multiplied by 2. The target must be
+moved to a location it can be placed as close as possible to this operative, determined by the x" you choose to use. The move must
+be done in one or more straight-line increments, and increments are always rounded up to the nearest inch. Whenever the target is
+dropping during that move, ignore the vertical distance. Then you can discard any of your successful unblocked attack dice (in other
+words, you can choose not to inflict damage with any number of them).
+
+
+
+                                                                                        RULES CONTINUE ON OTHER SIDE
+GOREMONGER , CHAOS, IMPALER                                                                                                           32
+                                                                                                    APL       MOVE        SAVE      WOUNDS
+GOREMONGER IMPALER
+                                                                                                       2          7"        5  +       10
+ GORE-FUEL                                                                                                                              1AP
+    Decrease this operative’s GORE TANK. Until this operative uses any profile of its fleshskewer, all profiles of it have the Severe
+    weapon rule.
+
+    This operative cannot perform this action while within control range of an enemy operative, or if its GORE TANK is empty.
+
+
+
+
+                                                                                                    APL       MOVE        SAVE      WOUNDS
+GOREMONGER INCITER
+                                                                                                       2          7"        5  +       10
+         NAME                                        A       HIT       D         WR
+         Dual autopistols (focused)                  4       3+        2/2       Range 8", Ceaseless, Devastating 1, Rending
+         Dual autopistols (point-blank)              4       3+        3/4       Ceaseless, Rending
+
+ DASH AND SPRAY                                                  1AP
+    Perform a free Dash action and a free Shoot action
+    with this operative in any order. You can only select dual
+    autopistols (focused) for that Shoot action.
+
+    This operative cannot perform this action while it has
+    a Conceal order, or while within control range of an
+    enemy operative.
+
+
+                                                                                             RULES CONTINUE ON OTHER SIDE
+GOREMONGER , CHAOS, INCITER                                                                                                                  32
+
+
+                                                                                                    APL       MOVE        SAVE      WOUNDS
+GOREMONGER INCITER
+                                                                                                       2          7"        5+         10
+Incite the Hunt: Whenever this operative incapacitates an enemy
+operative from more than 2" away, before that enemy operative
+is removed from the killzone, you can increase the GORE TANK
+of one friendly GOREMONGER operative within 8" of that
+enemy operative.
+
+Whenever this operative inflicts damage on an enemy
+operative with either profile of its dual autopistols but doesn’t
+incapacitate it, that enemy operative gains one of your Bleeding
+tokens (if it doesn’t already have one). During a friendly
+GOREMONGER operative’s activation or counteraction,
+before or after it performs an action, if it’s within 8" of an enemy
+operative that has one of your Bleeding tokens, you can remove
+that token and increase that friendly operative’s GORE TANK.
+
+
+
+
+                                                                                                    APL       MOVE        SAVE      WOUNDS
+GOREMONGER SKULLCLAIMER
+                                                                                                       2          7"        5  +       10
+         NAME                                        A       HIT       D         WR
+         Autopistol                                  4       4+        2/3       Range 8"
+         Great chainaxe                              4       3+        5/6       Brutal
+
+Brutish: Whenever an attack dice would inflict Critical Dmg                  Claim Skull: Once per turning point, if this operative
+on this operative, you can choose for that attack dice to inflict            incapacitates an enemy operative with its great chainaxe, you
+Normal Dmg instead.                                                          gain 1CP.
+
+
+
+
+GOREMONGER , CHAOS, SKULLCLAIMER                                                                                                             32
+                                                                                               APL        MOVE         SAVE      WOUNDS
+GOREMONGER STALKER
+                                                                                                   2          7"         5  +       10
+         NAME                                       A      HIT     D       WR
+         Autopistol                                 4      4+      2/3     Range 8"
+         Pickrippers                                4      3+      4/5     Rending
+
+Climbing Picks: Whenever this operative is climbing up, you            Rooftop Stalker: Whenever this operative is fighting during
+can treat the vertical distance as 2" (regardless of how far the       an activation in which it dropped from Vantage terrain at least
+operative actually moves vertically).                                  2" higher than the killzone floor, or whenever this operative is
+                                                                       fighting against an enemy operative that’s on Vantage terrain
+                                                                       at least 2" higher than the killzone floor, this operative’s melee
+                                                                       weapons have the Relentless weapon rule.
+
+
+
+
+GOREMONGER , CHAOS, STALKER                                                                                                             32
+
+
+
+NOTES:
+
+
+
+
+NOTES:
+
+
+
+
+NOTES:
+                                                                         GOREMONGER
+GOREMONGERS KILL TEAM                                                   FACTION RULE
+ARCHETYPES: RECON, SEEK & DESTROY
+
+OPERATIVES                                                RUNES OF KHORNE
+↘ 1 GOREMONGER BLOOD HERALD operative                     Khornate runes carved into the flesh of Goremongers
+↘ 7 GOREMONGER operatives selected from the               give them an infernal resistance to ranged attacks.
+  following list:                                         Each friendly GOREMONGER operative cannot
+   • ASPIRANT                                             lose more than 8 wounds per Shoot action.
+   • BLOODTAKER
+   • IMPALER
+   • INCITER
+   • SKULLCLAIMER
+   • STALKER
+
+Other than ASPIRANT operatives, your kill team
+can only include each operative on this list once.
+
+
+
+
+               GOREMONGER                                 Whenever a friendly GOREMONGER operative
+              FACTION RULE                                incapacitates an operative within its control
+                                                          range, or visible to and within 2" of it, you can
+                                                          increase its GORE TANK.
+GORE TANKS
+                                                          Whenever a friendly GOREMONGER operative
+Goremongers’ tanks contain a concoction of stimms,        uses a SANGUAVITAE rule, you must decrease its
+recombinant proteins and alchemical fuel. This cocktail   GORE TANK.
+energises the carrier, but the tanks require a constant
+supply of blood and gore for the infernal alchemy to
+function at peak efficiency.
+Each friendly GOREMONGER operative has a
+GORE TANK that has three levels: full, half and                             FULL
+empty. They start the battle at half. Whenever
+                                                                                                     DECREASE
+a GORE TANK increases, it goes up one level;
+                                                            INCREASE
+whenever it decreases, it goes down one level.
+A GORE TANK cannot increase when it’s already
+full, or decrease when it’s already empty (see                              HALF
+diagram on other side).
+                                                                                                     DECREASE
+CONTINUES ON OTHER SIDE                                     INCREASE
+
+                                                                                 EMPTY
+                                                                             (REMOVE TOKEN)
+               GOREMONGER                                              GOREMONGER
+              FACTION RULE                                            FACTION RULE
+SANGUAVITAE                                               SANGUAVITAE
+The blood-infused concoction within the Goremongers’
+tanks is known as sanguavitae. Empowered by this fluid,
+                                                          Rejuvenate
+they can undertake gore-drenched deeds far beyond the     WHEN:    During a friendly GOREMONGER
+capabilities of most Humans. Through these acts they               operative’s activation or counteraction,
+emulate Bloodletters and venerate Khorne.                          before or after it performs an action.
+Each SANGUAVITAE rule specifies when it can               EFFECT: That operative regains up to D3+1
+be used, and you must decrease the operative’s                    lost wounds.
+GORE TANK to do so. You cannot use the same
+SANGUAVITAE rule more than once per activation
+or counteraction, and you cannot use more
+than two SANGUAVITAE rules per activation or
+counteraction. You cannot use Mania and Fury
+during the same activation.
+
+SANGUAVITAE RULES ARE PRESENTED ON
+THEIR OWN CARDS
+
+
+
+
+               GOREMONGER                                              GOREMONGER
+              FACTION RULE                                            FACTION RULE
+SANGUAVITAE                                               SANGUAVITAE
+Mania                                                     Fury
+WHEN:     During a friendly GOREMONGER                    WHEN:    During a friendly GOREMONGER
+          operative’s activation, before or after it               operative’s activation, before or after it
+          performs an action.                                      performs an action.
+EFFECT: Until the start of that operative’s next          EFFECT: That operative can perform two Fight
+        activation, add 1 to its APL stat.                        actions during that activation, and the
+                                                                  second one is free.
+             GOREMONGER                                           GOREMONGER
+            FACTION RULE                                      FACTION RULE
+SANGUAVITAE                                      SANGUAVITAE
+Rake                                             Surge
+WHEN:    When a friendly GOREMONGER              WHEN:     When a friendly GOREMONGER
+         operative performs the Charge action              operative performs the Charge or
+         during its activation.                            Reposition action.
+EFFECT: When that operative finishes moving      EFFECT: Until the end of that action, add 1" to
+        during that action, you can inflict D3           that operative’s Move stat.
+        damage on one enemy operative within
+        its control range.
+
+
+
+
+             GOREMONGER                                           GOREMONGER
+            FACTION RULE                               MARKER/TOKEN GUIDE
+SANGUAVITAE
+Rage
+WHEN:    When a friendly GOREMONGER
+         operative performs the Fight action.       Gore Tank        Gore Tank       Impending
+EFFECT: Until the end of that action, add 1        token (full)     token (half)     Apotheosis
+        to the Atk stat of that operative’s                                            token
+        melee weapons.
+
+
+
+
+                                                 Bleeding token     Claim Skull       Bloody
+                                                                       token          Cadaver
+                                                                                      marker
+
+
+
+
+                                                   Gory Totem       Chaos Sigil     Wrist Chains
+                                                    marker            token            token
+                GOREMONGER                                               GOREMONGER
+              STRATEGY PLOY                                           STRATEGY PLOY
+ENHANCED VIOLENCE                                       AUGMENTED ENDURANCE
+When powered by sanguavitae, Goremongers                An infusion of sanguavitae serves to harden the
+fight with far greater ferocity and skill than any      subject’s mind, body and soul, rendering them
+unaugmented Human.                                      supremely resilient.
+Whenever a friendly GOREMONGER operative’s              Whenever an operative is shooting a friendly
+GORE TANK is:                                           GOREMONGER operative, if that friendly
+                                                        operative’s GORE TANK is:
+• Half, its melee weapons have the Balanced
+  weapon rule.                                          • Half, you can re-roll one of your defence dice.
+• Full, its melee weapons have the Relentless           • Full, you can re-roll any of your defence dice.
+  weapon rule.
+
+
+
+
+                GOREMONGER                                               GOREMONGER
+              STRATEGY PLOY                                           STRATEGY PLOY
+GORY TENACITY                                           HUNT FOR BLOOD
+The prospect of carnage drives Goremongers into         As blood is spilled, its copper scent fills the air, driving
+a maniacal fury. Enraged thus, they are capable of      the Goremongers into a thirsting frenzy.
+shrugging off terrible wounds.
+                                                        Select one friendly GOREMONGER operative. If
+Whenever a friendly GOREMONGER operative is             it has a Conceal order, change it to Engage. Then
+fighting or retaliating, the first time your opponent   it can immediately perform a free Charge action,
+strikes it during that sequence, halve the damage       but cannot move more than 3" during that action.
+inflicted (rounding up and to a minimum of 2).
+               GOREMONGER                                                GOREMONGER
+            FIREFIGHT PLOY                                            FIREFIGHT PLOY
+UNBRIDLED AGGRESSION                                     GORETHIRST
+When they close with the enemy, Goremongers fight        Goremongers are drawn to violence like insects
+with all the savage fury and martial prowess of the      to blazing lumen, unable to control their thirst to
+Bloodletters they so idolise.                            spill viscera.
+Use this firefight ploy when a friendly                  Use this firefight ploy when you would counteract.
+GOREMONGER operative is fighting during                  You can do so with one friendly GOREMONGER
+an activation in which it performed the Charge           operative that has a Conceal order, but before it
+action, at the end of the Roll Attack Dice step.         counteracts, you must change its order to Engage
+Until the end of that sequence, that operative’s         and it cannot perform any actions other than
+melee weapons have the Severe weapon rule.               Charge, Shoot or Fight during that counteraction.
+
+
+
+
+               GOREMONGER                                                GOREMONGER
+            FIREFIGHT PLOY                                            FIREFIGHT PLOY
+DESTRUCTIVE DEMISE                                       LACERATE FLESH
+Empowered by the blood of their foes, mortally wounded   Goremongers may resort to topping up their blood tanks
+Goremongers expend the last of their might in a          with their own crimson fluid. Doing so is a last resort,
+vengeful frenzy.                                         undertaken only in a desperate frenzy.
+Use this firefight ploy when a friendly                  Use this firefight ploy when a friendly
+GOREMONGER operative is incapacitated,                   GOREMONGER operative with an empty GORE
+before it’s removed from the killzone. Inflict           TANK is activated or counteracts. Increase
+damage determined by that friendly operative’s           that operative’s GORE TANK. At the end of that
+GORE TANK on one enemy operative within that             activation/counteraction, decrease its GORE
+friendly operative’s control range. Inflict:             TANK (you cannot use this decrease to use a
+                                                         SANGUAVITAE rule); if you cannot decrease its
+• D3 if empty.
+                                                         GORE TANK, inflict D3 damage on it.
+• D3+1 if half.
+• D3+2 if full.
+               GOREMONGER                                              GOREMONGER
+        FACTION EQUIPMENT                                       FACTION EQUIPMENT
+GORY TOTEM                                              BLOODY CADAVER
+Gore and peeled skulls mark the limits of the           Goremongers will often stash corpses for later
+Goremongers’ territory.                                 consumption and refuelling.
+Before the battle, you can set up one of your Gory      Before the battle, you can set up one of your
+Totem markers wholly within your territory and          Bloody Cadaver markers wholly within your
+more than 2" from other markers (excluding your         territory and more than 2" from other markers
+Bloody Cadaver marker). Whenever an enemy               (excluding your Gory Totem marker). Friendly
+operative within 3" of your Gory Totem marker is        GOREMONGER operatives can perform the Pick
+shooting, fighting or retaliating, your opponent        Up Marker action on that marker. In the Ready
+cannot re-roll their attack dice.                       step of each Strategy phase, you can increase
+                                                        the GORE TANK of one friendly GOREMONGER
+                                                        operative that controls that marker, unless that
+                                                        friendly operative is within control range of an
+                                                        enemy operative.
+
+
+
+
+               GOREMONGER                                              GOREMONGER
+        FACTION EQUIPMENT                                       FACTION EQUIPMENT
+CHAOS SIGIL                                             WRIST CHAINS
+The runes of the Ruinous Powers are carved into flesh   The Goremongers secure their weapons with lengths of
+and borne upon armour and clothing, providing their     chain, enabling them to be hurled towards an opponent.
+bearers with malefic might.
+                                                        Once per turning point, when a friendly
+Once per turning point, when an operative is            GOREMONGER operative performs the Shoot
+shooting a friendly GOREMONGER operative,               action and you’re selecting a ranged weapon, you
+at the start of the Roll Defence Dice step, you         can use this rule. If you do, until the end of that
+can use this rule. If you do, worsen the x of the       action, the following melee weapons are treated
+Piercing weapon rule by 1 (if any) until the end        as ranged weapons with the Range 2" weapon
+of that sequence. Note that Piercing 1 would            rule: chainblade, chainglaive, great chainaxe
+therefore be ignored.                                   (ignore its Brutal weapon rule), pickrippers. If that
+                                                        melee weapon has the Balanced or Relentless
+                                                        weapon rules as a result of the Enhanced
+                                                        Violence strategy ploy, it has those weapon rules
+                                                        while it is a ranged weapon.
+                GOREMONGERS: UPDATE LOG
+Rules will be periodically updated to maintain fair balance and interact more smoothly with the game. Rules changes
+will be updated directly into online documents and then listed below. Any minor changes to standardise wording that
+don’t have any practical impact on the rule will be updated directly into online documents but not be listed here.
+
+
+ERRATA                                                                                                          AUGUST ’26
+This section collects amendments to the rules. Amended text        IMPALER OPERATIVE
+for clarification and edits are shown in blue, while amended       ‘Gore-fuel’ unique action added.
+text for balance updates are shown in magenta.
+                                                                   IMPALER OPERATIVE, FLESHSKEWER (RANGED) WEAPON
+FACTION EQUIPMENT, WRIST CHAINS                                    PROFILE
+Additional text added to end:                                      ‘Piercing Crits 1’ weapon rule added and ‘Prey*’ weapon
+‘If that melee weapon has the Balanced or Relentless weapon        rule deleted.
+rules as a result of the Enhanced Violence strategy ploy, it has
+those weapon rules while it is a ranged weapon.’                   IMPALER OPERATIVE, *DRAG WEAPON RULE
+                                                                   Additional text added to end:
+ASPIRANT OPERATIVE, OBSESSIVE BLOODLUST RULE                       ‘Then you can discard any of your successful unblocked attack
+Relevant part of first sentence changed to read:                   dice (in other words, you can choose not to inflict damage with
+‘Once per turning point, when an operative with this rule ends     any number of them).’
+the Fight action, […]’
+                                                                                                         PREVIOUS ERRATAS
+FACTION RULES, SANGUAVITAE, REJUVENATE, EFFECT                       BLOOD HERALD OPERATIVE, KHORNE’S FAVOUR RULE
+Changed to read:                                                     Relevant part changed to read:
+‘That operative regains D3+1 lost wounds.’                           ‘Once during each of this operative’s activations, before or
+                                                                     after it performs an action, if its GORE TANK is empty, […]’
+FACTION RULES, SANGUAVITAE, RAKE, WHEN
+Changed to read:                                                     BLOOD HERALD OPERATIVE, IMPENDING APOTHEOSIS RULE
+‘When a friendly GOREMONGER operative performs the                   Relevant part changed to read:
+Charge action during its activation.’                                ‘Once per battle, when an attack dice inflicts Normal Dmg on
+                                                                     this operative, […]’
+STRATEGY PLOYS, GORY TENACITY
+Relevant part changed to read:                                       ASPIRANT OPERATIVE, OBSESSIVE BLOODLUST RULE
+‘[…] (rounding up and to a minimum of 2).’                           Relevant parts of first sentence changed to read:
+                                                                     ‘Once during each of this operative’s activations, when this
+STALKER OPERATIVE, CLIMBING PICKS RULE                               operative ends the Fight action, if it’s no longer within control
+Relevant part changed to read:                                       range of enemy operatives, you can use this rule. If you do, it
+‘Whenever this operative is climbing up, you can treat the           can immediately perform a free Charge action […]’
+vertical distance as […]’
+                                                                     INCITER OPERATIVE, INCITE THE HUNT
+STALKER OPERATIVE, ROOFTOP STALKER RULE                              Relevant part of first sentence of second paragraph changed
+Changed to read:                                                     to read:
+‘Whenever this operative is fighting during an activation in         ‘Whenever this operative inflicts damage on an enemy
+which it dropped from Vantage terrain at least 2” higher than        operative with either profile of its dual autopistols but doesn’t
+the killzone floor, or whenever this operative is fighting against   incapacitate it, […]’
+an enemy operative that’s on Vantage terrain at least 2” higher
+than the killzone floor, this operative’s melee weapons have
+the Relentless weapon rule.’
+
+
+                                                                                   PREVIOUS RULES COMMENTARIES
+This section provides clarification on ambiguous and complex
+rules interactions.
+
+Q: When determining whether a friendly operative’s GORE
+TANK is full for the purposes of the Enhanced Violence strategy
+ploy, do I check before or after decreasing its Gore Tank for any
+Sanguavitae (e.g. Rage) for that action?
+
+A: After.
+    GOREMONGER OPERATIVES
+    BLOOD HERALD                                                  BLOODTAKER
+
+
+
+2
+
+
+
+
+    Blood Heralds are the leaders of Goremonger packs. They       The Bloodtaker is a connoisseur of sanguine fluid. They use
+    believe themselves to be the highest in Khorne’s favour       their ritual blades to open the veins of the foe and gather
+    and the closest to apotheosis as a Bloodletter daemon.        the spilled vitae in their flasks. This purloined liquid they
+    Donning horned helms and bearing icons of their deity, they   distribute into the stimm tanks of their allies, enhancing the
+    demonstrate their devotion to the Blood God by cutting down   effectiveness of the concoction within, and thereby increasing
+    their foes with merciless fury.                               the savagery and physical prowess of their pack.
+
+
+
+    ASPIRANTS
+                                                                                                     Aspirants are the most
+                                                                                                     numerous members of
+                                                                                                     Goremonger packs. Armed
+                                                                                                     with brutal chainglaives,
+                                                                                                     they are swift, agile and
+                                                                                                     aggressive, making use of
+                                                                                                     their speed to outflank and
+                                                                                                     ambush their enemies. The
+                                                                                                     injector tanks mounted
+                                                                                                     upon their backs pump a
+                                                                                                     blood-infused cocktail of
+                                                                                                     adrenalites and stimms
+                                                                                                     into their systems, known
+                                                                                                     as sanguavitae. This
+                                                                                                     concoction speeds up their
+                                                                                                     metabolisms, inures them
+                                                                                                     to pain and renders them
+                                                                                                     even more lethal.
+Goremonger kill teams are territorial and aggressive, yet to view them as crazed butchers would be an
+oversimplification. They strive to emulate the bladework and military discipline of a Bloodletter pack, and are capable
+of identifying and destroying strategic assets in order to achieve victory in Khorne’s name.
+
+
+IMPALER                                                            INCITER
+
+
+
+                                                                                                                                     3
+
+
+
+
+Armed with weapons known as fleshskewers, Impalers target          Inciters are unusual amongst the Goremongers, for they do
+enemies attempting to flee the fight. They patrol the perimeter    not seek out the visceral thrill of melee combat. Instead, they
+of the battlefield, using their harpoon-like weapons to target     make use of their quicksilver speed and reflexes to pepper
+retreating foes, then drag them kicking and screaming to           enemies with autopistol fire, spilling blood that incites their
+their doom.                                                        allies to even more frenzied acts of butchery.
+
+
+
+SKULLCLAIMER                                                       STALKER
+
+
+
+
+Generally the most capable close combat fighters of their          Stalkers are trackers supreme. When the blood of a foe is
+pack, Skullclaimers do battle with oversized weapons that          spilled and a Stalker catches its scent, this Goremonger
+are often plucked from the grips of their deceased foes. Agile,    is capable of following that wounded prey wherever it may
+strong and devoid of any thoughts of self-preservation, they       choose to flee. They use their pickrippers as climbing aids to
+are furious combatants that hurl themselves recklessly into        haul themselves up and across sheer surfaces, leaping down
+the fight, proving their devotion to Khorne with each gory kill.   upon their target with weapons raised for the kill.
+                                    GOREMONGER KILL TEAM
+                                                           elow you will find a list of
+                                                          B
+                                                                                           BLOOD HERALD
+                                                          the operatives that make up
+                                                          a GOREMONGER kill team,
+                                                          including, where relevant,
+                                                          any weapons specified for
+           4                                              that operative.
+
+
+                                    OPERATIVES
+GOREMONGERS » KILL TEAM SELECTION
+
+
+
+
+                                                                                                          Chainblade
+                                    ↘ 1 GOREMONGER BLOOD HERALD operative
+                                                                                           Icon of
+                                    ↘ 7 GOREMONGER operatives selected from the
+                                                                                           Khorne
+                                       following list:
+                                       • ASPIRANT
+                                       • BLOODTAKER
+                                       • IMPALER
+                                       • INCITER
+                                       • SKULLCLAIMER
+                                       • STALKER
+                                                                                           BLOODTAKER
+                                    Other than ASPIRANT operatives, your kill team can
+                                    only include each operative above once.
+                                                                                           Ritual blade
+
+                                    ARCHETYPES
+                                                                                                           Autopistol
+
+
+
+                                                    SEEK &
+                                       RECON
+                                                   DESTROY
+                                    Archetypes are used in certain mission packs, e.g.
+                                    Approved Ops. The game sequence will specify how.
+
+
+
+                                    ‘DO YOU SMELL THAT COPPER TANG? THERE
+                                                                                           IMPALER
+                                      IS BLOOD IN THE AIR AND FEAR ON THE
+                                      WIND. LET US FOLLOW THEM TO THEIR
+                                      SOURCE. WE SHALL TEAR OPEN VEIN AND
+                                      ARTERY. WE SHALL GORGE OURSELVES
+                                      ON THEIR ENTRAILS. WE SHALL BATHE IN                                Fleshskewer
+                                      CRIMSON GLORY!’                                      Autopistol
+                                                          - Ezkin Kryze, Blood Herald
+                                                             of the Behorned Reavers
+INCITER                   SKULLCLAIMER
+Dual autopistols
+
+
+
+                          Autopistol
+                                                                                 5
+
+
+
+
+                                                                      GOREMONGERS » KILL TEAM SELECTION
+                                                     Great chainaxe
+
+
+
+
+STALKER            ASPIRANT
+Pickrippers
+                                       Chainglaive
+
+                                       Autopistol
+    DESIGNER’S COMMENTARY
+    Goremongers are a fast, elite, aggressive melee team that require the careful management of a valuable resource –
+    gore tanks – for them to operate at their best.
+
+    Each operative has a gore tank, and you can ‘spend’ its          a big play. These operatives can also focus on objectives,
+    contents to gain Sanguavitae, a powerful rule. Gore tanks        freeing your other operatives up for attacking.
+    provide a limited resource for each operative, which should
+    be spent wisely. They can, however, regain this resource by      Being a melee-focused group of operatives can mean you’re
+6   incapacitating operatives, so you can often spend to regain,     vulnerable to shooting teams, so careful positioning and the
+    or save it and gain even more (unlocking more powerful           right use of Conceal orders is required to keep your operatives
+    Sanguavitae rules for later). Effectively managing gore tanks    alive as you close the distance. At just eight operatives, your
+
+
+
+
+                                                                                                                                       GOREMONGERS » DESIGNER’S COMMENTARY
+    is essential to getting the best out of this team, as once the   team is more elite, so you often won’t have the numbers to
+    tanks run dry, your team will lose momentum.                     trade. Against teams with more operatives, your own will have
+                                                                     to incapacitate multiple enemies during the game.
+    Sanguavitae rules are a toolbox of special rules for you to
+    use. For example, you can control charge distances against a     Eight operatives at an APL of 2 can put you at an action
+    fast or dangerous melee team knowing you can Surge for +1"       deficit, especially in missions that require mission actions.
+    Move. When outnumbered, you can use Fury to fight multiple       At times you may have to show restraint, keeping your
+    times, cutting through a number of weak operatives in one        Goremongers on a tight leash to better achieve your
+    activation. When fighting up against a tougher opponent,         objectives. The Mania Sanguavitae rule can get you the extra
+    you can Rake to inflict some initial damage, or Rage to get      AP you need to do mission actions. Furthermore, a big play
+    an extra attack. Experiment with the different Sanguavitae       with a Goremonger can create enough of a distraction to
+    rules and become familiar with the right ones to use against     divert your opponent away from your other operatives, who
+    each opponent.                                                   can be scoring you crit op and mission marker VPs.
+
+    As keeping your gore tanks topped up is key, the Inciter and     When you need to move your operatives out into the open, this
+    Bloodtaker operatives, and the Bloody Cadaver equipment,         team has a few rules that can help you out. Firstly, the Runes
+    are important ways to increase your gore tanks; if you use       of Khorne faction rule means a Goremonger can’t lose more
+    these rules correctly, you can maintain the gore tank levels     than 8 wounds per Shoot action. This can force your opponent
+    of other key operatives, ensuring you’ve got enough gore for     to double up on shooting – using more than one operative/
+                                                                     Shoot action to incapacitate your operatives. This can spare
+                                                                     your other operatives from shots that would otherwise come
+                                                                     their way. What’s more, the timely use of the Rejuvenate
+                                                                     Sanguavitae rule can push a wounded operative back over the
+                                                                     Runes of Khorne threshold, starting the process again!
+
+                                                                     Secondly, the Impaler is a useful operative for dragging the
+                                                                     enemy closer, moving them off objectives and keeping them
+                                                                     alive to set up charges. Don’t forget, wounding and dragging
+                                                                     an expended operative can provide a ‘safe’ charge for a
+                                                                     Goremonger (as they can’t normally be shot within control
+                                                                     range). They can then later incapacitate their prey, top up
+                                                                     their gore tank, then charge further into enemy lines. Setting
+                                                                     this up, then using the Hunt for Blood strategy ploy or the
+                                                                     Aspirant operative’s Obsessive Bloodlust rule, is a great
+                                                                     combo for keeping the pressure on.
+
+                                                                     To sum up, Goremongers like nothing better than fighting up
+                                                                     close. You’ll have to show some initial restraint by carefully
+                                                                     managing your actions, gore tanks and when to charge. Once
+                                                                     you do, let the bloodletting begin and feast on the gore. Blood
+                                                                     for the Blood God!
+
