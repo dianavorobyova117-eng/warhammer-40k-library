@@ -80,6 +80,15 @@
 
 撕裂Rending/无休止Ceaseless/残暴Brutal等词条定义见规则速查与造伤计算器引擎（已入模；残暴近战语义=对面普挡普对本方非法，见对刀计算器v1.6）。
 
+## 页面FAQ（2026-10-30补抓，逐字裁决）
+
+1. **Enhanced Violence×腕链**：问=EV给的平衡/无情经Wrist Chains把近战武器当远程射时带不带过去？答=**"No"**。
+2. **Gore Tank时序**：问=某动作里先花Sanguavitae（如Rage）再用Enhanced Violence，判EV档位看扣减前还是扣减后的血罐？答=**"After"**——花Rage（满→半）后EV只给**平衡**档；"满罐无情"在Rage链里拿不到。
+
+## 2026-10更新核对（2026-10-30）
+
+10-28十月更新为规则/FAQ/地形勘误、无数值改动；本页（Nov'25+Aug'2026版）全表与我们10-26抓取逐项一致，零变化。GM在16队小澄清名单内（具体条目待PDF逐字，见`../2026-10更新档案.md`）。
+
 ## Runes of Khorne（原文）
 
 > "Each friendly GOREMONGER operative cannot lose more than 8 wounds per Shoot action."
