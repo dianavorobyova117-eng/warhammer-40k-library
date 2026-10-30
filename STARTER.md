@@ -44,6 +44,6 @@
 ## 工作方式
 
 - 玩法交付=能照着摆、照着动的作战命令
-- 战报归档→记忆文件；git自动同步（crontab每30分）——会话结束前手动push
+- 战报归档→记忆文件；**git自动同步已停用（2026-10-30用户要求，crontab条目已注释可随时恢复：`*/30 * * * * /home/ivan/.local/bin/wh40k-sync.sh`）——现在全靠手动：会话结束前必须手动 `git add -A && git commit && git push`**（脚本本体在 ~/.local/bin/wh40k-sync.sh，日志在 ~/.local/state/wh40k-sync.log）
 - **临时文件写工作区内不写/tmp**（安全审计2026-10-16）
 - 用户在项目工作区重开agent时：本提示词即完整交接
